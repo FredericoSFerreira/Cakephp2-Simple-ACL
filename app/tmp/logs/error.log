@@ -463,3 +463,24 @@ Stack Trace:
 #3 /home/andres/www/cakephp-acl/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 /home/andres/www/cakephp-acl/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-06-13 14:31:24 Error: Fatal Error (1): Call to undefined method GroupsController::allow() in [/home/andres/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php, line 38]
+2013-06-13 14:31:24 Error: [FatalErrorException] Call to undefined method GroupsController::allow()
+Request URL: /groups/add
+Stack Trace:
+#0 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/andres/ww...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/andres/ww...', 38, Array)
+#2 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/andres/ww...', 38, Array)
+#3 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-13 14:34:41 Error: [MissingActionException] Action UsersController::add() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'add',
+)
+Request URL: /users/add
+Stack Trace:
+#0 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/andres/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

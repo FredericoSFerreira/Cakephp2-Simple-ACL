@@ -53,7 +53,7 @@ class AppController extends Controller {
         
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => false);
         $this->Auth->loginRedirect = '/users/home/';
-		$this->Auth->authError = "Esta area tiene acceso restringido";
+		$this->Auth->authError = "Access Denied";
         $this->Auth->logoutRedirect = '/users/login';
 		$this->Auth->allowedActions= array('login','logout');
         $this->Auth->authenticate = array(

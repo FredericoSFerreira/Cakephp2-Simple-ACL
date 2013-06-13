@@ -40,6 +40,9 @@ class UsersController extends AppController {
         if($this->Auth->user('group_id') == 1){
             $this->Auth->allow('initDB');
         }
+        
+        //$this->Auth->allow('register'); // Solo se debe colocar para Registrar el primer usuario que debe ser administrador
+        
     }
     
     public function initDB() {
@@ -56,7 +59,7 @@ class UsersController extends AppController {
         $dispatcher->dispatch();
         
         
-        $this->redirect($this->Auth->logout());
+        $this->redirect(array('action' => 'home'));
     }
     
     

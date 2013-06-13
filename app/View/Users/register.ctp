@@ -5,6 +5,7 @@ echo $this->Form->inputs(array(
     'username',
     'password'
 ));
-echo $this->Form->input('group_id',array('label'=>'Group','type'=>'select','empty'=>'Seleccione..'));
+echo $this->Form->input('group_id',array('label'=>'Group','type'=>'select','empty'=>''));
 echo $this->Form->end('Save');
 ?>
+<?php echo $this->element('menu'); ?>

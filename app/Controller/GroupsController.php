@@ -35,6 +35,7 @@ class GroupsController extends AppController {
     
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->allow('add'); // Solo se debe descomentar para agregar el grupo administrador que es el id=1
     }
     
     public function add() {
