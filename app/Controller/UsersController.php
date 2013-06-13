@@ -154,7 +154,6 @@ class UsersController extends AppController {
     
     public function home() {
         
-        
     }
     
     
