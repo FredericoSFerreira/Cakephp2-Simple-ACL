@@ -34,6 +34,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     public $uses       = array('Aco','Aro','ArosAcos','User','Group');
+    public $helpers = array('Form', 'Html','Session','Time');
 
     public $components = array(
         'Acl',
@@ -44,7 +45,6 @@ class AppController extends Controller {
         ),
         'Session'
     );
-    public $helpers = array('Html', 'Form', 'Session');
 
     public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => false);
@@ -163,17 +163,21 @@ class AppController extends Controller {
         if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
             $this->install_acl($cont_group, $cont_users);
         }
-
-
-        if($this->Auth->user('group_id') == 1){
-           //$this->Auth->allow('*');
-           
-        }
         
-        
-        
-
     }
+
+    function _flash($message,$type='message')
+        {
+        $messages = (array)$this->Session->read('Message.multiFlash');
+        $messages[] = array(
+            'message'=>$message, 
+            'layout'=>'default', 
+            'element'=>'default',
+            'params'=>array('class'=>$type),
+            );
+        $this->Session->write('Message.multiFlash', $messages);
+    }
+
 
     
     

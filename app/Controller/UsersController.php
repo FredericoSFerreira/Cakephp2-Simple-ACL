@@ -45,11 +45,19 @@ class UsersController extends AppController {
     
     public function post_login(){
 
-        if ($this->Auth->login()) {
-                $this->redirect($this->Auth->redirect());
-        } else {
-                $this->Session->setFlash(__('msg-login-error'));
-        }
+            $this->User->set($this->data);
+            if($this->User->validates())
+            {
+                if( $this->Auth->login())
+                {
+                    return $this->redirect($this->Auth->redirect());
+                }
+                else
+                {
+                    $this->_flash(__('msg-login-error',true),'alert alert-warning');
+                }
+            }
+
 
     }
 
