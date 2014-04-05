@@ -56,6 +56,9 @@ class UsersController extends AppController {
     public function get_login(){}
 
     public function login() {
+
+        $this->layout = 'login';
+
         if ($this->request->is('post')) {
             $this->post_login();
         }else{

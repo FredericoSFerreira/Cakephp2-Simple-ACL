@@ -766,3 +766,23 @@ Stack Trace:
 #1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-04-05 00:50:49 Error: Fatal Error (4): syntax error, unexpected ',', expecting ')' in [/home/www/Cakephp2-Simple-ACL/app/View/Users/login.ctp, line 9]
+2014-04-05 00:50:49 Error: [FatalErrorException] syntax error, unexpected ',', expecting ')'
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 9)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 9, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 9, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-05 00:50:57 Error: Fatal Error (4): syntax error, unexpected ',', expecting ')' in [/home/www/Cakephp2-Simple-ACL/app/View/Users/login.ctp, line 9]
+2014-04-05 00:50:57 Error: [FatalErrorException] syntax error, unexpected ',', expecting ')'
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 9)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 9, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 9, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
