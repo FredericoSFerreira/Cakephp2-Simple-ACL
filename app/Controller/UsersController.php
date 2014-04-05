@@ -38,19 +38,7 @@ class UsersController extends AppController {
     }
     
     public function initDB() {
-        $group = $this->User->Group;
-        
-        //Administrador
-        $group->id = 1;
-        $this->Acl->allow($group, 'controllers');
-        
-        App::uses('ShellDispatcher', 'Console');
-        $command = '-app '.APP.' AclExtras.AclExtras aco_sync';
-        $args = explode(' ', $command);
-        $dispatcher = new ShellDispatcher($args, false);
-        $dispatcher->dispatch();
-        
-        
+        $this->syncACL();
         $this->redirect(array('action' => 'home'));
     }
     

@@ -65,6 +65,18 @@ class AppController extends Controller {
         
     }
 
+    public function syncACL() {
+
+        $group = $this->User->Group;
+        $group->id = 1;
+        $this->Acl->allow(array( 'model' => 'Group', 'foreign_key' => 1), 'controllers');
+
+        App::uses('ShellDispatcher', 'Console');
+        $command = '-app '.APP.' AclExtras.AclExtras aco_sync';
+        $args = explode(' ', $command);
+        $dispatcher = new ShellDispatcher($args, false);
+        $dispatcher->dispatch();
+    }
 
     public function install_acl($cont_group,$cont_users){
 
@@ -112,15 +124,7 @@ class AppController extends Controller {
 
                 if($cont_users == 1){
 
-                    $group = $this->User->Group;
-                    $group->id = 1;
-                    $this->Acl->allow(array( 'model' => 'Group', 'foreign_key' => 1), 'controllers');
-        
-                    App::uses('ShellDispatcher', 'Console');
-                    $command = '-app '.APP.' AclExtras.AclExtras aco_sync';
-                    $args = explode(' ', $command);
-                    $dispatcher = new ShellDispatcher($args, false);
-                    $dispatcher->dispatch();
+                    $this->syncACL();
 
                     if($this->params["controller"] == "users"){
                         if(($this->params["action"] != "login")||($this->params["action"] != "logout")){
