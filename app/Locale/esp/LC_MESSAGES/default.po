@@ -1,0 +1,17 @@
+msgid "msg-login-error"
+msgstr "Usuario / Clave no son validos, verifique!"
+
+msgid "str_login_h2"
+msgstr "Iniciar Sesión"
+
+msgid "str_login_input_username"
+msgstr "Usuario"
+
+msgid "str_login_input_password"
+msgstr "Clave"
+
+msgid "str_login_button"
+msgstr "Entrar al Sistema"
+
+
+ 
