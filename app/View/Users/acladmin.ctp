@@ -79,4 +79,3 @@
          
     </table>
 </div>
-<?php echo $this->element('menu'); ?>

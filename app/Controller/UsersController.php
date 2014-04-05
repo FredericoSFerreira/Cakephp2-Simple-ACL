@@ -33,16 +33,8 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
     
-    var $uses       = array('Aco','Aro','ArosAcos');
-    
     public function beforeFilter() {
         parent::beforeFilter();
-        if($this->Auth->user('group_id') == 1){
-            $this->Auth->allow('initDB');
-        }
-        
-        //$this->Auth->allow('register'); // Solo se debe colocar para Registrar el primer usuario que debe ser administrador
-        
     }
     
     public function initDB() {
@@ -63,13 +55,30 @@ class UsersController extends AppController {
     }
     
     
+    public function post_login(){
+
+        if ($this->Auth->login()) {
+                $this->redirect($this->Auth->redirect());
+        } else {
+                $this->Session->setFlash('Your username or password was incorrect.');
+        }
+
+    }
+
+    public function get_login(){
+        
+
+    }
+
     public function login() {
         if ($this->request->is('post')) {
-            if ($this->Auth->login()) {
-                $this->redirect($this->Auth->redirect());
-            } else {
-                $this->Session->setFlash('Your username or password was incorrect.');
+            $this->post_login();
+        }else{
+
+            if ($this->request->is('get')) {
+                $this-> get_login();
             }
+
         }
     }
 

@@ -7,4 +7,3 @@ echo $this->Form->inputs(array(
 ));
 echo $this->Form->end('Login');
 ?>
-<?php echo $this->element('menu'); ?>

@@ -484,3 +484,285 @@ Stack Trace:
 #1 /home/andres/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/andres/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-04-04 22:27:06 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'root\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /index.php/users/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/Helper/FormHelper.php(199): Model->schema()
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/Helper/FormHelper.php(456): FormHelper->_introspectModel('User', 'fields')
+#8 /home/www/Cakephp2-Simple-ACL/app/View/Users/login.ctp(2): FormHelper->create('User', Array)
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(471): View->_render('/home/www/Cakep...')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#17 {main}
+2014-04-04 22:27:07 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:27:07 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:27:07 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/index.php/users/favicon.ico
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:27:19 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/favicon.ico
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:27:35 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:27:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/css/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/index.php(43): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:28:32 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'root\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /index.php/users/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/Helper/FormHelper.php(199): Model->schema()
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/Helper/FormHelper.php(456): FormHelper->_introspectModel('User', 'fields')
+#8 /home/www/Cakephp2-Simple-ACL/app/View/Users/login.ctp(2): FormHelper->create('User', Array)
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(471): View->_render('/home/www/Cakep...')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 /home/www/Cakephp2-Simple-ACL/app/index.php(19): require('/home/www/Cakep...')
+#17 {main}
+2014-04-04 22:28:32 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/app/index.php(19): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:28:32 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/app/index.php(19): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:29:14 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/app/index.php(19): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:29:14 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /home/www/Cakephp2-Simple-ACL/app/index.php(19): require('/home/www/Cakep...')
+#2 {main}
+2014-04-04 22:30:26 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:30:26 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:30:45 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:30:45 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:32:20 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:32:41 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:32:41 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:32:42 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/index.php/users/favicon.ico
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:35:09 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/css/index.php/users/css/cake.generic.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 22:35:09 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.phpController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/index.php/users/img/index.php/users/img/cake.power.gif
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 23:10:28 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /user/register
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 23:10:28 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /user/register
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-04 23:25:19 Error: [MissingActionException] Action UsersController::logut() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logut',
+)
+Request URL: /users/logut
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-04 23:25:19 Error: [MissingActionException] Action UsersController::logut() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logut',
+)
+Request URL: /users/logut
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

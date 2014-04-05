@@ -6,4 +6,3 @@ echo $this->Form->inputs(array(
 ));
 echo $this->Form->end('Save');
 ?>
-<?php echo $this->element('menu'); ?>

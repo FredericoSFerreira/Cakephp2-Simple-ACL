@@ -33,7 +33,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    public $uses= array('User','Group');
+    public $uses       = array('Aco','Aro','ArosAcos','User','Group');
+
     public $components = array(
         'Acl',
         'Auth' => array(
@@ -45,12 +46,7 @@ class AppController extends Controller {
     );
     public $helpers = array('Html', 'Form', 'Session');
 
-    public function beforeFilter() {
-        //Configure AuthComponent
-        /*$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'home');*/
-        
+    public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => false);
         $this->Auth->loginRedirect = '/users/home/';
 		$this->Auth->authError = "Access Denied";
@@ -64,8 +60,117 @@ class AppController extends Controller {
                 'userModel' => 'User'
             ), 'Form'
         );
+
+        $this->is_Authorizate();
         
     }
+
+
+    public function install_acl($cont_group,$cont_users){
+
+        //pr($this->params);
+        
+        $redirect = 1;
+
+        if($cont_group == 0){
+
+            if($this->params["controller"] == "groups"){
+                $this->Auth->allow('add');
+                
+                
+
+                if($this->params["action"] == "add"){
+                    $redirect =0;
+                }
+
+
+            }
+
+            if($redirect){
+                $this->Session->setFlash(__('Create Group Admin'));
+                $this->redirect(array('controller' => 'groups','action' => 'add'));
+            }
+            
+        }else{
+
+            if($cont_users == 0){
+                if($this->params["controller"] == "users"){
+                    $this->Auth->allow('register');
+
+                    if($this->params["action"] == "register"){
+                        $redirect =0;
+                    }
+
+                    if($redirect){
+                        $this->Session->setFlash(__('Create User Admin'));
+                        $this->redirect(array('controller' => 'users','action' => 'register'));
+                    }
+
+
+                }
+            }else{
+
+                if($cont_users == 1){
+
+                    $group = $this->User->Group;
+                    $group->id = 1;
+                    $this->Acl->allow(array( 'model' => 'Group', 'foreign_key' => 1), 'controllers');
+        
+                    App::uses('ShellDispatcher', 'Console');
+                    $command = '-app '.APP.' AclExtras.AclExtras aco_sync';
+                    $args = explode(' ', $command);
+                    $dispatcher = new ShellDispatcher($args, false);
+                    $dispatcher->dispatch();
+
+                    if($this->params["controller"] == "users"){
+                        if(($this->params["action"] != "login")||($this->params["action"] != "logout")){
+                          $redirect =0;
+                        }
+
+                        if($redirect){
+                            $this->redirect(array('controller' => 'users','action' => 'logout'));
+                        }
+
+                    }
+ 
+                }
+
+            }
+
+        }
+
+        
+
+        
+
+    }
+
+
+    public function is_Authorizate(){
+
+
+        $cont_group = $this->Group->find("count",array(
+            "recursive" => "-1"
+        ));
+        $cont_users = $this->User->find("count",array(
+            "recursive" => "-1"
+        ));
+
+        if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
+            $this->install_acl($cont_group, $cont_users);
+        }
+
+
+        if($this->Auth->user('group_id') == 1){
+           //$this->Auth->allow('*');
+           
+        }
+        
+        
+        
+
+    }
+
     
     
 }
