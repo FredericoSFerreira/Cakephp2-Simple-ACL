@@ -34,7 +34,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     public $uses       = array('Aco','Aro','ArosAcos','User','Group');
-    public $helpers = array('Form', 'Html','Session','Time');
+    public $helpers = array('Form', 'Html','Session','Time','Form' => array('className' => 'BootstrapForm'));
 
     public $components = array(
         'Acl',
@@ -99,7 +99,6 @@ class AppController extends Controller {
             }
 
             if($redirect){
-                $this->Session->setFlash(__('Create Group Admin'));
                 $this->redirect(array('controller' => 'groups','action' => 'add'));
             }
             
@@ -107,19 +106,22 @@ class AppController extends Controller {
 
             if($cont_users == 0){
                 if($this->params["controller"] == "users"){
-                    $this->Auth->allow('register');
+                    $this->Auth->allow('add');
 
-                    if($this->params["action"] == "register"){
+                    if($this->params["action"] == "add"){
                         $redirect =0;
                     }
-
+                    
                     if($redirect){
-                        $this->Session->setFlash(__('Create User Admin'));
-                        $this->redirect(array('controller' => 'users','action' => 'register'));
+                        $this->redirect(array('controller' => 'users','action' => 'add'));
                     }
 
-
+                }else{
+                    if($this->params["controller"] == "groups"){
+                        $this->redirect(array('controller' => 'users','action' => 'add'));
+                    }
                 }
+                
             }else{
 
                 if($cont_users == 1){
@@ -129,11 +131,14 @@ class AppController extends Controller {
                     if($this->params["controller"] == "users"){
                         if(($this->params["action"] != "login")||($this->params["action"] != "logout")){
                           $redirect =0;
+
+                          if($redirect){
+                            $this->redirect(array('controller' => 'users','action' => 'logout'));
+                            }
+
                         }
 
-                        if($redirect){
-                            $this->redirect(array('controller' => 'users','action' => 'logout'));
-                        }
+                        
 
                     }
  

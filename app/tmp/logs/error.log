@@ -840,3 +840,195 @@ Stack Trace:
 #1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-04-05 21:38:48 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[42000] [1049] Unknown database \'cakephpacl\'',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3243): Model->setSource('groups')
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2795): Model->getDataSource()
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2732): Model->_findCount('before', Array)
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2691): Model->buildQuery('count', Array)
+#8 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(158): Model->find('count', Array)
+#9 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(64): AppController->is_Authorizate()
+#10 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-05 22:16:48 Error: [MissingViewException] View file "/home/www/Cakephp2-Simple-ACL/app/View/Users/add.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/www/Cakephp2-Simple-ACL/app/View/Users/add.ctp',
+)
+Request URL: /users/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-04-05 22:29:40 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/home/www/Cakephp2-Simple-ACL/app/View/Groups/add.ctp, line 5]
+2014-04-05 22:29:40 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 5, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 5, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-05 22:29:51 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/home/www/Cakephp2-Simple-ACL/app/View/Groups/add.ctp, line 5]
+2014-04-05 22:29:51 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 5)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 5, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 5, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-05 22:51:40 Error: Fatal Error (4): syntax error, unexpected ';' in [/home/www/Cakephp2-Simple-ACL/app/View/Groups/add.ctp, line 13]
+2014-04-05 22:51:40 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 13)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 13, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 13, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-05 23:03:01 Error: Fatal Error (4): syntax error, unexpected ')', expecting ',' or ';' in [/home/www/Cakephp2-Simple-ACL/app/View/Groups/add.ctp, line 12]
+2014-04-05 23:03:01 Error: [FatalErrorException] syntax error, unexpected ')', expecting ',' or ';'
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 12)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 12, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 12, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-05 23:09:45 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Gro...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Gro...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Gro...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(GroupsController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-05 23:17:02 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Gro...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Gro...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Gro...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(GroupsController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-06 00:02:54 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Gro...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Gro...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Gro...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(GroupsController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-06 00:06:20 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Gro...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Gro...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Gro...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(GroupsController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-06 00:08:09 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Gro...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Gro...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Gro...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(GroupsController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}

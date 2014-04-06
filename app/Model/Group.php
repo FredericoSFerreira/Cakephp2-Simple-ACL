@@ -37,6 +37,16 @@ class Group extends AppModel {
     
     public $actsAs = array('Acl' => array('type' => 'requester'));
 
+
+    public $validate = array(
+        'name' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Error',
+			),
+		),
+    );
+
     public function parentNode() {
         return null;
     }

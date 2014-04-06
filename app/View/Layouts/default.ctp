@@ -12,14 +12,49 @@
           </button>
           <a class="navbar-brand" href="#">AppName</a>
         </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Grupos</a></li>
+              <li><a href="#">Usuarios</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Modulos</a></li>
+              <li><a href="#">Categorias</a></li>
+              <li><a href="#">Funciones</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users/logout">Cerrar Sesión</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
       </div>
     </div>
 
 	<div id="container">
 			
-			<?php echo $this->element('flash');?>
-			<?php echo $this->fetch('content'); ?>
-			<?php echo $this->element('sql_dump'); ?>
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Listar Grupos</a></li>
+            <li><a href="#">Agregar Grupos</a></li>
+            <li><a href="#">Editar Grupos</a></li>
+            <li><a href="#">Eliminar Grupos</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <?php echo $this->element('flash');?>
+          <?php echo $this->fetch('content'); ?>
+          <?php echo $this->element('sql_dump'); ?>
+        </div>
+      </div>
+
+
+			
+			
+			
 	</div>
 	
 </body>

@@ -165,7 +165,7 @@ class UsersController extends AppController {
     }
     
     
-    public function register() {
+    public function add() {
         
         $groups = $this->Group->find('list',array(
             'fields'=>array(
@@ -180,7 +180,7 @@ class UsersController extends AppController {
             $this->User->set($this->data);
             if ($this->User->save()) {
                 $this->Session->setFlash(__('The User has been saved'));
-                $this->redirect(array('action' => 'register'));
+                $this->redirect(array('action' => 'add'));
             } else {
                 $this->Session->setFlash(__('The User could not be saved. Please, try again.'));
             }

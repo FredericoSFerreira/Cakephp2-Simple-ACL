@@ -37,16 +37,21 @@ class GroupsController extends AppController {
         parent::beforeFilter();
     }
     
+    public function post_add(){
+
+            $this->Group->set($this->data);
+            if($this->Group->validates())
+            {
+                if ($this->Group->save()) {
+                    $this->_flash(__('msg-groups-save',true),'alert alert-warning');
+                    $this->redirect(array('action' => 'add'));
+                }
+            }
+    }
+
     public function add() {
         if ($this->request->is('post')) {
-            $this->Group->create();
-            $this->Group->set($this->data);
-            if ($this->Group->save()) {
-                $this->Session->setFlash(__('The Group has been saved'));
-                $this->redirect(array('action' => 'add'));
-            } else {
-                $this->Session->setFlash(__('The Group could not be saved. Please, try again.'));
-            }
+            $this->post_add();
         }
     }
 
