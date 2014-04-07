@@ -1,5 +1,7 @@
-<div>
-    <table>
+<div class="form-group">
+<h3 class="page-header">Listado de Funciones / Grupos</h3>
+</div>
+<table class="table table-striped">
         <tr>
             <th># | Parent</th>
             <th>Access</th>
@@ -68,14 +70,13 @@
                 <td><?php 
                     $url = '/users/acladmin/'.$access.'/'.$group['Aros']['id'].'/'.$acoid.'/'.$permisionid;
                     if($access){
-                        echo $this->Html->link(_('Disabled'), $url, array('class' => 'button'));
+                        echo $this->Html->link(_('Disabled'), $url, array('class' => 'btn btn-warning'));
                     }else{
-                        echo $this->Html->link(_('Enabled'), $url, array('class' => 'button'));
+                        echo $this->Html->link(_('Enabled'), $url, array('class' => 'btn btn-success'));
                     }
                     ?></td>
             <?php } ?> 
         </tr>
         <?php } ?>
          
-    </table>
-</div>
+</table>

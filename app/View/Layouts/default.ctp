@@ -38,10 +38,10 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Listar Grupos</a></li>
-            <li><a href="#">Agregar Grupos</a></li>
-            <li><a href="#">Editar Grupos</a></li>
-            <li><a href="#">Eliminar Grupos</a></li>
+            <li class="active"><a href="/groups/index">Listar Grupos</a></li>
+            <li><a href="/groups/add">Agregar Grupos</a></li>
+            <li><a href="/groups/edit">Editar Grupos</a></li>
+            <li><a href="/groups/delete">Eliminar Grupos</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

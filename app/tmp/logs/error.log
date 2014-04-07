@@ -1032,3 +1032,136 @@ Stack Trace:
 #12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
 #13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #14 {main}
+2014-04-06 21:31:52 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:33:29 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:33:53 Error: Fatal Error (4): syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in [/home/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php, line 40]
+2014-04-06 21:33:53 Error: [FatalErrorException] syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 40)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 40, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 40, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-06 21:35:33 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:35:35 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:36:07 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:42:11 Error: [MissingActionException] Action UsersController::logut() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logut',
+)
+Request URL: /users/logut
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-06 21:59:13 Error: [MissingControllerException] Controller class UsuariosController could not be found.
+Exception Attributes: array (
+  'class' => 'UsuariosController',
+  'plugin' => NULL,
+)
+Request URL: /usuarios/index
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-06 21:59:18 Error: [MissingControllerException] Controller class UsuariosController could not be found.
+Exception Attributes: array (
+  'class' => 'UsuariosController',
+  'plugin' => NULL,
+)
+Request URL: /usuarios/acladmin
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-06 22:37:17 Error: [MissingControllerException] Controller class GroupController could not be found.
+Exception Attributes: array (
+  'class' => 'GroupController',
+  'plugin' => NULL,
+)
+Request URL: /group/edit/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-06 22:37:30 Error: [MissingControllerException] Controller class GroupController could not be found.
+Exception Attributes: array (
+  'class' => 'GroupController',
+  'plugin' => NULL,
+)
+Request URL: /group/edit/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-06 23:08:32 Error: Fatal Error (1): Call to a member function read() on a non-object in [/home/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php, line 64]
+2014-04-06 23:08:33 Error: [FatalErrorException] Call to a member function read() on a non-object
+Request URL: /groups/edit/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/www/Cakep...', 64)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/www/Cakep...', 64, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/www/Cakep...', 64, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-06 23:10:29 Error: [MissingActionException] Action GroupsController::list() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'list',
+)
+Request URL: /groups/list
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

@@ -34,6 +34,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
     
     public function beforeFilter() {
+        $this->Auth->allow('login','logout');
         parent::beforeFilter();
     }
     
@@ -61,7 +62,13 @@ class UsersController extends AppController {
 
     }
 
-    public function get_login(){}
+    public function get_login(){
+
+        if($this->Auth->user('id')){
+            $this->redirect(array('action' => 'home'));
+        }
+
+    }
 
     public function login() {
 
@@ -100,10 +107,10 @@ class UsersController extends AppController {
             $this->ArosAcos->set('_delete', $access);
             
             if ($this->ArosAcos->save()) {
-                $this->Session->setFlash(__('The ArosAcos has been saved'));
+                $this->_flash(__('msg-acl-save',true),'alert alert-success');
                 $this->redirect(array('action' => 'acladmin'));
             } else {
-                $this->Session->setFlash(__('The ArosAcos could not be saved. Please, try again.'));
+                $this->_flash(__('msg-acl-error',true),'alert alert-warning');
             }
             
         }
