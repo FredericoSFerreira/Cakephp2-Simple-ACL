@@ -31,7 +31,6 @@ App::uses('AppModel', 'Model');
  *
  * @package       app.Model
  */
-App::uses('AuthComponent', 'Controller/Component');
 class Group extends AppModel {
 
     

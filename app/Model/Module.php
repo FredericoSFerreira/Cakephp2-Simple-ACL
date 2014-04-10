@@ -4,14 +4,9 @@ App::uses('AppModel', 'Model');
  * Module Model
  *
  */
-class Module extends AppModel {
 
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
+
+class Module extends AppModel {
 
 /**
  * Validation rules
@@ -33,7 +28,7 @@ class Module extends AppModel {
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',s
+				'message' => 'Your custom message here',
 			),
 		),
     );

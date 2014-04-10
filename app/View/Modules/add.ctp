@@ -1,18 +1,14 @@
-<div class="modules form">
-<?php echo $this->Form->create('Module'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Module'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('order');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php 
+echo $this->Form->create('Module', array('action' => 'add'));
+?>
+<div class="form-group">
+<h3 class="page-header">Agregar Nuevo Modulo</h3>
 
-		<li><?php echo $this->Html->link(__('List Modules'), array('action' => 'index')); ?></li>
-	</ul>
+<?php
+echo $this->Form->input('name',array("label"=>"Nombre del modulo","required"=>false));
+?>
 </div>
+<?
+echo $this->Form->end(array('label'=>'Agregar','class'=>'btn btn-primary','div' => array("class"=>"form-group")));
+
+?>
