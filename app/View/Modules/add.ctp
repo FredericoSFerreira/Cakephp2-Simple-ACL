@@ -6,6 +6,7 @@ echo $this->Form->create('Module', array('action' => 'add'));
 
 <?php
 echo $this->Form->input('name',array("label"=>"Nombre del modulo","required"=>false));
+echo $this->Form->input('order',array("label"=>"Orden","required"=>false));
 ?>
 </div>
 <?

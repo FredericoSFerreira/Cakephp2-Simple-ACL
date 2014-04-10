@@ -1185,3 +1185,23 @@ Stack Trace:
 #1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ModulesController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-04-10 02:52:46 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/home/www/Cakephp2-Simple-ACL/app/Controller/CategoriesController.php, line 60]
+2014-04-10 02:52:46 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /categories/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 60)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 60, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 60, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-10 02:53:12 Error: Fatal Error (1): Call to a member function find() on a non-object in [/home/www/Cakephp2-Simple-ACL/app/Controller/CategoriesController.php, line 61]
+2014-04-10 02:53:12 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /categories/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/www/Cakep...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/www/Cakep...', 61, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/www/Cakep...', 61, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
