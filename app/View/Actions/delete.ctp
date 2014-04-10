@@ -8,7 +8,8 @@
         <th><?php echo $this->Paginator->sort('Action.id','#');?></th>
         <th><?php echo $this->Paginator->sort('Action.name','Nombre');?></th>
         <th><?php echo $this->Paginator->sort('Action.order','Orden');?></th>
-        <th><?php echo $this->Paginator->sort('Category.name','Categoria');?></th>
+        <th><?php echo $this->Paginator->sort('Categories.name','Modulo');?></th>
+        <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +19,10 @@
             <td><?php echo h($list['Action']['name']); ?>&nbsp;</td>
             <td><?php echo h($list['Action']['order']); ?>&nbsp;</td>
             <td><?php echo h($list['Categories']['name']); ?>&nbsp;</td>
+            <td class="actions">
+
+                <?php echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/actions/delete/'.$list['Action']['id'], array('class' => 'btn btn-warning', 'escape' => false,'data-toggle'=>'tooltip', 'title'=>'Eliminar')); ?>
+            </td>
 	   </tr>
         <?php endforeach; ?>
     </tbody>

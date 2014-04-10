@@ -1,22 +1,20 @@
-<div class="actions form">
-<?php echo $this->Form->create('Action'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Action'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('url');
-		echo $this->Form->input('order');
-		echo $this->Form->input('categories_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php 
+echo $this->Form->create('Action', array('action' => 'add'));
+?>
+<div class="form-group">
+<h3 class="page-header">Agregar Nueva Función</h3>
 
-		<li><?php echo $this->Html->link(__('List Actions'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categories'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-	</ul>
+<?php
+echo $this->Form->input('name',array("label"=>"Nombre de Funcion","required"=>false));
+echo $this->Form->input('url',array("label"=>"Url de Funcion","required"=>false));
+echo $this->Form->input('order',array("label"=>"Orden en el menu","required"=>false));
+echo $this->Form->input('categories_id',array("label"=>"Categorias","empty"=>"Seleccione","type"=>"select","required"=>false));
+?>
 </div>
+<?
+echo $this->Form->end(array('label'=>'Agregar','class'=>'btn btn-primary','div' => array("class"=>"form-group")));
+
+?>
+
+
+
