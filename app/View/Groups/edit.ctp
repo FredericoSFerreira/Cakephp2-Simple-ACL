@@ -20,7 +20,7 @@ if(empty($id)){
             <td><?php echo h($list['Group']['name']); ?>&nbsp;</td>
             <td class="actions">
 
-                <?php echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Editar', '/groups/edit/'.$list['Group']['id'], array('class' => 'btn btn-warning', 'escape' => false,'data-toggle'=>'tooltip', 'title'=>'Editar')); ?>
+                <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/groups/edit/'.$list['Group']['id'], array('class' => 'btn btn-warning', 'escape' => false,'data-toggle'=>'tooltip', 'title'=>'Editar')); ?>
             </td>
 	   </tr>
         <?php endforeach; ?>
