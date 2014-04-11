@@ -1,22 +1,15 @@
-<div class="groupactions form">
-<?php echo $this->Form->create('Groupaction'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Groupaction'); ?></legend>
-	<?php
-		echo $this->Form->input('group_id');
-		echo $this->Form->input('actions_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php 
+echo $this->Form->create('Groupaction', array('action' => 'add'));
+?>
+<div class="form-group">
+<h3 class="page-header">Asignar nueva función a grupo</h3>
 
-		<li><?php echo $this->Html->link(__('List Groupactions'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Actions'), array('controller' => 'actions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Actions'), array('controller' => 'actions', 'action' => 'add')); ?> </li>
-	</ul>
+<?php
+echo $this->Form->input('groups_id',array("label"=>"Grupos","empty"=>"Seleccione...","type"=>"select","required"=>false));
+echo $this->Form->input('actions_id',array("label"=>"Funciones","empty"=>"Seleccione...","type"=>"select","required"=>false));
+?>
 </div>
+<?
+echo $this->Form->end(array('label'=>'Agregar','class'=>'btn btn-primary','div' => array("class"=>"form-group")));
+
+?>

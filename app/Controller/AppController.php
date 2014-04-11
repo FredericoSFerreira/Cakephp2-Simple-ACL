@@ -33,7 +33,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    public $uses       = array('Aco','Aro','ArosAcos','User','Group','Module','Category','Groupaction');
+    public $uses       = array('Aco','Aro','ArosAcos','User','Group','Module','Category','Groupaction','Action');
     public $helpers = array('Form', 'Html','Session','Time','Form' => array('className' => 'BootstrapForm'));
 
     public $components = array(

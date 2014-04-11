@@ -1,4 +1,4 @@
-<?php
+	<?php
 App::uses('AppModel', 'Model');
 /**
  * Groupaction Model
@@ -13,7 +13,7 @@ class Groupaction extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'group_id';
+	public $displayField = 'groups_id';
 
 /**
  * Validation rules
@@ -21,7 +21,7 @@ class Groupaction extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'group_id' => array(
+		'groups_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Your custom message here',
@@ -52,8 +52,8 @@ class Groupaction extends AppModel {
  */
 	public $belongsTo = array(
 		'Group' => array(
-			'className' => 'Group',
-			'foreignKey' => 'group_id',
+			'className' => 'Groups',
+			'foreignKey' => 'groups_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
