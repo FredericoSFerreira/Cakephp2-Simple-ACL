@@ -13,7 +13,7 @@
           <a class="navbar-brand" href="#">AppName</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <ul  class="nav navbar-nav" >
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -36,18 +36,23 @@
 	<div id="container">
 			
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="/groups/index">Listar Grupos</a></li>
-            <li><a href="/groups/add">Agregar Grupos</a></li>
-            <li><a href="/groups/edit">Editar Grupos</a></li>
-            <li><a href="/groups/delete">Eliminar Grupos</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <?php echo $this->element('flash');?>
-          <?php echo $this->fetch('content'); ?>
-          <?php echo $this->element('sql_dump'); ?>
+        
+
+      <aside id="nav-container" class="ng-scope"><div id="nav-wrapper" class="ng-scope">
+    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><ul id="nav" data-ng-controller="NavCtrl" data-collapse-nav="" data-slim-scroll="" data-highlight-active="" class="ng-scope" style="overflow: hidden; width: auto; height: 100%;">
+        <li class="active"><a href="/groups/add"> <span>Agregar Grupos</span> </a></li>
+    </ul><div class="slimScrollBar" style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; top: 94px; height: 152.5225px; display: none; opacity: 0.4; background-position: initial initial; background-repeat: initial initial;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div></div>
+</div></aside>
+
+
+        <div class="view-container">
+                <section data-ng-view="" id="content" class="animate-fade-up ng-scope">
+                    <section class="page-form-ele page ng-scope">
+                      <?php echo $this->element('flash');?>
+                      <?php echo $this->fetch('content'); ?>
+                      <?php echo $this->element('sql_dump'); ?>
+                    </section>
+                </section>
         </div>
       </div>
 
