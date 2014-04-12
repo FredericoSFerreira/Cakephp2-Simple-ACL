@@ -78,6 +78,177 @@ class AppController extends Controller {
         $dispatcher->dispatch();
     }
 
+    public function installBase(){
+
+//        SET FOREIGN_KEY_CHECKS = 0;
+// TRUNCATE groupactions;
+// TRUNCATE actions;
+// TRUNCATE categories;
+// TRUNCATE modules;
+// SET FOREIGN_KEY_CHECKS = 1;
+
+
+        $data_modules = array(
+            array(
+                'Module'=> array(
+                    'id' => 1,
+                    'name' => 'Sistema Base',
+                    'order' => 99
+                )
+            )
+        );
+
+        $data_categories = array(
+            array(
+                'Category'=> array(
+                    'id' => 1,
+                    'name' => 'Grupos',
+                    'module_id' => 1,
+                    'order' => 0
+                )
+            ),
+            array(
+                'Category'=> array(
+                    'id' => 2,
+                    'name' => 'Modulos',
+                    'module_id' => 1,
+                    'order' => 1
+                )
+            ),
+            array(
+                'Category'=> array(
+                    'id' => 3,
+                    'name' => 'Categorias',
+                    'module_id' => 1,
+                    'order' => 2
+                )
+            ),
+            array(
+                'Category'=> array(
+                    'id' => 4,
+                    'name' => 'Funciones',
+                    'module_id' => 1,
+                    'order' => 3
+                )
+            ),
+            array(
+                'Category'=> array(
+                    'id' => 5,
+                    'name' => 'Permisos',
+                    'module_id' => 1,
+                    'order' => 4
+                )
+            ),
+        );
+
+$data_actions = array(
+array(
+'Action'=> array('id' => 1,'name' => 'Grupos : Listado','url' => '/groups/index','category_id' => 1,'order' => 0)
+),
+array(
+'Action'=> array('id' => 2,'name' => 'Grupos : Agregar','url' => '/groups/add','category_id' => 1,'order' => 1)
+),
+array(
+'Action'=> array('id' => 3,'name' => 'Grupos : Editar','url' => '/groups/edit','category_id' => 1,'order' => 2)
+),
+array(
+'Action'=> array('id' => 4,'name' => 'Grupos : Eliminar','url' => '/groups/delete','category_id' => 1,'order' => 3)
+),
+
+array(
+'Action'=> array('id' => 5,'name' => 'Modulos : Listado','url' => '/modules/index','category_id' => 2,'order' => 0)
+),
+array(
+'Action'=> array('id' => 6,'name' => 'Modulos : Agregar','url' => '/modules/add','category_id' => 2,'order' => 1)
+),
+array(
+'Action'=> array('id' => 7,'name' => 'Modulos : Editar','url' => '/modules/edit','category_id' => 2,'order' => 2)
+),
+array(
+'Action'=> array('id' => 8,'name' => 'Modulos : Eliminar','url' => '/modules/delete','category_id' => 2,'order' => 3)
+),
+
+array(
+'Action'=> array('id' => 9,'name' => 'Categorias : Listado','url' => '/categories/index','category_id' => 3,'order' => 0)
+),
+array(
+'Action'=> array('id' => 10,'name' => 'Categorias : Agregar','url' => '/categories/add','category_id' => 3,'order' => 1)
+),
+array(
+'Action'=> array('id' => 11,'name' => 'Categorias : Editar','url' => '/categories/edit','category_id' => 3,'order' => 2)
+),
+array(
+'Action'=> array('id' => 12,'name' => 'Categorias : Eliminar','url' => '/categories/delete','category_id' => 3,'order' => 3)
+),
+
+array(
+'Action'=> array('id' => 13,'name' => 'Funciones : Listado','url' => '/actions/index','category_id' => 4,'order' => 0)
+),
+array(
+'Action'=> array('id' => 14,'name' => 'Funciones : Agregar','url' => '/actions/add','category_id' => 4,'order' => 1)
+),
+array(
+'Action'=> array('id' => 15,'name' => 'Funciones : Editar','url' => '/actions/edit','category_id' => 4,'order' => 2)
+),
+array(
+'Action'=> array('id' => 16,'name' => 'Funciones : Eliminar','url' => '/actions/delete','category_id' => 4,'order' => 3)
+),
+
+array(
+'Action'=> array('id' => 17,'name' => 'Permisos : Listado','url' => '/groupactions/index','category_id' => 5,'order' => 0)
+),
+array(
+'Action'=> array('id' => 18,'name' => 'Permisos : Agregar','url' => '/groupactions/add','category_id' => 5,'order' => 1)
+),
+array(
+'Action'=> array('id' => 19,'name' => 'Permisos : Editar','url' => '/groupactions/edit','category_id' => 5,'order' => 2)
+),
+array(
+'Action'=> array('id' => 20,'name' => 'Permisos : Eliminar','url' => '/groupactions/delete','category_id' => 5,'order' => 3)
+),
+array(
+'Action'=> array('id' => 21,'name' => 'Permisos : ACL','url' => '/groupactions/acl','category_id' => 5,'order' => 4)
+),
+
+);  
+
+            
+        $data_groupactions=array(); 
+        $id_groupactions = 1;
+        $groupaction = array();
+        foreach ($data_actions as $keyaction => $action) {
+            
+            $groupaction = array('Groupaction'=> array('id' => $id_groupactions,'group_id' => 1,'action_id' => $action['Action']['id']));
+            array_push($data_groupactions, $groupaction);
+            $id_groupactions ++;
+        }
+            
+
+
+        if($this->Module->saveMany($data_modules)){
+
+            echo "Guardado de Modulos</br>";
+
+            if($this->Category->saveMany($data_categories)){
+
+                echo "Guardado de Categorias</br>";
+
+                if($this->Action->saveMany($data_actions)){
+                     echo "Guardado de Funciones</br>";
+
+                     if($this->Groupaction->saveMany($data_groupactions)){
+                          echo "Guardado de Grupos / Funciones</br>";
+                     }
+
+                }
+
+            }
+
+        }
+
+
+    }
+
     public function install_acl($cont_group,$cont_users){
 
         //pr($this->params);
@@ -126,37 +297,183 @@ class AppController extends Controller {
 
                 if($cont_users == 1){
 
+
+                    $modules = $this->Module->find("count",array("recursive"=>-1));
+
+                    if($modules == 0){
+
+                        $this->installBase();
+
+                    }
+
+
                     $this->syncACL();
 
                     if($this->params["controller"] == "users"){
                         if(($this->params["action"] != "login")||($this->params["action"] != "logout")){
                           $redirect =0;
-
                           if($redirect){
                             $this->redirect(array('controller' => 'users','action' => 'logout'));
-                            }
+                          }
 
                         }
-
-                        
-
                     }
- 
                 }
 
             }
 
         }
 
-        
+    }
+
+    public function setSidebarMenu($category_id=null){
 
         
+        $actions = $this->Session->read('User.actions');
+        //pr($actions);
+
+        $actions_category = $this->Session->read('User.actions_category');
+
+        if(isset($category_id)){
+
+            $actions_category = array();
+
+            $this->Category->id = $category_id;
+            if (!$this->Category->exists()) {
+                $this->_flash(__('msg-categorys-edit-noexist',true),'alert alert-warning');
+                $this->redirect(array('action' => 'home'));
+            }else{
+
+                foreach ($actions as $keyaction => $action) {
+                    if($action['Action']['category_id'] == $category_id){
+                        $actions_category[$action['Action']['id']] = $action['Action'];
+                    }
+                }
+
+            }
+            $this->Session->write('User.actions_category', $actions_category);
+        }
+
+        //pr($actions_category);
+        $this->set('actions_category',$actions_category);
 
     }
 
 
+    public function setHeaderMenu(){
+
+        $header_menu = $this->Session->read('User.header_menu');
+
+        if(empty($header_menu)){
+
+            $group_id = $this->Auth->user('group_id');
+            
+            $groupactions = $this->Groupaction->find("list",array(
+                'fields'=>array('Groupaction.action_id'),
+                'conditions'=>array(
+                    'Groupaction.group_id' => $group_id
+                ) ,
+                'recursive' => -1  
+            ));
+
+            //pr($groupactions);
+
+            if(!empty($groupactions)){
+
+                $actions = $this->Action->find("all",array(
+                    'fields' => array('Action.id','Action.name','Action.url','Action.category_id'),
+                    'conditions'=>array(
+                        'Action.id' => $groupactions
+                    ),
+                    'order'=>'Action.order ASC',
+                    'recursive'=>-1
+                ));
+
+                //pr($actions);
+
+                $categories_actions = $this->Action->find("list",array(
+                    'fields' => array('Action.category_id'),
+                    'conditions'=>array(
+                        'Action.id' => $groupactions
+                    ),
+                    'group' => 'Action.category_id',
+                    'order'=>'Action.order ASC',
+                    'recursive'=>-1
+                ));
+
+                //pr($categories_actions);
+
+                $categories = $this->Category->find("all",array(
+                    'fields' => array('Category.id',"Category.name",'Category.module_id'),
+                    'conditions'=>array(
+                        'Category.id' => $categories_actions
+                    ),
+                    'order'=>'Category.order ASC',
+                    'recursive'=>-1
+                ));
+
+                //pr($categories);
+
+
+                $modules_categories = $this->Category->find("list",array(
+                    'fields' => array('Category.module_id'),
+                    'conditions'=>array(
+                        'Category.id' => $categories_actions
+                    ),
+                    'group' => 'Category.module_id',
+                    'order'=>'Category.order ASC',
+                    'recursive'=>-1
+                ));
+
+                //pr($modules_categories);
+
+
+                $modules = $this->Module->find("list",array(
+                    'fields' => array('Module.id',"Module.name"),
+                    'conditions'=>array(
+                        'Module.id' => $modules_categories
+                    ),
+                    'order'=>'Module.order ASC',
+                    'recursive'=>-1
+                ));
+
+                //pr($modules);
+
+
+                $header_menu = array();
+                
+                foreach ($modules as $keymod => $module) {
+                    
+                    $module = array(
+                        'name' => $module,
+                        'categories' => array()
+                    );
+
+                    foreach ($categories as $keycat => $category) {
+                        array_push($module["categories"], $category["Category"]);
+                    }
+
+                    $header_menu["modules"][$keymod]= $module;
+
+                }
+                //pr($header_menu);
+
+                $this->Session->write('User.actions', $actions);
+                $this->Session->write('User.header_menu', $header_menu);
+            }
+        }
+        
+        $this->set('header_menu',$header_menu);
+
+    }
+
     public function is_Authorizate(){
 
+        
+        if($this->Auth->user('id')){
+            $this->setHeaderMenu();
+            $this->setSidebarMenu();
+        }
 
         $cont_group = $this->Group->find("count",array(
             "recursive" => "-1"

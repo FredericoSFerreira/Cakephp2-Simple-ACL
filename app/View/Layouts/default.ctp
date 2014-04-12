@@ -12,24 +12,7 @@
           </button>
           <a class="navbar-brand" href="#">AppName</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul  class="nav navbar-nav" >
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Grupos</a></li>
-              <li><a href="#">Usuarios</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Modulos</a></li>
-              <li><a href="#">Categorias</a></li>
-              <li><a href="#">Funciones</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/logout">Cerrar Sesión</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
+        <?php echo $this->element('menu'); ?>
       </div>
     </div>
 
@@ -38,13 +21,34 @@
       <div class="row">
         
 
-      <aside id="nav-container" class="ng-scope"><div id="nav-wrapper" class="ng-scope">
-    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><ul id="nav" data-ng-controller="NavCtrl" data-collapse-nav="" data-slim-scroll="" data-highlight-active="" class="ng-scope" style="overflow: hidden; width: auto; height: 100%;">
-        <li class="active"><a href="/groups/add"> <span>Agregar Grupos</span> </a></li>
-    </ul><div class="slimScrollBar" style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; top: 94px; height: 152.5225px; display: none; opacity: 0.4; background-position: initial initial; background-repeat: initial initial;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div></div>
-</div></aside>
+    <aside id="nav-container" class="ng-scope"><div id="nav-wrapper" class="ng-scope">
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
 
+        <ul id="nav" class="ng-scope" style="overflow: hidden; width: auto; height: 100%;">
+          <li class="active"><a href="/users/home"> <span>Inicio</span> </a></li>
 
+          <?php 
+          if(!empty($actions_category)){
+            foreach ($actions_category as $keyact => $action) { ?>
+      
+            <li class="">
+              <a href="<?php echo $action["url"]; ?>"> 
+                <span><?php echo $action["name"]; ?></span> 
+              </a>
+            </li>    
+      <?php }?>
+    <?php }?>
+
+        </ul>
+
+        <div class="slimScrollBar" style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; top: 94px; height: 152.5225px; display: none; opacity: 0.4; background-position: initial initial; background-repeat: initial initial;"></div>
+            <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;">
+            </div>
+        </div>
+      </div>
+    </aside>
+
+        
         <div class="view-container">
                 <section data-ng-view="" id="content" class="animate-fade-up ng-scope">
                     <section class="page-form-ele page ng-scope">

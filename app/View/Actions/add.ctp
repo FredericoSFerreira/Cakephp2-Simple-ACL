@@ -8,7 +8,7 @@ echo $this->Form->create('Action', array('action' => 'add'));
 echo $this->Form->input('name',array("label"=>"Nombre de Funcion","required"=>false));
 echo $this->Form->input('url',array("label"=>"Url de Funcion","required"=>false));
 echo $this->Form->input('order',array("label"=>"Orden en el menu","required"=>false));
-echo $this->Form->input('categories_id',array("label"=>"Categorias","empty"=>"Seleccione","type"=>"select","required"=>false));
+echo $this->Form->input('category_id',array("label"=>"Categorias","empty"=>"Seleccione","type"=>"select","required"=>false));
 ?>
 </div>
 <?

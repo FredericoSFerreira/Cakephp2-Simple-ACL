@@ -64,7 +64,7 @@ class Action extends AppModel {
 	public $belongsTo = array(
 		'Categories' => array(
 			'className' => 'Categories',
-			'foreignKey' => 'categories_id',
+			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

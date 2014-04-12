@@ -2,7 +2,7 @@
 if(empty($id)){
 ?>
 <div class="form-group">
-<h3 class="page-header">Listado de Categorias</h3>
+<h3 class="page-header">Listado de Funciones</h3>
 </div>
 
 <table class="table table-bordered">
@@ -10,6 +10,7 @@ if(empty($id)){
     <tr> 
         <th><?php echo $this->Paginator->sort('Action.id','#');?></th>
         <th><?php echo $this->Paginator->sort('Action.name','Nombre');?></th>
+        <th><?php echo $this->Paginator->sort('Action.url','Url');?></th>
         <th><?php echo $this->Paginator->sort('Action.order','Orden');?></th>
         <th><?php echo $this->Paginator->sort('Category.name','Modulo');?></th>
         <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
@@ -20,6 +21,7 @@ if(empty($id)){
         <tr>
             <td style="width: 10px;"><?php echo h($list['Action']['id']); ?>&nbsp;</td>
             <td><?php echo h($list['Action']['name']); ?>&nbsp;</td>
+            <td><?php echo h($list['Action']['url']); ?>&nbsp;</td>
             <td><?php echo h($list['Action']['order']); ?>&nbsp;</td>
             <td><?php echo h($list['Categories']['name']); ?>&nbsp;</td>
             <td class="actions">
@@ -38,13 +40,14 @@ if(empty($id)){
 echo $this->Form->create('Action', array('action' => 'edit/'));
 ?>
 <div class="form-group">
-<h3 class="page-header">Editar Categoria</h3>
+<h3 class="page-header">Editar Funciones</h3>
 
 <?php
 echo $this->Form->input('id');
-echo $this->Form->input('name',array("label"=>"Nombre de Categoria","required"=>false));
+echo $this->Form->input('name',array("label"=>"Nombre de Funcion","required"=>false));
+echo $this->Form->input('url',array("label"=>"Url","required"=>false));
 echo $this->Form->input('order',array("label"=>"Orden en el menu","required"=>false));
-echo $this->Form->input('categories_id',array("label"=>"Categorias","empty"=>"Seleccione","type"=>"select","required"=>false));
+echo $this->Form->input('category_id',array("label"=>"Categorias","empty"=>"Seleccione","type"=>"select","required"=>false));
 ?>
 </div>
 <?

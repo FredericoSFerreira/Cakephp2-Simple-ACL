@@ -7,7 +7,7 @@ echo $this->Form->create('User', array('action' => 'add'));
 <?php 
 echo $this->Form->input('username',array("label"=>"Nombre de Usuario","required"=>false));
 echo $this->Form->input('password',array("label"=>"Clave de Acceso","required"=>false));
-echo $this->Form->input('group_id',array('label'=>'Groupos','type'=>'select','empty'=>'Seleccione'));
+echo $this->Form->input('group_id',array('label'=>'Grupos','type'=>'select','empty'=>'Seleccione'));
 ?>
 </div>
 <?

@@ -58,7 +58,7 @@ class Category extends AppModel {
 	public $belongsTo = array(
 		'Modules' => array(
 			'className' => 'Modules',
-			'foreignKey' => 'modules_id',
+			'foreignKey' => 'module_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

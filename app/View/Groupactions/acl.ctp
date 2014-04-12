@@ -68,11 +68,11 @@
               } 
             ?>
                 <td><?php 
-                    $url = '/users/acladmin/'.$access.'/'.$group['Aros']['id'].'/'.$acoid.'/'.$permisionid;
+                    $url = '/groupactions/acl/'.$access.'/'.$group['Aros']['id'].'/'.$acoid.'/'.$permisionid;
                     if($access){
-                        echo $this->Html->link(_('Disabled'), $url, array('class' => 'btn btn-warning'));
+                        echo $this->Html->link(_('Revocar'), $url, array('class' => 'btn btn-warning'));
                     }else{
-                        echo $this->Html->link(_('Enabled'), $url, array('class' => 'btn btn-success'));
+                        echo $this->Html->link(_('Activar'), $url, array('class' => 'btn btn-success'));
                     }
                     ?></td>
             <?php } ?> 

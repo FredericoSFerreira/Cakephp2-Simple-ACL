@@ -86,88 +86,16 @@ class UsersController extends AppController {
     }
 
     public function logout() {
+        $this->Session->destroy();
         $this->redirect($this->Auth->logout());
     }
     
-    public function acladmin($access = null , $aro = null, $aco = null, $id =null){
-        
-        if((isset($access))&&(isset($aro))&&(isset($aco))){
-            $this->ArosAcos->create();
-            if(!empty($id)){
-                $this->ArosAcos->id = $id;
-            }
-            
-            if($access == 0){ $access ='1';}else{$access ='-1';}
-            
-            $this->ArosAcos->set('aro_id' , $aro);
-            $this->ArosAcos->set('aco_id' , $aco);
-            $this->ArosAcos->set('_create' , $access);
-            $this->ArosAcos->set('_read', $access);
-            $this->ArosAcos->set('_update', $access);
-            $this->ArosAcos->set('_delete', $access);
-            
-            if ($this->ArosAcos->save()) {
-                $this->_flash(__('msg-acl-save',true),'alert alert-success');
-                $this->redirect(array('action' => 'acladmin'));
-            } else {
-                $this->_flash(__('msg-acl-error',true),'alert alert-warning');
-            }
-            
-        }
-        
-        $acos = $this->Aco->find('all',array(
-            'recursive'=>-1
-        ));
-        
-        $aros = $this->Aro->find('all',array(
-            'conditions'=>array(
-                'model' =>'Group'
-            )
-        ));
-        
-        
-        $accessgroup = array();
-        foreach ($aros as $aro){
-            $aroid = $aro['Aro']['id'];
-            foreach ($aro['Aco'] as $aco){
-                
-                $idaco = $aco['id'];
-                
-                $acopermission= $aco['Permission'];
-                
-                if($acopermission['_create']){
-                    
-                    $accessgroup[$aro['Aro']['foreign_key']]['idpermission-'.$idaco]=$acopermission['id'];
-                    $accessgroup[$aro['Aro']['foreign_key']][$idaco]=$acopermission['_create'];
-                }
-                   
-            }
-        }
-        
-        
-        
-        $groups = $this->Group->find('all',
-            array(
-                'joins' => array(
-                    array(
-                        'table' => 'aros',
-                        'alias' => 'Aros',
-                        'type' => 'inner',
-                        'conditions' => array(
-                            'Group.id = Aros.foreign_key',
-                            'Aros.model' =>'Group'
-                        )
-                    )
-                ),
-                'fields' =>array('*')
-            )
-        );
-        
-        $this->set(compact('acos','groups','accessgroup'));
-        
-    }
     
-    public function home() {
+    public function home($category_id = null) {
+
+        if(isset($category_id)){
+            $this->setSidebarMenu($category_id);
+        }
         
     }
     

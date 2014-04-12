@@ -53,14 +53,14 @@ class Groupaction extends AppModel {
 	public $belongsTo = array(
 		'Group' => array(
 			'className' => 'Groups',
-			'foreignKey' => 'groups_id',
+			'foreignKey' => 'group_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Actions' => array(
 			'className' => 'Actions',
-			'foreignKey' => 'actions_id',
+			'foreignKey' => 'action_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
