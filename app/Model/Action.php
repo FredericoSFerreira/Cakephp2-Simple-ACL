@@ -42,7 +42,7 @@ class Action extends AppModel {
 				'message' => 'Your custom message here',
 			),
 		),
-		'categories_id' => array(
+		'category_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Your custom message here',

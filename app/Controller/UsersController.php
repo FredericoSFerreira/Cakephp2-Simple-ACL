@@ -87,6 +87,7 @@ class UsersController extends AppController {
 
     public function logout() {
         $this->Session->destroy();
+        $this->_flash(__('Sesión Cerrada Exitosamente',true),'alert alert-success');
         $this->redirect($this->Auth->logout());
     }
     
@@ -99,40 +100,159 @@ class UsersController extends AppController {
         
     }
     
-    public function index(){
+     /*----------------INDEX-----------------*/
 
-    }
+        /*----------------get_index-----------------*/
+        public function get_index(){
+            $this->User->paginate = array(
+                'order' => 'User.id ASC',
+                'limit' => 10
+            );
+            $lists = $this->paginate('User');
+            $this->set(compact('lists'));
+        }
+        /*----------------get_index-----------------*/
 
+        /*----------------index-----------------*/
+        public function index(){
 
-    public function add() {
-        
-        $groups = $this->Group->find('list',array(
-            'fields'=>array(
-                'id','name'
-            )
-        ));
-        
-        $this->set(compact('groups'));
-        
-        if ($this->request->is('post')) {
-            $this->User->create();
-            $this->User->set($this->data);
-            if ($this->User->save()) {
-                $this->Session->setFlash(__('The User has been saved'));
-                $this->redirect(array('action' => 'add'));
-            } else {
-                $this->Session->setFlash(__('The User could not be saved. Please, try again.'));
+            if ($this->request->is('get')) {
+                $this->get_index();
             }
         }
-	}
+        /*----------------index-----------------*/
+
+    /*----------------INDEX-----------------*/
+
+
+
+    /*----------------ADD-----------------*/
+
+        /*----------------post_add-----------------*/
+        public function post_add(){
+                
+            $this->User->set($this->data);
+            if($this->User->validates())
+            {
+                $this->User->create();
+                if ($this->User->save()) {
+                    $this->_flash(__('msg-user-save',true),'alert alert-success');
+                    $this->redirect(array('action' => 'add'));
+                } else {
+                     $this->_flash(__('msg-user-errorsave',true),'alert alert-warning');
+                    $this->redirect(array('action' => 'add'));
+                }
+            }
+                
+
+        }
+        /*----------------post_add-----------------*/
+
+        /*----------------add-----------------*/
+        public function add() {
+            if ($this->request->is('post')) {
+                $this->post_add();
+            }
+
+            $groups = $this->Group->find('list',array(
+                    'fields'=>array(
+                        'id','name'
+                    )
+            ));
+                
+            $this->set(compact('groups'));
+
+        }
+        /*----------------add-----------------*/
+
+    /*----------------ADD-----------------*/
+
     
+    /*----------------EDIT-----------------*/
 
-    public function edit(){
+        /*----------------get_edit-----------------*/
+        public function get_edit($id){
 
-    }
+            $this->User->id = $id;
+            if (!$this->User->exists()) {
+                $this->_flash(__('msg-users-edit-noexist',true),'alert alert-warning');
+                $this->redirect(array('action' => 'edit'));
+            }else{
+                $this->request->data = $this->User->read(null, $id);
+                $this->set(compact('id'));
+            }
 
-    public function delete(){
+        }
+        /*----------------get_edit-----------------*/
 
-    }
+        /*----------------post_edit-----------------*/
+        public function post_edit($id){
+
+                $this->User->set($this->data);
+                if($this->User->validates())
+                {
+                    if ($this->User->save()) {
+                        $this->_flash(__('msg-users-update',true),'alert alert-warning');
+                        $this->redirect(array('action' => 'edit'));
+                    }
+                }
+                $this->set(compact('id'));
+        }
+        /*----------------post_edit-----------------*/
+
+        /*----------------edit-----------------*/
+        public function edit($id=null){
+
+            $groups = $this->Group->find('list',array(
+                    'fields'=>array(
+                        'id','name'
+                    )
+            ));
+                
+            $this->set(compact('groups'));
+
+            if ($this->request->is('get')) {
+                if(empty($id)){
+                    $this->get_index();
+                }else{
+                    $this->get_edit($id);
+                }
+            }else{
+                if ($this->request->is('post')) {
+                    $this->post_edit($id);
+                }
+            }
+
+        }
+        /*----------------edit-----------------*/
+
+    /*----------------EDIT-----------------*/
+
+
+    /*----------------DELETE-----------------*/
+
+        /*----------------delete-----------------*/
+        public function delete($id=null){
+
+            if(!empty($id)){
+                $this->User->id = $id;
+                if (!$this->User->exists()) {
+                    $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
+                    $this->redirect(array('action' => 'delete'));
+                }   
+
+                if ($this->User->delete($id,true)) {
+                    $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
+                    $this->redirect(array('action' => 'delete'));
+                }
+            }else{
+                $this->get_index();
+            }
+
+        }
+        /*----------------delete-----------------*/
+
+    /*----------------DELETE-----------------*/
+
 
 }

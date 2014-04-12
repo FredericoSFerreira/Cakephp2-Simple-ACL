@@ -34,9 +34,43 @@ App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
     
-    public $belongsTo = array('Group');
     public $actsAs = array('Acl' => array('type' => 'requester'));
+
+    public $belongsTo = array(
+        'Group' => array(
+            'className' => 'Groups',
+            'foreignKey' => 'group_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
+    );
     
+    public $validate = array(
+        'username' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'message' => 'Error',
+            ),
+        ),
+        'password' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'message' => 'Error',
+            ),
+        ),
+        'group_id' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'message' => 'Your custom message here',
+            ),
+            'numeric' => array(
+                'rule' => array('numeric'),
+                'message' => 'Your custom message here',
+            ),
+        ),
+    );
+
     public function parentNode() {
         if (!$this->id && empty($this->data)) {
             return null;

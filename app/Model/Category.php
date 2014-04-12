@@ -36,7 +36,7 @@ class Category extends AppModel {
 				'message' => 'Your custom message here',
 			),
 		),
-		'modules_id' => array(
+		'module_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Your custom message here',

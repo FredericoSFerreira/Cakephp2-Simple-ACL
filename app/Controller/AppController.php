@@ -49,7 +49,7 @@ class AppController extends Controller {
     public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => false);
         $this->Auth->loginRedirect = '/users/home/';
-		$this->Auth->authError = "Access Denied";
+		$this->Auth->authError = "Acceso no autorizado.";
         $this->Auth->logoutRedirect = '/users/login';
 		$this->Auth->allowedActions= array('login','logout');
         $this->Auth->authenticate = array(

@@ -21,7 +21,7 @@ class Groupaction extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'groups_id' => array(
+		'group_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Your custom message here',
@@ -31,7 +31,7 @@ class Groupaction extends AppModel {
 				'message' => 'Your custom message here',
 			),
 		),
-		'actions_id' => array(
+		'action_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Your custom message here',
