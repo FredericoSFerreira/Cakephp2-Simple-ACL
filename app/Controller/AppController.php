@@ -139,6 +139,14 @@ class AppController extends Controller {
                     'order' => 4
                 )
             ),
+            array(
+                'Category'=> array(
+                    'id' => 6,
+                    'name' => 'Usuarios',
+                    'module_id' => 1,
+                    'order' => 5
+                )
+            ),
         );
 
 $data_actions = array(
@@ -210,6 +218,22 @@ array(
 'Action'=> array('id' => 21,'name' => 'Permisos : ACL','url' => '/groupactions/acl','category_id' => 5,'order' => 4)
 ),
 
+array(
+'Action'=> array('id' => 22,'name' => 'Usuarios : Listado','url' => '/users/index','category_id' => 6,'order' => 0)
+),
+array(
+'Action'=> array('id' => 23,'name' => 'Usuarios : Agregar','url' => '/users/add','category_id' => 6,'order' => 1)
+),
+array(
+'Action'=> array('id' => 24,'name' => 'Usuarios : Editar','url' => '/users/edit','category_id' => 6,'order' => 2)
+),
+array(
+'Action'=> array('id' => 25,'name' => 'Usuarios : Eliminar','url' => '/users/delete','category_id' => 6,'order' => 3)
+),
+array(
+'Action'=> array('id' => 26,'name' => 'Usuarios : Sync','url' => '/users/initDB','category_id' => 6,'order' => 4)
+),
+
 );  
 
             
@@ -227,17 +251,19 @@ array(
 
         if($this->Module->saveMany($data_modules)){
 
-            echo "Guardado de Modulos</br>";
+
+            $this->_flash(__('Instalación: Modulos Creados',true),'alert alert-success');
 
             if($this->Category->saveMany($data_categories)){
 
-                echo "Guardado de Categorias</br>";
+                $this->_flash(__('Instalación: Categorias Creadas',true),'alert alert-success');
 
                 if($this->Action->saveMany($data_actions)){
-                     echo "Guardado de Funciones</br>";
+                     
+                     $this->_flash(__('Instalación: Funciones Creadas',true),'alert alert-success');
 
                      if($this->Groupaction->saveMany($data_groupactions)){
-                          echo "Guardado de Grupos / Funciones</br>";
+                          $this->_flash(__('Instalación: Permisos Creados',true),'alert alert-success');
                      }
 
                 }

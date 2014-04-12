@@ -99,7 +99,11 @@ class UsersController extends AppController {
         
     }
     
-    
+    public function index(){
+
+    }
+
+
     public function add() {
         
         $groups = $this->Group->find('list',array(
@@ -122,4 +126,13 @@ class UsersController extends AppController {
         }
 	}
     
+
+    public function edit(){
+
+    }
+
+    public function delete(){
+
+    }
+
 }
