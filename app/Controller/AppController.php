@@ -354,15 +354,22 @@ array(
 
     public function setSidebarMenu($category_id=null){
 
-        
+
         $actions = $this->Session->read('User.actions');
         //pr($actions);
 
+        $actions_category = array();
         $actions_category = $this->Session->read('User.actions_category');
+
+        $action['Action'] = array('name'=>'Inicio','url'=>'/users/home/');
+        $actions_category[0]=$action['Action'];
 
         if(isset($category_id)){
 
             $actions_category = array();
+
+            $action['Action'] = array('name'=>'Inicio','url'=>'/users/home/');
+            $actions_category[0]=$action['Action'];
 
             $this->Category->id = $category_id;
             if (!$this->Category->exists()) {
@@ -382,6 +389,10 @@ array(
 
         //pr($actions_category);
         $this->set('actions_category',$actions_category);
+        $controladoractual = $this->params['controller'];        
+        $funcionactual = $this->params['action'];
+        $parametrosactuales = $this->params['pass'];
+        $this->set(compact('controladoractual','funcionactual','parametrosactuales'));
 
     }
 

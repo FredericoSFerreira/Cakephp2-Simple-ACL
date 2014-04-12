@@ -25,19 +25,27 @@
       <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
 
         <ul id="nav" class="ng-scope" style="overflow: hidden; width: auto; height: 100%;">
-          <li class="active"><a href="/users/home"> <span>Inicio</span> </a></li>
 
-          <?php 
-          if(!empty($actions_category)){
-            foreach ($actions_category as $keyact => $action) { ?>
-      
-            <li class="">
+    <?php 
+        if(!empty($actions_category)){
+            
+            foreach ($actions_category as $keyact => $action) { 
+
+              $actual  = false;
+              
+              $urlactual  = array('/'.$controladoractual.'/'.$funcionactual.'/','/'.$controladoractual.'/'.$funcionactual);
+              if(!$actual){
+                if(in_array($action["url"],$urlactual)){$actual = true;}
+              }
+ 
+            ?>
+            <li <?php if($actual){ ?>class="active"<?php } ?>>
               <a href="<?php echo $action["url"]; ?>"> 
                 <span><?php echo $action["name"]; ?></span> 
               </a>
             </li>    
+  <?php }?>
       <?php }?>
-    <?php }?>
 
         </ul>
 

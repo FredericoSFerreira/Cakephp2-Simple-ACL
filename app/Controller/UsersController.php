@@ -130,11 +130,11 @@ class UsersController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
-                
+            
+            $this->User->create();
             $this->User->set($this->data);
             if($this->User->validates())
             {
-                $this->User->create();
                 if ($this->User->save()) {
                     $this->_flash(__('msg-user-save',true),'alert alert-success');
                     $this->redirect(array('action' => 'add'));
