@@ -20,7 +20,6 @@ echo $this->Form->create('User', array('action' => 'add'));
 	<?php  echo $this->Form->input('group_id',array('label'=>'Grupos','type'=>'select','empty'=>'Seleccione'));
 	?>
 	</div>
-
 </div>
 
 <div class="row">
