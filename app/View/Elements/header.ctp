@@ -7,7 +7,7 @@
 	<title>Sistema</title>
 	<?php
 		echo $this->Html->css(array('font-awesome.min','weather-icons.min','main','estilos'));
-		echo $this->Html->script(array('jquery-1.11.0.min','bootstrap.min'));
+		echo $this->Html->script(array('jquery-1.11.0.min','bootstrap.min','bootbox.min','funciones'));
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>

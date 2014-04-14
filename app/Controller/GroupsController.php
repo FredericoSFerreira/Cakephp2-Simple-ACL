@@ -85,7 +85,7 @@ class GroupsController extends AppController {
                 if($this->Group->validates())
                 {
                     if ($this->Group->save()) {
-                        $this->_flash(__('msg-groups-update',true),'alert alert-warning');
+                        $this->_flash(__('msg-groups-update',true),'alert alert-success');
                         $this->redirect(array('action' => 'edit'));
                     }
                 }
@@ -95,6 +95,12 @@ class GroupsController extends AppController {
 
         /*----------------edit-----------------*/
         public function edit($id=null){
+
+            $form_config = array();
+            $form_config["title"] = "Editar Grupo";
+            $form_config["urlform"] = "edit";
+            $form_config["labelbutton"] = "Guardar";            
+            $this->set('form_config',$form_config);
 
             if ($this->request->is('get')) {
                 if(empty($id)){
@@ -122,7 +128,7 @@ class GroupsController extends AppController {
                 if($this->Group->validates())
                 {
                     if ($this->Group->save()) {
-                        $this->_flash(__('msg-groups-save',true),'alert alert-warning');
+                        $this->_flash(__('msg-groups-save',true),'alert alert-success');
                         $this->redirect(array('action' => 'add'));
                     }
                 }
@@ -131,6 +137,12 @@ class GroupsController extends AppController {
 
         /*----------------add-----------------*/
         public function add() {
+            $form_config = array();
+            $form_config["title"] = "Agregar Grupo";
+            $form_config["urlform"] = "add";
+            $form_config["labelbutton"] = "Agregar";
+            $this->set('form_config',$form_config);
+
             if ($this->request->is('post')) {
                 $this->post_add();
             }

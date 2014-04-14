@@ -49,7 +49,7 @@ class ActionsController extends AppController {
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('msg-actions-save',true),'alert alert-warning');
+                        $this->_flash(__('msg-actions-save',true),'alert alert-success');
                         $this->redirect(array('action' => 'add'));
                     }
                 }else{
@@ -70,6 +70,12 @@ class ActionsController extends AppController {
 
         /*----------------add-----------------*/
         public function add() {
+            $form_config = array();
+            $form_config["title"] = "Agregar Función";
+            $form_config["urlform"] = "add";
+            $form_config["labelbutton"] = "Agregar";
+            $this->set('form_config',$form_config);
+
             if ($this->request->is('post')) {
                 $this->post_add();
             }else{
@@ -115,7 +121,7 @@ class ActionsController extends AppController {
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('msg-modules-update',true),'alert alert-warning');
+                        $this->_flash(__('msg-actions-update',true),'alert alert-success');
                         $this->redirect(array('action' => 'edit'));
                     }
                 }else{
@@ -133,6 +139,13 @@ class ActionsController extends AppController {
 
         /*----------------edit-----------------*/
         public function edit($id=null){
+
+            $form_config = array();
+            $form_config["title"] = "Editar Función";
+            $form_config["urlform"] = "edit";
+            $form_config["labelbutton"] = "Guardar";            
+            $this->set('form_config',$form_config);
+
 
             if ($this->request->is('get')) {
                 if(empty($id)){

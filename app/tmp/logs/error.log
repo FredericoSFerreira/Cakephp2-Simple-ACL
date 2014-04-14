@@ -2593,3 +2593,199 @@ Stack Trace:
 #9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #10 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2014-04-14 00:34:40 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /users/home/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Use...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Use...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Use...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(UsersController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-14 00:34:44 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /users/home/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Use...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Use...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Use...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(UsersController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-14 00:35:53 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => User
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /users/home/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(90): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(74): Permission->check(Array, 'controllers/Use...', '*')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(110): DbAcl->check(Array, 'controllers/Use...', '*')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Auth/ActionsAuthorize.php(40): AclComponent->check(Array, 'controllers/Use...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(412): ActionsAuthorize->authorize(Array, Object(CakeRequest))
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AuthComponent.php(336): AuthComponent->isAuthorized(Array)
+#6 [internal function]: AuthComponent->startup(Object(UsersController))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#8 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(671): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-14 01:50:57 Error: [CakeException] AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => Group
+    [Aro0.foreign_key] => 1
+)
+"
+Request URL: /groups/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(219): AclNode->node(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Permission.php(171): Permission->getAclLink(Array, 'controllers')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/Acl/DbAcl.php(88): Permission->allow(Array, 'controllers', '*', 1)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Component/AclComponent.php(123): DbAcl->allow(Array, 'controllers', '*')
+#4 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(72): AclComponent->allow(Array, 'controllers')
+#5 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(526): AppController->syncACL()
+#6 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(64): AppController->is_Authorizate()
+#7 /home/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php(8): AppController->beforeFilter()
+#8 [internal function]: GroupsController->beforeFilter(Object(CakeEvent))
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2014-04-14 02:15:05 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`cakephpacl`.`users`, CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /groups/delete/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('DELETE `Group` ...', Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/Database/Mysql.php(419): DboSource->execute('DELETE `Group` ...')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2427): Mysql->delete(Object(Group), Array)
+#4 /home/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php(51): Model->delete('1', true)
+#5 [internal function]: GroupsController->delete('1')
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(GroupsController), Array)
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#9 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-04-14 02:30:56 Error: Fatal Error (4): syntax error, unexpected '[', expecting ')' in [/home/www/Cakephp2-Simple-ACL/app/View/Modules/add.ctp, line 10]
+2014-04-14 02:30:56 Error: [FatalErrorException] syntax error, unexpected '[', expecting ')'
+Request URL: /modules/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 10)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 10, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 10, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-14 02:36:21 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`cakephpacl`.`categories`, CONSTRAINT `fk_categories_modules` FOREIGN KEY (`module_id`) REFERENCES `modules` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /modules/delete/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('DELETE `Module`...', Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/Database/Mysql.php(419): DboSource->execute('DELETE `Module`...')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2427): Mysql->delete(Object(Module), Array)
+#4 /home/www/Cakephp2-Simple-ACL/app/Controller/ModulesController.php(145): Model->delete('1', true)
+#5 [internal function]: ModulesController->delete('1')
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ModulesController), Array)
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ModulesController), Object(CakeRequest), Object(CakeResponse))
+#9 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-04-14 02:37:47 Error: [MissingActionException] Action ModulesController::undefined() could not be found.
+Exception Attributes: array (
+  'controller' => 'ModulesController',
+  'action' => 'undefined',
+)
+Request URL: /modules/undefined
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ModulesController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-14 02:41:34 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`cakephpacl`.`users`, CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /groups/delete/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('DELETE `Group` ...', Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Datasource/Database/Mysql.php(419): DboSource->execute('DELETE `Group` ...')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(2427): Mysql->delete(Object(Group), Array)
+#4 /home/www/Cakephp2-Simple-ACL/app/Controller/GroupsController.php(50): Model->delete('1', true)
+#5 [internal function]: GroupsController->delete('1')
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(GroupsController), Array)
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#9 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-04-14 02:46:28 Error: Fatal Error (4): syntax error, unexpected '<' in [/home/www/Cakephp2-Simple-ACL/app/View/Modules/add.ctp, line 17]
+2014-04-14 02:46:29 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /modules/add
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 17, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 17, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-14 03:21:04 Error: [MissingControllerException] Controller class GroupsactionsController could not be found.
+Exception Attributes: array (
+  'class' => 'GroupsactionsController',
+  'plugin' => NULL,
+)
+Request URL: /groupsactions/edit/1
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-14 03:34:47 Error: [MissingActionException] Action GroupactionsController::edit() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupactionsController',
+  'action' => 'edit',
+)
+Request URL: /groupactions/edit
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupactionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-14 03:41:34 Error: [MissingActionException] Action GroupactionsController::edit() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupactionsController',
+  'action' => 'edit',
+)
+Request URL: /groupactions/edit
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupactionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

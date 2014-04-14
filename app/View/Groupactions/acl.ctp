@@ -1,10 +1,18 @@
-<div class="form-group">
-<h3 class="page-header">Listado de Funciones / Grupos</h3>
-</div>
-<table class="table table-striped">
+<section class="panel panel-default">
+    <div class="panel-heading">
+        <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <?php echo __("Listado de ACL"); ?>
+        </strong>
+    </div>
+
+    <div class="panel-body">
+
+
+<table class="table table-bordered">
         <tr>
             <th># | Parent</th>
-            <th>Access</th>
+            <th>Acceso</th>
             <?php foreach($groups as $group){ ?>
                 <th><?php echo $group['Group']['name']; ?></th>
             <?php } ?>     
@@ -80,3 +88,5 @@
         <?php } ?>
          
 </table>
+</div>
+</section>

@@ -150,6 +150,13 @@ class UsersController extends AppController {
 
         /*----------------add-----------------*/
         public function add() {
+
+            $form_config = array();
+            $form_config["title"] = "Agregar Usuario";
+            $form_config["urlform"] = "add";
+            $form_config["labelbutton"] = "Agregar";
+            $this->set('form_config',$form_config);
+
             if ($this->request->is('post')) {
                 $this->post_add();
             }
@@ -202,6 +209,12 @@ class UsersController extends AppController {
 
         /*----------------edit-----------------*/
         public function edit($id=null){
+
+            $form_config = array();
+            $form_config["title"] = "Editar Usuario";
+            $form_config["urlform"] = "edit";
+            $form_config["labelbutton"] = "Guardar";            
+            $this->set('form_config',$form_config);
 
             $groups = $this->Group->find('list',array(
                     'fields'=>array(

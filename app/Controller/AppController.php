@@ -61,6 +61,7 @@ class AppController extends Controller {
             ), 'Form'
         );
 
+        $this->set('action',$this->params["action"]);
         $this->is_Authorizate();
         
     }
@@ -76,6 +77,8 @@ class AppController extends Controller {
         $args = explode(' ', $command);
         $dispatcher = new ShellDispatcher($args, false);
         $dispatcher->dispatch();
+
+        $this->_flash(__('ACL Sincronizado',true),'alert alert-success');
     }
 
     public function installBase(){
@@ -209,29 +212,26 @@ array(
 'Action'=> array('id' => 18,'name' => 'Permisos : Agregar','url' => '/groupactions/add','category_id' => 5,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 19,'name' => 'Permisos : Editar','url' => '/groupactions/edit','category_id' => 5,'order' => 2)
+'Action'=> array('id' => 19,'name' => 'Permisos : Eliminar','url' => '/groupactions/delete','category_id' => 5,'order' => 3)
 ),
 array(
-'Action'=> array('id' => 20,'name' => 'Permisos : Eliminar','url' => '/groupactions/delete','category_id' => 5,'order' => 3)
-),
-array(
-'Action'=> array('id' => 21,'name' => 'Permisos : ACL','url' => '/groupactions/acl','category_id' => 5,'order' => 4)
+'Action'=> array('id' => 20,'name' => 'Permisos : ACL','url' => '/groupactions/acl','category_id' => 5,'order' => 4)
 ),
 
 array(
-'Action'=> array('id' => 22,'name' => 'Usuarios : Listado','url' => '/users/index','category_id' => 6,'order' => 0)
+'Action'=> array('id' => 21,'name' => 'Usuarios : Listado','url' => '/users/index','category_id' => 6,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 23,'name' => 'Usuarios : Agregar','url' => '/users/add','category_id' => 6,'order' => 1)
+'Action'=> array('id' => 22,'name' => 'Usuarios : Agregar','url' => '/users/add','category_id' => 6,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 24,'name' => 'Usuarios : Editar','url' => '/users/edit','category_id' => 6,'order' => 2)
+'Action'=> array('id' => 23,'name' => 'Usuarios : Editar','url' => '/users/edit','category_id' => 6,'order' => 2)
 ),
 array(
-'Action'=> array('id' => 25,'name' => 'Usuarios : Eliminar','url' => '/users/delete','category_id' => 6,'order' => 3)
+'Action'=> array('id' => 24,'name' => 'Usuarios : Eliminar','url' => '/users/delete','category_id' => 6,'order' => 3)
 ),
 array(
-'Action'=> array('id' => 26,'name' => 'Usuarios : Sync','url' => '/users/initDB','category_id' => 6,'order' => 4)
+'Action'=> array('id' => 25,'name' => 'Usuarios : Sync','url' => '/users/initDB','category_id' => 6,'order' => 4)
 ),
 
 );  
@@ -275,7 +275,7 @@ array(
 
     }
 
-    public function install_acl($cont_group,$cont_users){
+    public function install_acl($cont_modules, $cont_group,$cont_users){
 
         //pr($this->params);
         
@@ -285,13 +285,9 @@ array(
 
             if($this->params["controller"] == "groups"){
                 $this->Auth->allow('add');
-                
-                
-
                 if($this->params["action"] == "add"){
                     $redirect =0;
                 }
-
 
             }
 
@@ -323,15 +319,9 @@ array(
 
                 if($cont_users == 1){
 
-
-                    $modules = $this->Module->find("count",array("recursive"=>-1));
-
-                    if($modules == 0){
-
+                    if($cont_modules == 0){
                         $this->installBase();
-
                     }
-
 
                     $this->syncACL();
 
@@ -512,16 +502,29 @@ array(
             $this->setSidebarMenu();
         }
 
-        $cont_group = $this->Group->find("count",array(
-            "recursive" => "-1"
-        ));
-        $cont_users = $this->User->find("count",array(
-            "recursive" => "-1"
-        ));
 
-        if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
-            $this->install_acl($cont_group, $cont_users);
+        $result = $this->Group->query("SELECT count(*) as contador FROM aros_acos;");
+        $cantidad_array= $result[0][0];
+
+        if($cantidad_array["contador"] == 0){
+
+            $cont_modules = $this->Module->find("count",array("recursive"=>-1));
+            
+            $cont_group = $this->Group->find("count",array(
+            "recursive" => "-1"
+            ));
+            $cont_users = $this->User->find("count",array(
+                "recursive" => "-1"
+            ));
+
+            if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
+                $this->install_acl($cont_modules,$cont_group, $cont_users);
+            }
         }
+        
+        
+
+        
         
     }
 

@@ -47,7 +47,7 @@ class CategoriesController extends AppController {
                 if($this->Category->validates())
                 {
                     if ($this->Category->save()) {
-                        $this->_flash(__('msg-groups-save',true),'alert alert-warning');
+                        $this->_flash(__('msg-categories-save',true),'alert alert-success');
                         $this->redirect(array('action' => 'add'));
                     }
                 }else{
@@ -68,6 +68,12 @@ class CategoriesController extends AppController {
 
         /*----------------add-----------------*/
         public function add() {
+            $form_config = array();
+            $form_config["title"] = "Agregar Categoria";
+            $form_config["urlform"] = "add";
+            $form_config["labelbutton"] = "Agregar";
+            $this->set('form_config',$form_config);
+
             if ($this->request->is('post')) {
                 $this->post_add();
             }else{
@@ -114,7 +120,7 @@ class CategoriesController extends AppController {
                 if($this->Category->validates())
                 {
                     if ($this->Category->save()) {
-                        $this->_flash(__('msg-modules-update',true),'alert alert-warning');
+                        $this->_flash(__('msg-categories-update',true),'alert alert-success');
                         $this->redirect(array('action' => 'edit'));
                     }
                 }else{
@@ -132,6 +138,12 @@ class CategoriesController extends AppController {
 
         /*----------------edit-----------------*/
         public function edit($id=null){
+
+            $form_config = array();
+            $form_config["title"] = "Editar Categoria";
+            $form_config["urlform"] = "edit";
+            $form_config["labelbutton"] = "Guardar";            
+            $this->set('form_config',$form_config);
 
             if ($this->request->is('get')) {
                 if(empty($id)){

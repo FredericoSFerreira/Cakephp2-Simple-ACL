@@ -58,6 +58,11 @@ class GroupactionsController extends AppController {
 
         /*----------------add-----------------*/
         public function add() {
+            $form_config = array();
+            $form_config["title"] = "Agregar Grupo";
+            $form_config["urlform"] = "add";
+            $form_config["labelbutton"] = "Agregar";
+            $this->set('form_config',$form_config);
             
         	$this->set(
                 	array(
