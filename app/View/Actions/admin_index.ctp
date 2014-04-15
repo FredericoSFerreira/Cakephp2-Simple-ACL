@@ -16,7 +16,7 @@
                 <th><?php echo $this->Paginator->sort('Action.order','Orden');?></th>
                 <th><?php echo $this->Paginator->sort('Category.name','Categoria');?></th>
                 <?php 
-                $actionlocate = array('edit','delete');
+                $actionlocate = array('admin_edit','admin_delete');
                 if(in_array($action, $actionlocate)){ 
                 ?>
                 <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
@@ -38,12 +38,12 @@
                             
                         <?php 
 
-                        if($action == "edit"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/actions/edit/'.$list['Action']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
+                        if($action == "admin_edit"){
+                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/admin/actions/edit/'.$list['Action']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
                         }
 
-                         if($action == "delete"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/actions/delete/'.$list['Action']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['Action']['id']." ?", 'escape' => false));
+                         if($action == "admin_delete"){
+                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/admin/actions/delete/'.$list['Action']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['Action']['id']." ?", 'escape' => false));
                         }
 
                         ?>

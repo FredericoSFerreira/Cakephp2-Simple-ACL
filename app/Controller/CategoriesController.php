@@ -28,7 +28,7 @@ class CategoriesController extends AppController {
         /*----------------get_index-----------------*/
 
         /*----------------index-----------------*/
-        public function index(){
+        public function admin_index(){
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -48,7 +48,7 @@ class CategoriesController extends AppController {
                 {
                     if ($this->Category->save()) {
                         $this->_flash(__('msg-categories-save',true),'alert alert-success');
-                        $this->redirect(array('action' => 'add'));
+                        $this->redirect(array('action' => 'admin_add'));
                     }
                 }else{
                 	$this->get_add();
@@ -67,10 +67,10 @@ class CategoriesController extends AppController {
         /*----------------get_add-----------------*/
 
         /*----------------add-----------------*/
-        public function add() {
+        public function admin_add() {
             $form_config = array();
             $form_config["title"] = "Agregar Categoria";
-            $form_config["urlform"] = "add";
+            $form_config["urlform"] = "admin_add";
             $form_config["labelbutton"] = "Agregar";
             $this->set('form_config',$form_config);
 
@@ -97,7 +97,7 @@ class CategoriesController extends AppController {
             $this->Category->id = $id;
             if (!$this->Category->exists()) {
                 $this->_flash(__('msg-categorys-edit-noexist',true),'alert alert-warning');
-                $this->redirect(array('action' => 'edit'));
+                $this->redirect(array('action' => 'admin_edit'));
             }else{
 
             	$this->set(
@@ -121,7 +121,7 @@ class CategoriesController extends AppController {
                 {
                     if ($this->Category->save()) {
                         $this->_flash(__('msg-categories-update',true),'alert alert-success');
-                        $this->redirect(array('action' => 'edit'));
+                        $this->redirect(array('action' => 'admin_edit'));
                     }
                 }else{
 
@@ -137,11 +137,11 @@ class CategoriesController extends AppController {
         /*----------------post_edit-----------------*/
 
         /*----------------edit-----------------*/
-        public function edit($id=null){
+        public function admin_edit($id=null){
 
             $form_config = array();
             $form_config["title"] = "Editar Categoria";
-            $form_config["urlform"] = "edit";
+            $form_config["urlform"] = "admin_edit";
             $form_config["labelbutton"] = "Guardar";            
             $this->set('form_config',$form_config);
 
@@ -166,18 +166,18 @@ class CategoriesController extends AppController {
     /*----------------DELETE-----------------*/
 
         /*----------------delete-----------------*/
-        public function delete($id=null){
+        public function admin_delete($id=null){
 
             if(!empty($id)){
                 $this->Category->id = $id;
                 if (!$this->Category->exists()) {
                     $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Category->delete($id,true)) {
                     $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

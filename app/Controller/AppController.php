@@ -47,11 +47,11 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {        
-        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => false);
-        $this->Auth->loginRedirect = '/users/home/';
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => true);
+        $this->Auth->loginRedirect = '/admin/users/home/';
 		$this->Auth->authError = "Acceso no autorizado.";
-        $this->Auth->logoutRedirect = '/users/login';
-		$this->Auth->allowedActions= array('login','logout');
+        $this->Auth->logoutRedirect = '/admin/users/login/';
+		$this->Auth->allowedActions= array('admin_login','admin_logout');
         $this->Auth->authenticate = array(
             AuthComponent::ALL => array(
                 'fields' => array(
@@ -154,84 +154,84 @@ class AppController extends Controller {
 
 $data_actions = array(
 array(
-'Action'=> array('id' => 1,'name' => 'Grupos : Listado','url' => '/groups/index','category_id' => 1,'order' => 0)
+'Action'=> array('id' => 1,'name' => 'Grupos : Listado','url' => '/admin/groups/index','category_id' => 1,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 2,'name' => 'Grupos : Agregar','url' => '/groups/add','category_id' => 1,'order' => 1)
+'Action'=> array('id' => 2,'name' => 'Grupos : Agregar','url' => '/admin/groups/add','category_id' => 1,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 3,'name' => 'Grupos : Editar','url' => '/groups/edit','category_id' => 1,'order' => 2)
+'Action'=> array('id' => 3,'name' => 'Grupos : Editar','url' => '/admin/groups/edit','category_id' => 1,'order' => 2)
 ),
 array(
-'Action'=> array('id' => 4,'name' => 'Grupos : Eliminar','url' => '/groups/delete','category_id' => 1,'order' => 3)
-),
-
-array(
-'Action'=> array('id' => 5,'name' => 'Modulos : Listado','url' => '/modules/index','category_id' => 2,'order' => 0)
-),
-array(
-'Action'=> array('id' => 6,'name' => 'Modulos : Agregar','url' => '/modules/add','category_id' => 2,'order' => 1)
-),
-array(
-'Action'=> array('id' => 7,'name' => 'Modulos : Editar','url' => '/modules/edit','category_id' => 2,'order' => 2)
-),
-array(
-'Action'=> array('id' => 8,'name' => 'Modulos : Eliminar','url' => '/modules/delete','category_id' => 2,'order' => 3)
+'Action'=> array('id' => 4,'name' => 'Grupos : Eliminar','url' => '/admin/groups/delete','category_id' => 1,'order' => 3)
 ),
 
 array(
-'Action'=> array('id' => 9,'name' => 'Categorias : Listado','url' => '/categories/index','category_id' => 3,'order' => 0)
+'Action'=> array('id' => 5,'name' => 'Modulos : Listado','url' => '/admin/modules/index','category_id' => 2,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 10,'name' => 'Categorias : Agregar','url' => '/categories/add','category_id' => 3,'order' => 1)
+'Action'=> array('id' => 6,'name' => 'Modulos : Agregar','url' => '/admin/modules/add','category_id' => 2,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 11,'name' => 'Categorias : Editar','url' => '/categories/edit','category_id' => 3,'order' => 2)
+'Action'=> array('id' => 7,'name' => 'Modulos : Editar','url' => '/admin/modules/edit','category_id' => 2,'order' => 2)
 ),
 array(
-'Action'=> array('id' => 12,'name' => 'Categorias : Eliminar','url' => '/categories/delete','category_id' => 3,'order' => 3)
-),
-
-array(
-'Action'=> array('id' => 13,'name' => 'Funciones : Listado','url' => '/actions/index','category_id' => 4,'order' => 0)
-),
-array(
-'Action'=> array('id' => 14,'name' => 'Funciones : Agregar','url' => '/actions/add','category_id' => 4,'order' => 1)
-),
-array(
-'Action'=> array('id' => 15,'name' => 'Funciones : Editar','url' => '/actions/edit','category_id' => 4,'order' => 2)
-),
-array(
-'Action'=> array('id' => 16,'name' => 'Funciones : Eliminar','url' => '/actions/delete','category_id' => 4,'order' => 3)
+'Action'=> array('id' => 8,'name' => 'Modulos : Eliminar','url' => '/admin/modules/delete','category_id' => 2,'order' => 3)
 ),
 
 array(
-'Action'=> array('id' => 17,'name' => 'Permisos : Listado','url' => '/groupactions/index','category_id' => 5,'order' => 0)
+'Action'=> array('id' => 9,'name' => 'Categorias : Listado','url' => '/admin/categories/index','category_id' => 3,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 18,'name' => 'Permisos : Agregar','url' => '/groupactions/add','category_id' => 5,'order' => 1)
+'Action'=> array('id' => 10,'name' => 'Categorias : Agregar','url' => '/admin/categories/add','category_id' => 3,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 19,'name' => 'Permisos : Eliminar','url' => '/groupactions/delete','category_id' => 5,'order' => 3)
+'Action'=> array('id' => 11,'name' => 'Categorias : Editar','url' => '/admin/categories/edit','category_id' => 3,'order' => 2)
 ),
 array(
-'Action'=> array('id' => 20,'name' => 'Permisos : ACL','url' => '/groupactions/acl','category_id' => 5,'order' => 4)
+'Action'=> array('id' => 12,'name' => 'Categorias : Eliminar','url' => '/admin/categories/delete','category_id' => 3,'order' => 3)
 ),
 
 array(
-'Action'=> array('id' => 21,'name' => 'Usuarios : Listado','url' => '/users/index','category_id' => 6,'order' => 0)
+'Action'=> array('id' => 13,'name' => 'Funciones : Listado','url' => '/admin/actions/index','category_id' => 4,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 22,'name' => 'Usuarios : Agregar','url' => '/users/add','category_id' => 6,'order' => 1)
+'Action'=> array('id' => 14,'name' => 'Funciones : Agregar','url' => '/admin/actions/add','category_id' => 4,'order' => 1)
 ),
 array(
-'Action'=> array('id' => 23,'name' => 'Usuarios : Editar','url' => '/users/edit','category_id' => 6,'order' => 2)
+'Action'=> array('id' => 15,'name' => 'Funciones : Editar','url' => '/admin/actions/edit','category_id' => 4,'order' => 2)
 ),
 array(
-'Action'=> array('id' => 24,'name' => 'Usuarios : Eliminar','url' => '/users/delete','category_id' => 6,'order' => 3)
+'Action'=> array('id' => 16,'name' => 'Funciones : Eliminar','url' => '/admin/actions/delete','category_id' => 4,'order' => 3)
+),
+
+array(
+'Action'=> array('id' => 17,'name' => 'Permisos : Listado','url' => '/admin/groupactions/index','category_id' => 5,'order' => 0)
 ),
 array(
-'Action'=> array('id' => 25,'name' => 'Usuarios : Sync','url' => '/users/initDB','category_id' => 6,'order' => 4)
+'Action'=> array('id' => 18,'name' => 'Permisos : Agregar','url' => '/admin/groupactions/add','category_id' => 5,'order' => 1)
+),
+array(
+'Action'=> array('id' => 19,'name' => 'Permisos : Eliminar','url' => '/admin/groupactions/delete','category_id' => 5,'order' => 3)
+),
+array(
+'Action'=> array('id' => 20,'name' => 'Permisos : ACL','url' => '/admin/groupactions/acl','category_id' => 5,'order' => 4)
+),
+
+array(
+'Action'=> array('id' => 21,'name' => 'Usuarios : Listado','url' => '/admin/users/index','category_id' => 6,'order' => 0)
+),
+array(
+'Action'=> array('id' => 22,'name' => 'Usuarios : Agregar','url' => '/admin/users/add','category_id' => 6,'order' => 1)
+),
+array(
+'Action'=> array('id' => 23,'name' => 'Usuarios : Editar','url' => '/admin/users/edit','category_id' => 6,'order' => 2)
+),
+array(
+'Action'=> array('id' => 24,'name' => 'Usuarios : Eliminar','url' => '/admin/users/delete','category_id' => 6,'order' => 3)
+),
+array(
+'Action'=> array('id' => 25,'name' => 'Usuarios : Sync','url' => '/admin/users/initDB','category_id' => 6,'order' => 4)
 ),
 
 );  
@@ -284,34 +284,34 @@ array(
         if($cont_group == 0){
 
             if($this->params["controller"] == "groups"){
-                $this->Auth->allow('add');
-                if($this->params["action"] == "add"){
+                $this->Auth->allow('admin_add');
+                if($this->params["action"] == "admin_add"){
                     $redirect =0;
                 }
 
             }
 
             if($redirect){
-                $this->redirect(array('controller' => 'groups','action' => 'add'));
+                $this->redirect(array('controller' => 'groups','action' => 'admin_add'));
             }
             
         }else{
 
             if($cont_users == 0){
                 if($this->params["controller"] == "users"){
-                    $this->Auth->allow('add');
+                    $this->Auth->allow('admin_add');
 
-                    if($this->params["action"] == "add"){
+                    if($this->params["action"] == "admin_add"){
                         $redirect =0;
                     }
                     
                     if($redirect){
-                        $this->redirect(array('controller' => 'users','action' => 'add'));
+                        $this->redirect(array('controller' => 'users','action' => 'admin_add'));
                     }
 
                 }else{
                     if($this->params["controller"] == "groups"){
-                        $this->redirect(array('controller' => 'users','action' => 'add'));
+                        $this->redirect(array('controller' => 'users','action' => 'admin_add'));
                     }
                 }
                 
@@ -326,10 +326,10 @@ array(
                     $this->syncACL();
 
                     if($this->params["controller"] == "users"){
-                        if(($this->params["action"] != "login")||($this->params["action"] != "logout")){
+                        if(($this->params["action"] != "admin_login")||($this->params["action"] != "admin_logout")){
                           $redirect =0;
                           if($redirect){
-                            $this->redirect(array('controller' => 'users','action' => 'logout'));
+                            $this->redirect(array('controller' => 'users','action' => 'admin_logout'));
                           }
 
                         }
@@ -351,20 +351,20 @@ array(
         $actions_category = array();
         $actions_category = $this->Session->read('User.actions_category');
 
-        $action['Action'] = array('name'=>'Inicio','url'=>'/users/home/');
+        $action['Action'] = array('name'=>'Inicio','url'=>'/admin/users/home/');
         $actions_category[0]=$action['Action'];
 
         if(isset($category_id)){
 
             $actions_category = array();
 
-            $action['Action'] = array('name'=>'Inicio','url'=>'/users/home/');
+            $action['Action'] = array('name'=>'Inicio','url'=>'/admin/users/home/');
             $actions_category[0]=$action['Action'];
 
             $this->Category->id = $category_id;
             if (!$this->Category->exists()) {
                 $this->_flash(__('msg-categorys-edit-noexist',true),'alert alert-warning');
-                $this->redirect(array('action' => 'home'));
+                $this->redirect(array('action' => 'admin_home'));
             }else{
 
                 foreach ($actions as $keyaction => $action) {

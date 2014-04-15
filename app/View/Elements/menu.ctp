@@ -28,7 +28,7 @@
 
                                 <?php foreach ($module['categories'] as $keycat => $categories) {?>
                                   <li>
-                                    <a href="/users/home/<?php echo $categories["id"];?>">
+                                    <a href="/admin/users/home/<?php echo $categories["id"];?>">
                                       <?php echo $categories['name'];?>
                                     </a>
                                   </li>
@@ -40,7 +40,7 @@
                   </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/users/logout">Cerrar Sesión</a></li>
+                  <li><a href="/admin/users/logout">Cerrar Sesión</a></li>
                 </ul>
       </div><!-- /.navbar-collapse -->
       <?php } ?>

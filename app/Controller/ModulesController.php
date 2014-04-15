@@ -28,7 +28,7 @@ class ModulesController extends AppController {
         /*----------------get_index-----------------*/
 
         /*----------------index-----------------*/
-        public function index(){
+        public function admin_index(){
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -48,18 +48,18 @@ class ModulesController extends AppController {
                 {
                     if ($this->Module->save()) {
                         $this->_flash(__('msg-modules-save',true),'alert alert-success');
-                        $this->redirect(array('action' => 'add'));
+                        $this->redirect(array('action' => 'admin_add'));
                     }
                 }
         }
         /*----------------post_add-----------------*/
 
         /*----------------add-----------------*/
-        public function add() {
+        public function admin_add() {
 
             $form_config = array();
             $form_config["title"] = "Agregar Modulo";
-            $form_config["urlform"] = "add";
+            $form_config["urlform"] = "admin_add";
             $form_config["labelbutton"] = "Agregar";
             $this->set('form_config',$form_config);
 
@@ -80,7 +80,7 @@ class ModulesController extends AppController {
             $this->Module->id = $id;
             if (!$this->Module->exists()) {
                 $this->_flash(__('msg-modules-edit-noexist',true),'alert alert-warning');
-                $this->redirect(array('action' => 'edit'));
+                $this->redirect(array('action' => 'admin_edit'));
             }else{
                 $this->request->data = $this->Module->read(null, $id);
                 $this->set(compact('id'));
@@ -97,7 +97,7 @@ class ModulesController extends AppController {
                 {
                     if ($this->Module->save()) {
                         $this->_flash(__('msg-modules-update',true),'alert alert-success');
-                        $this->redirect(array('action' => 'edit'));
+                        $this->redirect(array('action' => 'admin_edit'));
                     }
                 }
                 $this->set(compact('id'));
@@ -105,11 +105,11 @@ class ModulesController extends AppController {
         /*----------------post_edit-----------------*/
 
         /*----------------edit-----------------*/
-        public function edit($id=null){
+        public function admin_edit($id=null){
 
             $form_config = array();
             $form_config["title"] = "Editar Modulo";
-            $form_config["urlform"] = "edit";
+            $form_config["urlform"] = "admin_edit";
             $form_config["labelbutton"] = "Guardar";            
             $this->set('form_config',$form_config);
 
@@ -133,18 +133,18 @@ class ModulesController extends AppController {
     /*----------------DELETE-----------------*/
 
         /*----------------delete-----------------*/
-        public function delete($id=null){
+        public function admin_delete($id=null){
 
             if(!empty($id)){
                 $this->Module->id = $id;
                 if (!$this->Module->exists()) {
                     $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Module->delete($id,true)) {
                     $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

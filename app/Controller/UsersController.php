@@ -34,13 +34,13 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
     
     public function beforeFilter() {
-        $this->Auth->allow('login','logout');
+        $this->Auth->allow('admin_login','admin_logout');
         parent::beforeFilter();
     }
     
-    public function initDB() {
+    public function admin_initDB() {
         $this->syncACL();
-        $this->redirect(array('action' => 'home'));
+        $this->redirect(array('action' => 'admin_home'));
     }
     
     
@@ -65,12 +65,12 @@ class UsersController extends AppController {
     public function get_login(){
 
         if($this->Auth->user('id')){
-            $this->redirect(array('action' => 'home'));
+            $this->redirect(array('action' => 'admin_home'));
         }
 
     }
 
-    public function login() {
+    public function admin_login() {
 
         $this->layout = 'login';
 
@@ -85,14 +85,14 @@ class UsersController extends AppController {
         }
     }
 
-    public function logout() {
+    public function admin_logout() {
         $this->Session->destroy();
         $this->_flash(__('Sesión Cerrada Exitosamente',true),'alert alert-success');
         $this->redirect($this->Auth->logout());
     }
     
     
-    public function home($category_id = null) {
+    public function admin_home($category_id = null) {
 
         if(isset($category_id)){
             $this->setSidebarMenu($category_id);
@@ -114,7 +114,7 @@ class UsersController extends AppController {
         /*----------------get_index-----------------*/
 
         /*----------------index-----------------*/
-        public function index(){
+        public function admin_index(){
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -137,11 +137,10 @@ class UsersController extends AppController {
             {
                 if ($this->User->save()) {
                     $this->_flash(__('msg-user-save',true),'alert alert-success');
-                    $this->redirect(array('action' => 'add'));
                 } else {
                      $this->_flash(__('msg-user-errorsave',true),'alert alert-warning');
-                    $this->redirect(array('action' => 'add'));
                 }
+                $this->redirect(array('action' => 'admin_add'));
             }
                 
 
@@ -149,11 +148,11 @@ class UsersController extends AppController {
         /*----------------post_add-----------------*/
 
         /*----------------add-----------------*/
-        public function add() {
+        public function admin_add() {
 
             $form_config = array();
             $form_config["title"] = "Agregar Usuario";
-            $form_config["urlform"] = "add";
+            $form_config["urlform"] = "admin_add";
             $form_config["labelbutton"] = "Agregar";
             $this->set('form_config',$form_config);
 
@@ -183,7 +182,7 @@ class UsersController extends AppController {
             $this->User->id = $id;
             if (!$this->User->exists()) {
                 $this->_flash(__('msg-users-edit-noexist',true),'alert alert-warning');
-                $this->redirect(array('action' => 'edit'));
+                $this->redirect(array('action' => 'admin_edit'));
             }else{
                 $this->request->data = $this->User->read(null, $id);
                 $this->set(compact('id'));
@@ -200,7 +199,7 @@ class UsersController extends AppController {
                 {
                     if ($this->User->save()) {
                         $this->_flash(__('msg-users-update',true),'alert alert-warning');
-                        $this->redirect(array('action' => 'edit'));
+                        $this->redirect(array('action' => 'admin_edit'));
                     }
                 }
                 $this->set(compact('id'));
@@ -208,11 +207,11 @@ class UsersController extends AppController {
         /*----------------post_edit-----------------*/
 
         /*----------------edit-----------------*/
-        public function edit($id=null){
+        public function admin_edit($id=null){
 
             $form_config = array();
             $form_config["title"] = "Editar Usuario";
-            $form_config["urlform"] = "edit";
+            $form_config["urlform"] = "admin_edit";
             $form_config["labelbutton"] = "Guardar";            
             $this->set('form_config',$form_config);
 
@@ -251,12 +250,12 @@ class UsersController extends AppController {
                 $this->User->id = $id;
                 if (!$this->User->exists()) {
                     $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->User->delete($id,true)) {
                     $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

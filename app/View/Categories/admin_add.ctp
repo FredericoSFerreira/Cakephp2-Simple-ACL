@@ -15,7 +15,7 @@
 				<div class="form-group">
 
 		<?php
-		if($action == "edit"){echo $this->Form->input('id');}
+		if($action == "admin_edit"){echo $this->Form->input('id');}
 		echo $this->Form->input('name',array("label"=>"Nombre de Categoria","required"=>false));?>
 				</div>
 

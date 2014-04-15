@@ -34,6 +34,7 @@
  * In development mode, you need to click the flash message to continue.
  */
 	Configure::write('debug', 2);
+	Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Configure the Error handler used to handle errors for your application. By default

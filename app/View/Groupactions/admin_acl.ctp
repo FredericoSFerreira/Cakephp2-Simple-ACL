@@ -76,7 +76,7 @@
               } 
             ?>
                 <td><?php 
-                    $url = '/groupactions/acl/'.$access.'/'.$group['Aros']['id'].'/'.$acoid.'/'.$permisionid;
+                    $url = '/admin/groupactions/acl/'.$access.'/'.$group['Aros']['id'].'/'.$acoid.'/'.$permisionid;
                     if($access){
                         echo $this->Html->link(_('Revocar'), $url, array('class' => 'btn btn-warning'));
                     }else{

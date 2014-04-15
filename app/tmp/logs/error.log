@@ -2789,3 +2789,326 @@ Stack Trace:
 #1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupactionsController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-04-15 01:31:25 Error: [MissingActionException] Action UsersController::admin_login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_login',
+)
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:31:46 Error: [MissingActionException] Action UsersController::login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'login',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:32:18 Error: [MissingActionException] Action UsersController::login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'login',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:33:14 Error: [MissingActionException] Action UsersController::login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'login',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:33:23 Error: [MissingActionException] Action UsersController::login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'login',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:33:40 Error: [MissingActionException] Action UsersController::login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'login',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:33:47 Error: [PrivateActionException] Private Action UsersController::admin_login() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_login',
+)
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:35:07 Error: [PrivateActionException] Private Action UsersController::admin_login() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_login',
+)
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:36:30 Error: [MissingViewException] View file "/home/www/Cakephp2-Simple-ACL/app/View/Users/admin_login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/www/Cakephp2-Simple-ACL/app/View/Users/admin_login.ctp',
+)
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-04-15 01:40:14 Error: [MissingViewException] View file "/home/www/Cakephp2-Simple-ACL/app/View/Pages/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/www/Cakephp2-Simple-ACL/app/View/Pages/index.ctp',
+)
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-04-15 01:41:26 Error: [MissingActionException] Action UsersController::logout() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logout',
+)
+Request URL: /users/logout
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:41:47 Error: [MissingActionException] Action UsersController::logout() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logout',
+)
+Request URL: /users/logout
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:44:22 Error: [MissingActionException] Action UsersController::admin_initDB() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_initDB',
+)
+Request URL: /admin/users/initDB
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 01:48:55 Error: [MissingTableException] Table groups for model Group was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'groups',
+  'class' => 'Group',
+  'ds' => 'default',
+)
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3243): Model->setSource('groups')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(3060): Model->getDataSource()
+#2 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(506): Model->query('SELECT count(*)...')
+#3 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(65): AppController->is_Authorizate()
+#4 /home/www/Cakephp2-Simple-ACL/app/Controller/UsersController.php(38): AppController->beforeFilter()
+#5 [internal function]: UsersController->beforeFilter(Object(CakeEvent))
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#10 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2014-04-15 01:58:31 Error: [MissingActionException] Action ModulesController::admin_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ModulesController',
+  'action' => 'admin_index',
+)
+Request URL: /admin/modules/index
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ModulesController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 02:08:08 Error: [MissingActionException] Action CategoriesController::admin_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriesController',
+  'action' => 'admin_index',
+)
+Request URL: /admin/categories/index
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 02:11:58 Error: [MissingActionException] Action GroupactionsController::admin_acl() could not be found.
+Exception Attributes: array (
+  'controller' => 'GroupactionsController',
+  'action' => 'admin_acl',
+)
+Request URL: /admin/groupactions/acl
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupactionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-15 02:17:33 Error: Fatal Error (4): syntax error, unexpected '}' in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 44]
+2014-04-15 02:17:33 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 44)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 44, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 44, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:17:42 Error: [MissingLayoutException] Layout file "/home/www/Cakephp2-Simple-ACL/app/View/Layouts/web/default/default.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/www/Cakephp2-Simple-ACL/app/View/Layouts/web/default/default.ctp',
+)
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(509): View->_getLayoutFileName('web/default/def...')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'web/default/def...')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-04-15 02:32:02 Error: [MissingViewException] View file "/home/www/Cakephp2-Simple-ACL/app/View/Pages/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/www/Cakephp2-Simple-ACL/app/View/Pages/test.ctp',
+)
+Request URL: /test
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(468): View->_getViewFileName('/Pages/test')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render('/Pages/test', NULL)
+#2 /home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php(47): Controller->render('/Pages/test')
+#3 [internal function]: PagesController->index('test')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2014-04-15 02:33:49 Error: Fatal Error (1): Call to undefined method PagesController::test() in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 46]
+2014-04-15 02:33:49 Error: [FatalErrorException] Call to undefined method PagesController::test()
+Request URL: /test
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/www/Cakep...', 46)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:34:09 Error: Fatal Error (1): Call to undefined method PagesController::welcomes() in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 46]
+2014-04-15 02:34:09 Error: [FatalErrorException] Call to undefined method PagesController::welcomes()
+Request URL: /welcomes
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/www/Cakep...', 46)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:34:34 Error: Fatal Error (1): Call to undefined method PagesController::admin() in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 46]
+2014-04-15 02:34:34 Error: [FatalErrorException] Call to undefined method PagesController::admin()
+Request URL: /admin
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/www/Cakep...', 46)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:34:40 Error: Fatal Error (1): Call to undefined method PagesController::admin() in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 46]
+2014-04-15 02:34:40 Error: [FatalErrorException] Call to undefined method PagesController::admin()
+Request URL: /admin/
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/www/Cakep...', 46)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/www/Cakep...', 46, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:38:56 Error: [MissingControllerException] Controller class WelcomeController could not be found.
+Exception Attributes: array (
+  'class' => 'WelcomeController',
+  'plugin' => NULL,
+)
+Request URL: /welcome
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-15 02:39:14 Error: [MissingControllerException] Controller class WelcomesController could not be found.
+Exception Attributes: array (
+  'class' => 'WelcomesController',
+  'plugin' => NULL,
+)
+Request URL: /welcomes
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-15 02:39:18 Error: [MissingControllerException] Controller class WelcomeController could not be found.
+Exception Attributes: array (
+  'class' => 'WelcomeController',
+  'plugin' => NULL,
+)
+Request URL: /welcome
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-15 02:46:39 Error: Fatal Error (4): syntax error, unexpected ',' in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 51]
+2014-04-15 02:46:39 Error: [FatalErrorException] syntax error, unexpected ','
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 51)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 51, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 51, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-04-15 02:46:56 Error: Fatal Error (4): syntax error, unexpected ',' in [/home/www/Cakephp2-Simple-ACL/app/Controller/PagesController.php, line 51]
+2014-04-15 02:46:56 Error: [FatalErrorException] syntax error, unexpected ','
+Request URL: /
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/www/Cakep...', 51)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/www/Cakep...', 51, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/www/Cakep...', 51, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

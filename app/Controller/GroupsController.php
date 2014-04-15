@@ -24,7 +24,7 @@ class GroupsController extends AppController {
         /*----------------get_index-----------------*/
 
         /*----------------index-----------------*/
-        public function index(){
+        public function admin_index(){
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -38,18 +38,18 @@ class GroupsController extends AppController {
     /*----------------DELETE-----------------*/
 
         /*----------------delete-----------------*/
-        public function delete($id=null){
+        public function admin_delete($id=null){
 
             if(!empty($id)){
                 $this->Group->id = $id;
                 if (!$this->Group->exists()) {
                     $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Group->delete($id,true)) {
                     $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
-                    $this->redirect(array('action' => 'delete'));
+                    $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();
@@ -69,7 +69,7 @@ class GroupsController extends AppController {
             $this->Group->id = $id;
             if (!$this->Group->exists()) {
                 $this->_flash(__('msg-groups-edit-noexist',true),'alert alert-warning');
-                $this->redirect(array('action' => 'edit'));
+                $this->redirect(array('action' => 'admin_edit'));
             }else{
                 $this->request->data = $this->Group->read(null, $id);
                 $this->set(compact('id'));
@@ -86,7 +86,7 @@ class GroupsController extends AppController {
                 {
                     if ($this->Group->save()) {
                         $this->_flash(__('msg-groups-update',true),'alert alert-success');
-                        $this->redirect(array('action' => 'edit'));
+                        $this->redirect(array('action' => 'admin_edit'));
                     }
                 }
                 $this->set(compact('id'));
@@ -94,11 +94,11 @@ class GroupsController extends AppController {
         /*----------------post_edit-----------------*/
 
         /*----------------edit-----------------*/
-        public function edit($id=null){
+        public function admin_edit($id=null){
 
             $form_config = array();
             $form_config["title"] = "Editar Grupo";
-            $form_config["urlform"] = "edit";
+            $form_config["urlform"] = "admin_edit";
             $form_config["labelbutton"] = "Guardar";            
             $this->set('form_config',$form_config);
 
@@ -129,17 +129,17 @@ class GroupsController extends AppController {
                 {
                     if ($this->Group->save()) {
                         $this->_flash(__('msg-groups-save',true),'alert alert-success');
-                        $this->redirect(array('action' => 'add'));
+                        $this->redirect(array('action' => 'admin_add'));
                     }
                 }
         }
         /*----------------post_add-----------------*/
 
         /*----------------add-----------------*/
-        public function add() {
+        public function admin_add() {
             $form_config = array();
             $form_config["title"] = "Agregar Grupo";
-            $form_config["urlform"] = "add";
+            $form_config["urlform"] = "admin_add";
             $form_config["labelbutton"] = "Agregar";
             $this->set('form_config',$form_config);
 

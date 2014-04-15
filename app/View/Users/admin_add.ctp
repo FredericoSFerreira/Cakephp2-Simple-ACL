@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
 <?php 
-echo $this->Form->create('User', array('action' => 'add'));
+echo $this->Form->create('User', array('action' => $form_config["urlform"]));
 ?>
 <div class="row">
 	<div class="form-group">
@@ -24,7 +24,7 @@ echo $this->Form->create('User', array('action' => 'add'));
 
 <div class="row">
 
-	<?php if($action == "add"){ ?>
+	<?php if($action == "admin_add"){ ?>
 	<div class="form-group">
 	<?php  echo $this->Form->input('password',array("label"=>"Clave de Acceso","required"=>false));?>
 	</div>
