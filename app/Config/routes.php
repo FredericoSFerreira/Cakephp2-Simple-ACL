@@ -30,7 +30,7 @@
     Router::connect('/:slug', 
     	array('controller' => 'pages', 'action' => 'index'), 
 		array( 
-			'slug' => '(admin.+|(?!admin).*)', 
+			'slug' => '(?:(?!admin|admin\/.*).)*', 
 			'pass' => array('slug')
        )
     ); 

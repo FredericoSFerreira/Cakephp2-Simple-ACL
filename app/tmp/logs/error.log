@@ -3112,3 +3112,12 @@ Stack Trace:
 #3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-04-16 02:29:13 Error: [MissingControllerException] Controller class AdminController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminController',
+  'plugin' => NULL,
+)
+Request URL: /admin
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
