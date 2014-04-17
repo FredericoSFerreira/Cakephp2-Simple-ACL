@@ -43,7 +43,8 @@ class AppController extends Controller {
                 'Actions' => array('actionPath' => 'controllers')
             )
         ),
-        'Session'
+        'Session',
+        'Paginator'
     );
 
     public function beforeFilter() {        

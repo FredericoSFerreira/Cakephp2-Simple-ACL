@@ -18,11 +18,11 @@ class CategoriesController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->Category->paginate = array(
+            $this->Paginator->settings = array(
                 'order' => 'Category.id ASC',
                 'limit' => 10
             );
-            $lists = $this->paginate('Category');
+            $lists = $this->Paginator->paginate('Category');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/

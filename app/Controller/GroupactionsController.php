@@ -19,11 +19,11 @@ class GroupactionsController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->Groupaction->paginate = array(
+            $this->Paginator->settings = array(
                 'order' => 'Groupaction.id ASC',
                 'limit' => 10
             );
-            $lists = $this->paginate('Groupaction');
+            $lists = $this->Paginator->paginate('Groupaction');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/

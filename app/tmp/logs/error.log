@@ -3121,3 +3121,42 @@ Request URL: /admin
 Stack Trace:
 #0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-04-16 22:43:25 Error: [MissingPluginException] Plugin Cacher could not be found.
+Exception Attributes: array (
+  'plugin' => 'Cacher',
+)
+Request URL: /admin
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(367): CakePlugin::path('Cacher')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(228): App::pluginPath('Cacher')
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(545): App::path('Model/Behavior', 'Cacher')
+#3 [internal function]: App::load('CacheBehavior')
+#4 [internal function]: spl_autoload_call('CacheBehavior')
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/BehaviorCollection.php(122): class_exists('CacheBehavior')
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/BehaviorCollection.php(68): BehaviorCollection->load('Cacher.Cache', Array)
+#7 /home/www/Cakephp2-Simple-ACL/lib/Cake/Model/Model.php(749): BehaviorCollection->init('Group', Array)
+#8 [internal function]: Model->__construct(Array)
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/Utility/ClassRegistry.php(168): ReflectionClass->newInstance(Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(734): ClassRegistry::init(Array)
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(367): Controller->loadModel('Group')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(405): Controller->__isset('Group')
+#13 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(506): Controller->__get('Group')
+#14 /home/www/Cakephp2-Simple-ACL/app/Controller/AppController.php(65): AppController->is_Authorizate()
+#15 /home/www/Cakephp2-Simple-ACL/app/Controller/UsersController.php(38): AppController->beforeFilter()
+#16 [internal function]: UsersController->beforeFilter(Object(CakeEvent))
+#17 /home/www/Cakephp2-Simple-ACL/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#18 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#19 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#20 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#21 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#22 {main}
+2014-04-16 22:51:47 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [/home/www/Cakephp2-Simple-ACL/app/Controller/UsersController.php, line 113]
+2014-04-16 22:51:47 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /admin/users/index
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/www/Cakep...', 113)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/www/Cakep...', 113, Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/www/Cakep...', 113, Array)
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

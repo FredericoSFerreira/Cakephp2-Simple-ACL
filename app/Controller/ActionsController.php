@@ -19,11 +19,11 @@ class ActionsController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->Action->paginate = array(
+            $this->Paginator->settings = array(
                 'order' => 'Action.id ASC',
                 'limit' => 10
             );
-            $lists = $this->paginate('Action');
+            $lists = $this->Paginator->paginate('Action');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/

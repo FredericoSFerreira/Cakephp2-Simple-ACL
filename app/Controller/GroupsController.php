@@ -14,11 +14,11 @@ class GroupsController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->Group->paginate = array(
+            $this->Paginator->settings = array(
                 'order' => 'Group.id ASC',
                 'limit' => 10
             );
-            $lists = $this->paginate('Group');
+            $lists = $this->Paginator->paginate('Group');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/

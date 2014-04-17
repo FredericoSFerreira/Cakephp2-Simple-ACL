@@ -18,11 +18,11 @@ class ModulesController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->Module->paginate = array(
+            $this->Paginator->settings = array(
                 'order' => 'Module.id ASC',
                 'limit' => 10
             );
-            $lists = $this->paginate('Module');
+            $lists = $this->Paginator->paginate('Module');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/

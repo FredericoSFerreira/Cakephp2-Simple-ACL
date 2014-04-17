@@ -104,11 +104,13 @@ class UsersController extends AppController {
 
         /*----------------get_index-----------------*/
         public function get_index(){
-            $this->User->paginate = array(
+            $this->Paginator->settings = array(
+                'limit' => 10,
                 'order' => 'User.id ASC',
-                'limit' => 10
+                'recursive'=>1,
+                'cacher' => '+1 day'
             );
-            $lists = $this->paginate('User');
+            $lists = $this->Paginator->paginate('User');
             $this->set(compact('lists'));
         }
         /*----------------get_index-----------------*/
