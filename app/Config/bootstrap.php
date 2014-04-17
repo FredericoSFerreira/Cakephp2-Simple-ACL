@@ -25,7 +25,9 @@
  */
 
 // Setup a 'default' cache configuration for use in the application.
+CakePlugin::load(array('Minify' => array('routes' => true)));
 CakePlugin::load('AclExtras');
+
 Cache::config('default', array('engine' => 'File'));
 
 /**

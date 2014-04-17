@@ -3160,3 +3160,179 @@ Stack Trace:
 #3 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/App.php(900): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-04-16 23:05:40 Error: [MissingHelperException] Helper class MinifyHelper could not be found.
+Exception Attributes: array (
+  'class' => 'MinifyHelper',
+  'plugin' => false,
+)
+Request URL: /admin/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Minify')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(835): HelperCollection->__isset('Minify')
+#2 /home/www/Cakephp2-Simple-ACL/app/View/Elements/header.ctp(9): View->__get('Minify')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(1210): View->_render('/home/www/Cakep...', Array)
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(414): View->_renderElement('/home/www/Cakep...', Array, Array)
+#7 /home/www/Cakephp2-Simple-ACL/app/View/Layouts/login.ctp(1): View->element('header')
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(535): View->_render('/home/www/Cakep...')
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'login')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-16 23:06:51 Error: [MissingHelperException] Helper class MinifyHelper could not be found.
+Exception Attributes: array (
+  'class' => 'MinifyHelper',
+  'plugin' => false,
+)
+Request URL: /admin/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Minify')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(835): HelperCollection->__isset('Minify')
+#2 /home/www/Cakephp2-Simple-ACL/app/View/Elements/header.ctp(9): View->__get('Minify')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(1210): View->_render('/home/www/Cakep...', Array)
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(414): View->_renderElement('/home/www/Cakep...', Array, Array)
+#7 /home/www/Cakephp2-Simple-ACL/app/View/Layouts/login.ctp(1): View->element('header')
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(535): View->_render('/home/www/Cakep...')
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'login')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-16 23:07:44 Error: [MissingHelperException] Helper class MinifyHelper could not be found.
+Exception Attributes: array (
+  'class' => 'MinifyHelper',
+  'plugin' => false,
+)
+Request URL: /admin/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Minify')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(835): HelperCollection->__isset('Minify')
+#2 /home/www/Cakephp2-Simple-ACL/app/View/Elements/header.ctp(9): View->__get('Minify')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(1210): View->_render('/home/www/Cakep...', Array)
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(414): View->_renderElement('/home/www/Cakep...', Array, Array)
+#7 /home/www/Cakephp2-Simple-ACL/app/View/Layouts/login.ctp(1): View->element('header')
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(535): View->_render('/home/www/Cakep...')
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'login')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-16 23:11:13 Error: [MissingHelperException] Helper class MinifyHelper could not be found.
+Exception Attributes: array (
+  'class' => 'MinifyHelper',
+  'plugin' => false,
+)
+Request URL: /admin/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Minify')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(835): HelperCollection->__isset('Minify')
+#2 /home/www/Cakephp2-Simple-ACL/app/View/Elements/header.ctp(9): View->__get('Minify')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(1210): View->_render('/home/www/Cakep...', Array)
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(414): View->_renderElement('/home/www/Cakep...', Array, Array)
+#7 /home/www/Cakephp2-Simple-ACL/app/View/Layouts/login.ctp(1): View->element('header')
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(535): View->_render('/home/www/Cakep...')
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'login')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-16 23:11:29 Error: [MissingPluginException] Plugin Minify.Minify could not be found.
+Exception Attributes: array (
+  'plugin' => 'Minify.Minify',
+)
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/CakePlugin.php(74): CakePlugin::load('Minify.Minify', Array)
+#1 /home/www/Cakephp2-Simple-ACL/app/Config/bootstrap.php(28): CakePlugin::load(Array)
+#2 /home/www/Cakephp2-Simple-ACL/lib/Cake/Core/Configure.php(94): include('/home/www/Cakep...')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/bootstrap.php(171): Configure::bootstrap(true)
+#4 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(92): include('/home/www/Cakep...')
+#5 {main}
+2014-04-16 23:11:47 Error: [MissingHelperException] Helper class MinifyHelper could not be found.
+Exception Attributes: array (
+  'class' => 'MinifyHelper',
+  'plugin' => false,
+)
+Request URL: /admin/users/login
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('Minify')
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(835): HelperCollection->__isset('Minify')
+#2 /home/www/Cakephp2-Simple-ACL/app/View/Elements/header.ctp(9): View->__get('Minify')
+#3 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#4 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#5 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(1210): View->_render('/home/www/Cakep...', Array)
+#6 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(414): View->_renderElement('/home/www/Cakep...', Array, Array)
+#7 /home/www/Cakephp2-Simple-ACL/app/View/Layouts/login.ctp(1): View->element('header')
+#8 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(947): include('/home/www/Cakep...')
+#9 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(909): View->_evaluate('/home/www/Cakep...', Array)
+#10 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(535): View->_render('/home/www/Cakep...')
+#11 /home/www/Cakephp2-Simple-ACL/lib/Cake/View/View.php(479): View->renderLayout('', 'login')
+#12 /home/www/Cakephp2-Simple-ACL/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-04-16 23:14:10 Error: [MissingControllerException] Controller class Admin-min-cssController could not be found.
+Exception Attributes: array (
+  'class' => 'Admin-min-cssController',
+  'plugin' => NULL,
+)
+Request URL: /admin-min-css?f=css%2Ffont-awesome.min.css%2Ccss%2Fweather-icons.min.css%2Ccss%2Fmain.css%2Ccss%2Festilos.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-16 23:14:10 Error: [MissingControllerException] Controller class Admin-min-jsController could not be found.
+Exception Attributes: array (
+  'class' => 'Admin-min-jsController',
+  'plugin' => NULL,
+)
+Request URL: /admin-min-js?f=js%2Fjquery-1.11.0.min.js%2Cjs%2Fbootstrap.min.js%2Cjs%2Fbootbox.min.js%2Cjs%2Ffunciones.js
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-16 23:14:17 Error: [MissingControllerException] Controller class Admin-min-cssController could not be found.
+Exception Attributes: array (
+  'class' => 'Admin-min-cssController',
+  'plugin' => NULL,
+)
+Request URL: /admin-min-css?f=css%2Ffont-awesome.min.css%2Ccss%2Fweather-icons.min.css%2Ccss%2Fmain.css%2Ccss%2Festilos.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-16 23:14:19 Error: [MissingControllerException] Controller class Admin-min-jsController could not be found.
+Exception Attributes: array (
+  'class' => 'Admin-min-jsController',
+  'plugin' => NULL,
+)
+Request URL: /admin-min-js?f=js%2Fjquery-1.11.0.min.js%2Cjs%2Fbootstrap.min.js%2Cjs%2Fbootbox.min.js%2Cjs%2Ffunciones.js
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-04-16 23:14:19 Error: [MissingControllerException] Controller class Admin-min-cssController could not be found.
+Exception Attributes: array (
+  'class' => 'Admin-min-cssController',
+  'plugin' => NULL,
+)
+Request URL: /admin-min-css?f=css%2Ffont-awesome.min.css%2Ccss%2Fweather-icons.min.css%2Ccss%2Fmain.css%2Ccss%2Festilos.css
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
