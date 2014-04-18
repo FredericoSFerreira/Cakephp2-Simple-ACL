@@ -79,7 +79,7 @@ class MinifyHelper extends AppHelper {
 
 		Configure::write('Asset.timestamp', $assetTimestamp);
 
-		$path = '/min-' . $type . '?f=';
+		$path = '/static-min-' . $type . '?f=';
 		$path = $path . join(',', $files);
 
 		return $path;
