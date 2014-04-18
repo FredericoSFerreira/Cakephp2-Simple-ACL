@@ -51,9 +51,6 @@ class ActionsController extends AppController {
                     if ($this->Action->save()) {
                         $this->_flash(__('Save-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_add'));
-                    }else{
-                        $this->_flash(__('Save-error',true),'alert alert-warning');
-                        $this->redirect(array('action' => 'admin_add'));
                     }
                 }else{
                 	$this->get_add();
@@ -125,7 +122,7 @@ class ActionsController extends AppController {
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('Save-success',true),'alert alert-success');
+                        $this->_flash(__('Update-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_edit'));
                     }
                 }else{
@@ -182,9 +179,6 @@ class ActionsController extends AppController {
 
                 if ($this->Action->delete($id,true)) {
                     $this->_flash(__('Delete-success', true),'alert alert-success');
-                    $this->redirect(array('action' => 'admin_delete'));
-                }else{
-                    $this->_flash(__('Delete-error', true),'alert alert-warning');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{

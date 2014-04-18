@@ -47,7 +47,7 @@ class ModulesController extends AppController {
                 if($this->Module->validates())
                 {
                     if ($this->Module->save()) {
-                        $this->_flash(__('msg-modules-save',true),'alert alert-success');
+                        $this->_flash(__('Save-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_add'));
                     }
                 }
@@ -79,7 +79,7 @@ class ModulesController extends AppController {
 
             $this->Module->id = $id;
             if (!$this->Module->exists()) {
-                $this->_flash(__('msg-modules-edit-noexist',true),'alert alert-warning');
+                $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
                 $this->request->data = $this->Module->read(null, $id);
@@ -96,7 +96,7 @@ class ModulesController extends AppController {
                 if($this->Module->validates())
                 {
                     if ($this->Module->save()) {
-                        $this->_flash(__('msg-modules-update',true),'alert alert-success');
+                        $this->_flash(__('Update-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_edit'));
                     }
                 }
@@ -138,12 +138,12 @@ class ModulesController extends AppController {
             if(!empty($id)){
                 $this->Module->id = $id;
                 if (!$this->Module->exists()) {
-                    $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
+                    $this->_flash(__('No-exist-record', true),'alert alert-danger');
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Module->delete($id,true)) {
-                    $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
+                    $this->_flash(__('Delete-success', true),'alert alert-success');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{

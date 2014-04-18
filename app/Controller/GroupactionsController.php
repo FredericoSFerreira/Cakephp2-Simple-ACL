@@ -49,7 +49,7 @@ class GroupactionsController extends AppController {
                 if($this->Groupaction->validates())
                 {
                     if ($this->Groupaction->save()) {
-                        $this->_flash(__('msg-groups-save',true),'alert alert-warning');
+                        $this->_flash(__('Save-success',true),'alert alert-warning');
                         $this->redirect(array('action' => 'admin_add'));
                     }
                 }
@@ -87,12 +87,12 @@ class GroupactionsController extends AppController {
             if(!empty($id)){
                 $this->Groupaction->id = $id;
                 if (!$this->Groupaction->exists()) {
-                    $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
+                    $this->_flash(__('No-exist-record', true),'alert alert-danger');
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Groupaction->delete($id,true)) {
-                    $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
+                    $this->_flash(__('Delete-success', true),'alert alert-success');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
@@ -124,10 +124,10 @@ class GroupactionsController extends AppController {
             $this->ArosAcos->set('_delete', $access);
             
             if ($this->ArosAcos->save()) {
-                $this->_flash(__('msg-acl-save',true),'alert alert-success');
+                $this->_flash(__('Save-success',true),'alert alert-success');
                 $this->redirect(array('action' => 'admin_acladmin'));
             } else {
-                $this->_flash(__('msg-acl-error',true),'alert alert-warning');
+                $this->_flash(__('Save-error',true),'alert alert-warning');
             }
             
         }
