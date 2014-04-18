@@ -23,33 +23,33 @@ class Action extends AppModel {
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty',
 			),
 		),
 		'url' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty',
 			),
 		),
 		'order' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-numeric',
 			),
 		),
 		'category_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty-list',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-numeric',
 			),
 		),
 	);

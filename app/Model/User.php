@@ -50,23 +50,23 @@ class User extends AppModel {
         'username' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Error',
+                'message' => 'Error-notempty',
             ),
         ),
         'password' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Error',
+                'message' => 'Error-notempty',
             ),
         ),
         'group_id' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
-                'message' => 'Your custom message here',
+                'message' => 'Error-notempty-list',
             ),
             'numeric' => array(
                 'rule' => array('numeric'),
-                'message' => 'Your custom message here',
+                'message' => 'Error-numeric',
             ),
         ),
     );

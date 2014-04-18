@@ -81,6 +81,7 @@ class GroupsController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->Group->id = $id;
                 $this->Group->set($this->data);
                 if($this->Group->validates())
                 {

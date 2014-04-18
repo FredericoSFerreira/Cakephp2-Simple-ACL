@@ -19,5 +19,42 @@ msgstr "Acceso no autorizado"
 msgid "msg-acl-syncSuccess"
 msgstr "ACL Sincronizado"
 
+msgid "User_logout"
+msgstr "Cerrar Sesión"
+
+msgid "Logout-success"
+msgstr "Sesión Cerrada Exitosamente"
+
+msgid "Error-notempty"
+msgstr "El campo no puede estar vacio, Verifique"
+
+msgid "Error-notempty-list"
+msgstr "Debe seleccionar un Item de la lista, Verifique"
+
+msgid "Error-numeric"
+msgstr "El campo debe ser numérico, Verifique"
+
+msgid "Save-success"
+msgstr "Registro guardado exitosamente"
+
+msgid "Save-error"
+msgstr "El registro no pudo ser guardado"
+
+msgid "Update-success"
+msgstr "Registro actualizado exitosamente"
+
+msgid "Update-error"
+msgstr "El registro no pudo ser actualizado"
+
+msgid "Delete-success"
+msgstr "Registro eliminado exitosamente"
+
+msgid "Delete-error"
+msgstr "El registro no pudo ser actualizado"
+
+msgid "No-exist-record"
+msgstr "No se ha encontrado un registro valido para esta acción"
+
+
 
  

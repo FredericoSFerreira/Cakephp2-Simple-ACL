@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">AppName</a>
+        <a class="navbar-brand" href="/"><?php echo $appconfig['name'];?></a>
       </div>
 
       <?php if(isset($header_menu)){ ?>
@@ -40,7 +40,7 @@
                   </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/admin/users/logout">Cerrar Sesión</a></li>
+                  <li><a href="/admin/users/logout"><?php echo __("User_logout");?></a></li>
                 </ul>
       </div><!-- /.navbar-collapse -->
       <?php } ?>

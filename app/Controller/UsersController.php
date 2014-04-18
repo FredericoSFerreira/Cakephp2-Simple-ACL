@@ -87,7 +87,7 @@ class UsersController extends AppController {
 
     public function admin_logout() {
         $this->Session->destroy();
-        $this->_flash(__('Sesión Cerrada Exitosamente',true),'alert alert-success');
+        $this->_flash(__('Logout-success',true),'alert alert-success');
         $this->redirect($this->Auth->logout());
     }
     
@@ -108,7 +108,6 @@ class UsersController extends AppController {
                 'limit' => 10,
                 'order' => 'User.id ASC',
                 'recursive'=>1,
-                'cacher' => '+1 day'
             );
             $lists = $this->Paginator->paginate('User');
             $this->set(compact('lists'));
@@ -138,9 +137,9 @@ class UsersController extends AppController {
             if($this->User->validates())
             {
                 if ($this->User->save()) {
-                    $this->_flash(__('msg-user-save',true),'alert alert-success');
+                    $this->_flash(__('Save-success',true),'alert alert-success');
                 } else {
-                     $this->_flash(__('msg-user-errorsave',true),'alert alert-warning');
+                     $this->_flash(__('Save-error',true),'alert alert-warning');
                 }
                 $this->redirect(array('action' => 'admin_add'));
             }
@@ -183,7 +182,7 @@ class UsersController extends AppController {
 
             $this->User->id = $id;
             if (!$this->User->exists()) {
-                $this->_flash(__('msg-users-edit-noexist',true),'alert alert-warning');
+                $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
                 $this->request->data = $this->User->read(null, $id);
@@ -196,11 +195,12 @@ class UsersController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->User->id = $id;
                 $this->User->set($this->data);
                 if($this->User->validates())
                 {
                     if ($this->User->save()) {
-                        $this->_flash(__('msg-users-update',true),'alert alert-warning');
+                        $this->_flash(__('Update-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_edit'));
                     }
                 }
@@ -246,17 +246,17 @@ class UsersController extends AppController {
     /*----------------DELETE-----------------*/
 
         /*----------------delete-----------------*/
-        public function delete($id=null){
+        public function admin_delete($id=null){
 
             if(!empty($id)){
                 $this->User->id = $id;
                 if (!$this->User->exists()) {
-                    $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
+                    $this->_flash(__('No-exist-record', true),'alert alert-danger');
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->User->delete($id,true)) {
-                    $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
+                    $this->_flash(__('Delete-success', true),'alert alert-success');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{

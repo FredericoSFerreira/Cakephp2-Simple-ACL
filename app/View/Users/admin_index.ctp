@@ -35,11 +35,11 @@
                         <?php 
 
                         if($action == "admin_edit"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/users/edit/'.$list['User']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
+                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/admin/users/edit/'.$list['User']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
                         }
 
                          if($action == "admin_delete"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/users/delete/'.$list['User']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['User']['id']." ?", 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/admin/users/delete/'.$list['User']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['User']['id']." ?", 'escape' => false));
                         }
 
                         ?>

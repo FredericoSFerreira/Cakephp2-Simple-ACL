@@ -10,7 +10,9 @@
 
                 $actual  = false;
                 
-                $urlactual  = array('/'.$controladoractual.'/'.$funcionactual.'/','/'.$controladoractual.'/'.$funcionactual);
+                $funcionactual = str_replace("admin_", "", $funcionactual);
+
+                $urlactual  = array('/admin/'.$controladoractual.'/'.$funcionactual.'/','/admin/'.$controladoractual.'/'.$funcionactual);
                 if(!$actual){
                   if(in_array($action["url"],$urlactual)){$actual = true;}
                 }

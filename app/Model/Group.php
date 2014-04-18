@@ -41,7 +41,7 @@ class Group extends AppModel {
         'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Error',
+				'message' => 'Error-notempty',
 			),
 		),
     );

@@ -49,7 +49,10 @@ class ActionsController extends AppController {
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('Registro agregado satisfactoriamente',true),'alert alert-success');
+                        $this->_flash(__('Save-success',true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_add'));
+                    }else{
+                        $this->_flash(__('Save-error',true),'alert alert-warning');
                         $this->redirect(array('action' => 'admin_add'));
                     }
                 }else{
@@ -97,7 +100,7 @@ class ActionsController extends AppController {
 
             $this->Action->id = $id;
             if (!$this->Action->exists()) {
-                $this->_flash(__('No se ha encontrado registros, intente de nuevo',true),'alert alert-warning');
+                $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
 
@@ -117,11 +120,12 @@ class ActionsController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->Action->id = $id;
                 $this->Action->set($this->data);
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('msg-actions-update',true),'alert alert-success');
+                        $this->_flash(__('Save-success',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_edit'));
                     }
                 }else{
@@ -172,12 +176,15 @@ class ActionsController extends AppController {
             if(!empty($id)){
                 $this->Action->id = $id;
                 if (!$this->Action->exists()) {
-                    $this->_flash(__('Debe seleccionar un item a eliminar', true),'alert alert-danger');
+                    $this->_flash(__('No-exist-record', true),'alert alert-warning');
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
                 if ($this->Action->delete($id,true)) {
-                    $this->_flash(__('Registro borrado de forma exitosa', true),'alert alert-success');
+                    $this->_flash(__('Delete-success', true),'alert alert-success');
+                    $this->redirect(array('action' => 'admin_delete'));
+                }else{
+                    $this->_flash(__('Delete-error', true),'alert alert-warning');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{

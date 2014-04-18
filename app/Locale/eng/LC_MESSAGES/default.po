@@ -19,3 +19,10 @@ msgstr "Access Denied"
 msgid "msg-acl-syncSuccess"
 msgstr "ACL Sync"
 
+msgid "Error-notempty"
+msgstr "The field can't be empty"
+
+msgid "Error-numeric"
+msgstr "The field should be numeric"
+
+

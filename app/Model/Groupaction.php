@@ -24,21 +24,21 @@ class Groupaction extends AppModel {
 		'group_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty-list',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-numeric',
 			),
 		),
 		'action_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-notempty-list',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-numeric',
 			),
 		),
 	);

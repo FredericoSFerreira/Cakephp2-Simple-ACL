@@ -91,7 +91,7 @@ class ModulesController extends AppController {
 
         /*----------------post_edit-----------------*/
         public function post_edit($id){
-
+                $this->Module->id = $id;
                 $this->Module->set($this->data);
                 if($this->Module->validates())
                 {

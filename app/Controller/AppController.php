@@ -62,6 +62,9 @@ class AppController extends Controller {
             ), 'Form'
         );
 
+
+        $appconfig= Configure::read('App');
+        $this->set('appconfig',$appconfig);
         $this->set('action',$this->params["action"]);
         $this->is_Authorizate();
         
@@ -503,24 +506,32 @@ array(
             $this->setSidebarMenu();
         }
 
+        $cantidad_aros_acos = $this->Session->read('Login.cantidad_aros_acos');
 
-        $result = $this->Group->query("SELECT count(*) as contador FROM aros_acos;");
-        $cantidad_array= $result[0][0];
 
-        if($cantidad_array["contador"] == 0){
+        if(empty($cantidad_aros_acos)){
 
-            $cont_modules = $this->Module->find("count",array("recursive"=>-1));
-            
-            $cont_group = $this->Group->find("count",array(
-            "recursive" => "-1"
-            ));
-            $cont_users = $this->User->find("count",array(
+            $result_aros_acos = $this->Group->query("SELECT count(*) as contador FROM aros_acos;");
+            $cantidad_aros_acos= $result_aros_acos[0][0];
+
+            if($cantidad_aros_acos["contador"] == 0){
+
+                $cont_modules = $this->Module->find("count",array("recursive"=>-1));
+                
+                $cont_group = $this->Group->find("count",array(
                 "recursive" => "-1"
-            ));
+                ));
+                $cont_users = $this->User->find("count",array(
+                    "recursive" => "-1"
+                ));
 
-            if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
-                $this->install_acl($cont_modules,$cont_group, $cont_users);
+                if(($cont_group == 0) || ($cont_group == 1) || ($cont_users == 0)){
+                    $this->install_acl($cont_modules,$cont_group, $cont_users);
+                }
+            }else{
+                $this->Session->write('Login.cantidad_aros_acos', $cantidad_aros_acos);
             }
+
         }
         
         

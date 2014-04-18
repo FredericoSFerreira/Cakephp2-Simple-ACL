@@ -116,6 +116,7 @@ class CategoriesController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->Category->id = $id;
                 $this->Category->set($this->data);
                 if($this->Category->validates())
                 {

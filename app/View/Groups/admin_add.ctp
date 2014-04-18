@@ -12,8 +12,7 @@
 			<div class="row">
 				<div class="form-group">
 				<?php
-
-					if($action == "edit"){echo $this->Form->input('id');}
+					if($action == "admin-edit"){echo $this->Form->input('id');}
 					echo $this->Form->input('name',array("label"=>"Nombre del Grupo","required"=>false,'class'=>'form-control'));
 				?>
 				</div>

@@ -20,6 +20,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+	Configure::write('App.name','Appname');
+
 /**
  * CakePHP Debug Level:
  *

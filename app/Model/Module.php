@@ -18,17 +18,17 @@ class Module extends AppModel {
         'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Error',
+				'message' => 'Error-notempty',
 			),
 		),
 		'order' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Error',
+				'message' => 'Error-notempty-list',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Your custom message here',
+				'message' => 'Error-numeric',
 			),
 		),
     );
