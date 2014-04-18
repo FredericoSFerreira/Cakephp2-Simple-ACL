@@ -1,4 +1,4 @@
-msgid "msg-login-error"
+msgid "Login-error"
 msgstr "Usuario / Clave no son validos, verifique!"
 
 msgid "str_login_h2"

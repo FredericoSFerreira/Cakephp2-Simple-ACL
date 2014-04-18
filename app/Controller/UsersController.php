@@ -55,7 +55,7 @@ class UsersController extends AppController {
                 }
                 else
                 {
-                    $this->_flash(__('msg-login-error',true),'alert alert-warning');
+                    $this->_flash(__('Login-error',true),'alert alert-warning');
                 }
             }
 
