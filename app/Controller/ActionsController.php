@@ -49,7 +49,7 @@ class ActionsController extends AppController {
                 if($this->Action->validates())
                 {
                     if ($this->Action->save()) {
-                        $this->_flash(__('msg-actions-save',true),'alert alert-success');
+                        $this->_flash(__('Registro agregado satisfactoriamente',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_add'));
                     }
                 }else{
@@ -97,7 +97,7 @@ class ActionsController extends AppController {
 
             $this->Action->id = $id;
             if (!$this->Action->exists()) {
-                $this->_flash(__('msg-Actions-edit-noexist',true),'alert alert-warning');
+                $this->_flash(__('No se ha encontrado registros, intente de nuevo',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
 

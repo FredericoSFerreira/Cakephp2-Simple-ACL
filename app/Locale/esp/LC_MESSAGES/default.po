@@ -2,7 +2,7 @@ msgid "msg-login-error"
 msgstr "Usuario / Clave no son validos, verifique!"
 
 msgid "str_login_h2"
-msgstr "Iniciar Sesión"
+msgstr "Inicio de Sesión"
 
 msgid "str_login_input_username"
 msgstr "Usuario"
@@ -12,6 +12,12 @@ msgstr "Clave"
 
 msgid "str_login_button"
 msgstr "Entrar al Sistema"
+
+msgid "msg-access-noAuth"
+msgstr "Acceso no autorizado"
+
+msgid "msg-acl-syncSuccess"
+msgstr "ACL Sincronizado"
 
 
  

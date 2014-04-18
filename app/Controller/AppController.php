@@ -50,7 +50,7 @@ class AppController extends Controller {
     public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => true);
         $this->Auth->loginRedirect = '/admin/users/home/';
-		$this->Auth->authError = "Acceso no autorizado.";
+		$this->Auth->authError = __("msg-access-noAuth");
         $this->Auth->logoutRedirect = '/admin/users/login/';
 		$this->Auth->allowedActions= array('admin_login','admin_logout');
         $this->Auth->authenticate = array(
@@ -79,7 +79,7 @@ class AppController extends Controller {
         $dispatcher = new ShellDispatcher($args, false);
         $dispatcher->dispatch();
 
-        $this->_flash(__('ACL Sincronizado',true),'alert alert-success');
+        $this->_flash(__('msg-acl-syncSuccess',true),'alert alert-success');
     }
 
     public function installBase(){

@@ -12,3 +12,10 @@ msgstr "Password"
 
 msgid "str_login_button"
 msgstr "Login"
+
+msgid "msg-access-noAuth"
+msgstr "Access Denied"
+
+msgid "msg-acl-syncSuccess"
+msgstr "ACL Sync"
+
