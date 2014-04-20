@@ -7,8 +7,8 @@
 	<title><?php echo $appconfig['name'];?></title>
 	<?php
 		echo $this->Minify->css(array('font-awesome.min','weather-icons.min','main','estilos'));
-		echo $this->Minify->script(array('jquery-1.11.0.min','bootstrap.min','bootbox.min','funciones'));
-		//echo $this->fetch('css');
-		//echo $this->fetch('script');
 	?>
+	<script type="text/javascript">
+		var Controllers = new Array;
+	</script>
 </head>

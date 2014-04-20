@@ -7,5 +7,6 @@
   			<?php echo $this->element('sql_dump'); ?>
   	</div>
   </div>
+  <?php echo $this->element('footer');?>	
 </body>
 </html>

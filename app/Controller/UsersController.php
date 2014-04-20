@@ -46,18 +46,36 @@ class UsersController extends AppController {
     
     public function post_login(){
 
+            $data = array();
+            $errors= array();
+
+            $data['response']['message_error']="";
+            $data['response']['message_success']="";
+            $data['response']['redirect']="";
+            $data['response']['errors']=array();
+
+            $this->layout = 'ajax';
+            $this->autoRender = FALSE;
+
             $this->User->set($this->data);
             if($this->User->validates())
             {
                 if( $this->Auth->login())
                 {
-                    return $this->redirect($this->Auth->redirect());
+                    //return $this->redirect($this->Auth->redirect());
+                    $data['response']['redirect']=$this->Auth->redirect();
                 }
                 else
                 {
-                    $this->_flash(__('Login-error',true),'alert alert-warning');
+                    //$this->_flash(__('Login-error',true),'alert alert-warning');
+                    $data['response']['message_error']=__('Login-error',true);
                 }
+            }else{
+                 $errors['User'] = $this->User->validationErrors;
+                 $data['response']["errors"]= $errors;
             }
+
+            echo json_encode($data);
 
 
     }

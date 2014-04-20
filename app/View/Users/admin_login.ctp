@@ -19,3 +19,6 @@ echo $this->Form->input('password',array("label"=>false,"placeholder"=>__("str_l
 <?php
 echo $this->Form->end(array('label'=>__('str_login_button'),'class'=>'btn btn-lg btn-primary btn-block'));
 ?>
+<script type="text/javascript">
+	Controllers.push("Users.login");
+</script>
