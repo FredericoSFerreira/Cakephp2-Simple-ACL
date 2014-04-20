@@ -15,16 +15,10 @@ function validateForm(data){
 			consolelog(obj.redirect);
 			window.location.href = obj.redirect;
 		}else{
-
 			consolelog(obj.message_error);
-
 			if(obj.message_error != ""){
-
 				$('#container').before('<div id="messages"><div id="multiFlash.0Message" class="alert alert-warning">'+obj.message_error+'</div></div>');
-
 			}
-
-
 		}
 
 		consolelog(obj.errors);
