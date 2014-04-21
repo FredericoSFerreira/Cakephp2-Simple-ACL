@@ -22,10 +22,11 @@ var Users = {
 
 		$("form").on("submit", function( event ) {
 		  	event.preventDefault();
+		  	urlaction = $(this).attr("action");
 		  	var options = { 
 		        beforeSubmit:  App.showRequest,  // pre-submit callback 
 		        success:       App.showResponse,  // post-submit callback 
-		 		url:       '/admin/users/add/'  
+		 		url:       urlaction 
 		    }; 
 		  	$(this).ajaxSubmit(options); 
 		});
@@ -33,6 +34,17 @@ var Users = {
 	},
 	edit : function(){
 		consolelog("Load Users.edit");
+
+		$("form").on("submit", function( event ) {
+		  	event.preventDefault();
+		  	urlaction = $(this).attr("action");
+		  	var options = { 
+		        beforeSubmit:  App.showRequest,  // pre-submit callback 
+		        success:       App.showResponse,  // post-submit callback 
+		 		url:       urlaction  
+		    }; 
+		  	$(this).ajaxSubmit(options); 
+		});
 	},
 	delete : function(){
 		consolelog("Load Users.delete");

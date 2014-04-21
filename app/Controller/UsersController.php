@@ -45,35 +45,25 @@ class UsersController extends AppController {
     
     
     public function post_login(){
-
-            $data = array();
-            $errors= array();
-            $data['response']['message_error']="";
-            $data['response']['message_success']="";
-            $data['response']['redirect']="";
-            $data['response']['errors']=array();
-            $this->layout = 'ajax';
-            $this->autoRender = FALSE;
-
+            
+            $this->ajaxVariablesInit();
             $this->User->set($this->data);
             if($this->User->validates())
             {
                 if( $this->Auth->login())
                 {
-                    //return $this->redirect($this->Auth->redirect());
-                    $data['response']['redirect']=$this->Auth->redirect();
+                    $this->dataajax['response']['redirect']=$this->Auth->redirect();
                 }
                 else
                 {
-                    //$this->_flash(__('Login-error',true),'alert alert-warning');
-                    $data['response']['message_error']=__('Login-error',true);
+                    $this->dataajax['response']['message_error']=__('Login-error',true);
                 }
             }else{
-                 $errors['User'] = $this->User->validationErrors;
-                 $data['response']["errors"]= $errors;
+                 $this->errorsajax['User'] = $this->User->validationErrors;
+                 $this->dataajax['response']["errors"]= $this->errorsajax;
             }
 
-            echo json_encode($data);
+            echo json_encode($this->dataajax);
 
 
     }
@@ -147,33 +137,22 @@ class UsersController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
-            $data = array();
-            $errors= array();
-            $data['response']['message_error']="";
-            $data['response']['message_success']="";
-            $data['response']['redirect']="";
-            $data['response']['errors']=array();
-            $this->layout = 'ajax';
-            $this->autoRender = FALSE;
+            
+            $this->ajaxVariablesInit();
 
             $this->User->create();
             $this->User->set($this->data);
             if($this->User->validates())
             {
                 if ($this->User->save()) {
-                    //$this->_flash(__('Save-success',true),'alert alert-success');
-                    $data['response']['message_success']=__('Save-success',true);
-                } else {
-                     //$this->_flash(__('Save-error',true),'alert alert-warning');
-                    $data['response']['message_error']=__('Save-error',true);
+                    $this->dataajax['response']['message_success']=__('Save-success',true);
                 }
-                //$this->redirect(array('action' => 'admin_add'));
             }else{
-                 $errors['User'] = $this->User->validationErrors;
-                 $data['response']["errors"]= $errors;
+                 $this->errorsajax['User'] = $this->User->validationErrors;
+                 $this->dataajax['response']["errors"]= $this->errorsajax;
             }
 
-            echo json_encode($data);
+            echo json_encode($this->dataajax);
                 
 
         }
@@ -226,16 +205,22 @@ class UsersController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->ajaxVariablesInit();
+
                 $this->User->id = $id;
                 $this->User->set($this->data);
                 if($this->User->validates())
                 {
                     if ($this->User->save()) {
                         $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_edit'));
+                        $this->dataajax['response']['redirect']='/admin/users/edit/';
                     }
+                }else{
+                     $this->errorsajax['User'] = $this->User->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
-                $this->set(compact('id'));
+
+                echo json_encode($this->dataajax);
         }
         /*----------------post_edit-----------------*/
 

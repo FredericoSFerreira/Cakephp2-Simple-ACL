@@ -47,6 +47,22 @@ class AppController extends Controller {
         'Paginator'
     );
 
+    public $dataajax=array();
+    public $errorsajax = array();
+
+    public function ajaxVariablesInit(){
+
+        $this->dataajax['response']['message_error']="";
+        $this->dataajax['response']['message_success']="";
+        $this->dataajax['response']['redirect']="";
+        $this->dataajax['response']['errors']=array();
+
+        $this->layout = 'ajax';
+        $this->autoRender = FALSE;
+
+
+    }
+
     public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => true);
         $this->Auth->loginRedirect = '/admin/users/home/';
