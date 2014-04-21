@@ -72,3 +72,15 @@ float: left;
 width: 100%;
 margin-right: 0px;
 }
+
+#load {
+    position: absolute;
+    background: #fff url('images/loader.gif') no-repeat center center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity:0.9;
+    filter:alpha(opacity=90); /* For IE8 and earlier */
+}

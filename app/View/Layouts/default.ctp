@@ -1,7 +1,8 @@
 <?php echo $this->element('header');?>
 <body>
 
-  <div class="app">
+  <div id="load"></div>
+  <div class="app" style="display:none;">
   	
     <?php echo $this->element('menu'); ?>
         

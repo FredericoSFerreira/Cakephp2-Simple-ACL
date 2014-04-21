@@ -5,12 +5,13 @@ var Users = {
 
        	$("form").on( "submit", function( event ) {
 		  	event.preventDefault();
+		  	var options = { 
+		        beforeSubmit:  App.showRequest,  // pre-submit callback 
+		        success:       App.showResponse,  // post-submit callback 
+		 		url:       '/admin/users/login/'  
+		    }; 
 
-		  	$.post(
-	            '/admin/users/login',
-	            $(this).serialize() ,
-	            handleNameValidation
-        	);
+		  	$(this).ajaxSubmit(options); 
 
 		});
  
@@ -24,6 +25,6 @@ var Users = {
 	},
 	delete : function(){
 		consolelog("Load Users.delete");
-		deleteItems();
+		App.deleteItems();
 	}
 }
