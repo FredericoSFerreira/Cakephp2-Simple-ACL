@@ -1,4 +1,18 @@
 var App = {
+	formsubmit: function (){
+		$("form").on( "submit", function( event ) {
+		  	event.preventDefault();
+		  	urlaction = $(this).attr("action");
+		  	var options = { 
+		        beforeSubmit:  App.showRequest,  // pre-submit callback 
+		        success:       App.showResponse,  // post-submit callback 
+		 		url:       urlaction,
+		    }; 
+
+		  	$(this).ajaxSubmit(options); 
+
+		});
+	},
 	showRequest : function(formData, jqForm, options){
 		consolelog("Load showRequest");
 		$('input[type=submit]', jqForm).attr('disabled', 'disabled');
