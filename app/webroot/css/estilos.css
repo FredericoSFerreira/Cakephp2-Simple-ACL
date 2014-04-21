@@ -80,7 +80,7 @@ margin-right: 0px;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 2000;
     opacity:0.9;
     filter:alpha(opacity=90); /* For IE8 and earlier */
 }

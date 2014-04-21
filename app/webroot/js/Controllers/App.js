@@ -58,9 +58,19 @@ var App = {
 
 		});
 	},
+	clickBlockScreen : function(){
+		$("a").bind( "click", function(event) {
+			consolelog($(this));
+			if(($(this).hasClass('deleteitem') === false)&&($(this).hasClass('dropdown-toggle') === false)){
+				loadingScreen();
+			}
+		});
+	},
 	deleteItems : function(){
 	 	$( "a.deleteitem" ).bind( "click", function(event) {
 	 		event.preventDefault();
+	 		
+	 		removeLoadScreen();
 	 		var hreflink = $(this).attr('href');
 	 		var strtitle= $(this).attr("data-confirm-title");
 	 		var strmsg= $(this).attr("data-confirm-msg");

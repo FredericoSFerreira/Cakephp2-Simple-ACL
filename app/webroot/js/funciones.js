@@ -1,4 +1,4 @@
-var DEBUGJS = false;
+var DEBUGJS = true;
 
 function capitalize(s)
 {
@@ -47,5 +47,5 @@ $(document).ready(function(){
 
 	removeLoadScreen();
 	showApp();
-
+	App.clickBlockScreen();
 });
