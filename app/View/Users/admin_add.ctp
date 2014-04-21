@@ -38,3 +38,9 @@ echo $this->Form->end(array('label'=>$form_config["labelbutton"],'class'=>'btn b
 ?>
 </div>
  </section>
+
+<?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+	Controllers.push("Users.add");
+</script>
+<?php } ?>

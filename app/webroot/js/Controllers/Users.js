@@ -8,7 +8,7 @@ var Users = {
 		  	var options = { 
 		        beforeSubmit:  App.showRequest,  // pre-submit callback 
 		        success:       App.showResponse,  // post-submit callback 
-		 		url:       '/admin/users/login/'  
+		 		url:       '/admin/users/login/',
 		    }; 
 
 		  	$(this).ajaxSubmit(options); 
@@ -19,6 +19,17 @@ var Users = {
 	},
 	add : function(){
 		consolelog("Load Users.add");
+
+		$("form").on("submit", function( event ) {
+		  	event.preventDefault();
+		  	var options = { 
+		        beforeSubmit:  App.showRequest,  // pre-submit callback 
+		        success:       App.showResponse,  // post-submit callback 
+		 		url:       '/admin/users/add/'  
+		    }; 
+		  	$(this).ajaxSubmit(options); 
+		});
+
 	},
 	edit : function(){
 		consolelog("Load Users.edit");

@@ -48,12 +48,10 @@ class UsersController extends AppController {
 
             $data = array();
             $errors= array();
-
             $data['response']['message_error']="";
             $data['response']['message_success']="";
             $data['response']['redirect']="";
             $data['response']['errors']=array();
-
             $this->layout = 'ajax';
             $this->autoRender = FALSE;
 
@@ -149,18 +147,33 @@ class UsersController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
-            
+            $data = array();
+            $errors= array();
+            $data['response']['message_error']="";
+            $data['response']['message_success']="";
+            $data['response']['redirect']="";
+            $data['response']['errors']=array();
+            $this->layout = 'ajax';
+            $this->autoRender = FALSE;
+
             $this->User->create();
             $this->User->set($this->data);
             if($this->User->validates())
             {
                 if ($this->User->save()) {
-                    $this->_flash(__('Save-success',true),'alert alert-success');
+                    //$this->_flash(__('Save-success',true),'alert alert-success');
+                    $data['response']['message_success']=__('Save-success',true);
                 } else {
-                     $this->_flash(__('Save-error',true),'alert alert-warning');
+                     //$this->_flash(__('Save-error',true),'alert alert-warning');
+                    $data['response']['message_error']=__('Save-error',true);
                 }
-                $this->redirect(array('action' => 'admin_add'));
+                //$this->redirect(array('action' => 'admin_add'));
+            }else{
+                 $errors['User'] = $this->User->validationErrors;
+                 $data['response']["errors"]= $errors;
             }
+
+            echo json_encode($data);
                 
 
         }

@@ -12,8 +12,8 @@
           
           <?php echo $this->element('aside'); ?>
           <div class="view-container">
-                  <section data-ng-view="" id="content" class="animate-fade-up ng-scope">
-                      <section class="page-form-ele page ng-scope">
+                  <section id="content">
+                      <section class="page-form-ele page">
                         <?php echo $this->element('flash');?>
                         <?php echo $this->fetch('content'); ?>
                         <?php echo $this->element('sql_dump'); ?>

@@ -7,10 +7,10 @@ var App = {
 	},
 	showResponse : function(responseText, statusText, xhr, form){
 		consolelog("Load showResponse");
-		App.validateForm(responseText);
 		$('input[type=submit]', form).removeAttr('disabled');
+		App.validateForm(responseText,form);
 	},
-	validateForm : function(data){
+	validateForm : function(data,form){
 
 		consolelog(data);
 		$.each($.parseJSON(data), function(idx, obj) {
@@ -21,8 +21,14 @@ var App = {
 			}else{
 				consolelog(obj.message_error);
 				if(obj.message_error != ""){
-					$('#container').before('<div id="messages"><div id="multiFlash.0Message" class="alert alert-warning">'+obj.message_error+'</div></div>');
+					$('#content .page-form-ele.page').prepend('<div id="messages"><div id="multiFlash.0Message" class="alert alert-warning">'+obj.message_error+'</div></div>');
 					removeLoadScreen();
+				}
+
+				if(obj.message_success != ""){
+					$('#content .page-form-ele.page').prepend('<div id="messages"><div id="multiFlash.0Message" class="alert alert-success">'+obj.message_success+'</div></div>');
+					removeLoadScreen();
+					form[0].reset();
 				}
 			}
 
@@ -46,8 +52,9 @@ var App = {
 							inputfield= capitalize(idname);
 							errorinput = objerror[0];
 
-							$('#'+model+inputfield).after('<div class="error alert alert-danger">' + errorinput + "</div>");
-
+							//$('#'+model+inputfield).after('<div class="error alert alert-danger">' + errorinput + "</div>");
+							$("input[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
+							$("select[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
 
 					});
 
@@ -55,7 +62,6 @@ var App = {
 				});
 				removeLoadScreen();
 			}
-
 		});
 	},
 	clickBlockScreen : function(){
@@ -90,6 +96,7 @@ var App = {
 			      label: "Aceptar",
 			      className: "btn-success",
 			      callback: function() {
+			      	loadingScreen();
 			        window.location = hreflink;
 			      }
 			    },
