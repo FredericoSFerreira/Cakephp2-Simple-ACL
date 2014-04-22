@@ -21,7 +21,7 @@ class ActionsController extends AppController {
         public function get_index(){
             $this->Paginator->settings = array(
                 'order' => 'Action.id ASC',
-                'limit' => 10
+                'limit' => 15
             );
             $lists = $this->Paginator->paginate('Action');
             $this->set(compact('lists'));
@@ -30,6 +30,10 @@ class ActionsController extends AppController {
 
         /*----------------index-----------------*/
         public function admin_index(){
+
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
 
             if ($this->request->is('get')) {
                 $this->get_index();

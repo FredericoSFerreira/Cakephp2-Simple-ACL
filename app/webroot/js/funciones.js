@@ -38,14 +38,15 @@ function invokeMethod(object, method) {
 }
 
 $(document).ready(function(){
-	
+
+	removeLoadScreen();
+	showApp();
+	App.clickBlockScreen();
+
 	Controllers.forEach(function(entry) {
 			dataarray = entry.split(".")
 			Obj = window[dataarray[0]];
 			invokeMethod(Obj,dataarray[1]);
 	});
 
-	removeLoadScreen();
-	showApp();
-	App.clickBlockScreen();
 });
