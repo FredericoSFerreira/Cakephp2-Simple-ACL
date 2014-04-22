@@ -88,3 +88,36 @@ margin-right: 0px;
 #content.login{
   left: 0;
 }
+
+.navbar-blue {
+background-color: #0619A0;
+border-color: #0619A0;
+}
+
+.navbar-blue .navbar-brand,.navbar-blue .dropdown-toggle{
+  color: #fff;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+text-decoration: none;
+background-color: #000;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open>a:focus {
+background-color: #000;
+border-color: #020202;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+text-decoration: none;
+color: #fff;
+background-color: #0619A0;
+}
+
+.navbar-blue .navbar-right a{
+  color: #fff;
+}
+
+.form-signin-heading{
+  text-align: center;
+}

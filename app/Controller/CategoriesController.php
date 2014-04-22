@@ -42,17 +42,22 @@ class CategoriesController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
+
+                $this->ajaxVariablesInit();
+
                 $this->Category->create();
                 $this->Category->set($this->data);
                 if($this->Category->validates())
                 {
                     if ($this->Category->save()) {
-                        $this->_flash(__('Save-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_add'));
+                        $this->dataajax['response']['message_success']=__('Save-success',true);
                     }
                 }else{
-                	$this->get_add();
+                     $this->errorsajax['Category'] = $this->Category->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
+
+                echo json_encode($this->dataajax);
         }
         /*----------------post_add-----------------*/
 
@@ -116,24 +121,20 @@ class CategoriesController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->ajaxVariablesInit();
                 $this->Category->id = $id;
                 $this->Category->set($this->data);
                 if($this->Category->validates())
                 {
                     if ($this->Category->save()) {
                         $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_edit'));
+                        $this->dataajax['response']['redirect']='/admin/categories/edit/';
                     }
                 }else{
-
-                	$this->set(
-                	array(
-                		"modules" => $this->Module->find("list")
-                	)
-                	);
-
+                     $this->errorsajax['Category'] = $this->Category->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
-                $this->set(compact('id'));
+                echo json_encode($this->dataajax);
         }
         /*----------------post_edit-----------------*/
 

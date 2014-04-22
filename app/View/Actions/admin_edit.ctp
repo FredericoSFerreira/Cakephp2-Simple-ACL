@@ -5,3 +5,7 @@ include_once('admin_index.ctp');
 include_once('admin_add.ctp');
 
  } ?>
+
+ <script type="text/javascript">
+    Controllers.push("Actions.edit");
+</script>

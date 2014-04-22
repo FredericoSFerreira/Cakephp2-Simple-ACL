@@ -44,15 +44,27 @@ class GroupactionsController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
+
+                $this->ajaxVariablesInit();
+
                 $this->Groupaction->create();
                 $this->Groupaction->set($this->data);
                 if($this->Groupaction->validates())
                 {
-                    if ($this->Groupaction->save()) {
-                        $this->_flash(__('Save-success',true),'alert alert-warning');
-                        $this->redirect(array('action' => 'admin_add'));
+                    try{
+                        if ($this->Groupaction->save()) {
+                            $this->dataajax['response']['message_success']=__('Save-success',true);
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
+                    
+                }else{
+                     $this->errorsajax['Groupaction'] = $this->Groupaction->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
+                
+                echo json_encode($this->dataajax);
         }
         /*----------------post_add-----------------*/
 

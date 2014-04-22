@@ -42,15 +42,20 @@ class ModulesController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
+                $this->ajaxVariablesInit();
                 $this->Module->create();
                 $this->Module->set($this->data);
                 if($this->Module->validates())
                 {
                     if ($this->Module->save()) {
-                        $this->_flash(__('Save-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_add'));
+                        $this->dataajax['response']['message_success']=__('Save-success',true);
                     }
+                }else{
+                     $this->errorsajax['Module'] = $this->Module->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
+
+                echo json_encode($this->dataajax);
         }
         /*----------------post_add-----------------*/
 
@@ -91,16 +96,20 @@ class ModulesController extends AppController {
 
         /*----------------post_edit-----------------*/
         public function post_edit($id){
+                $this->ajaxVariablesInit();
                 $this->Module->id = $id;
                 $this->Module->set($this->data);
                 if($this->Module->validates())
                 {
                     if ($this->Module->save()) {
                         $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_edit'));
+                        $this->dataajax['response']['redirect']='/admin/modules/edit/';
                     }
+                }else{
+                     $this->errorsajax['Module'] = $this->Module->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
-                $this->set(compact('id'));
+                echo json_encode($this->dataajax);
         }
         /*----------------post_edit-----------------*/
 

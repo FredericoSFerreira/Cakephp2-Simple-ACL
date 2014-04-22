@@ -55,3 +55,8 @@
         <?php echo $this->element('paginado'); ?>
     </div>
 </section>
+ <?php if($action == "admin_index"){ ?>
+ <script type="text/javascript">
+    Controllers.push("Modules.index");
+</script>
+<?php } ?>

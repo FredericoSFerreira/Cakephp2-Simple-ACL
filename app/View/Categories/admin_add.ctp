@@ -36,5 +36,11 @@
 	</div>
  </section>
 
+ <?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+	Controllers.push("Categories.add");
+</script>
+<?php } ?>
+
 
 

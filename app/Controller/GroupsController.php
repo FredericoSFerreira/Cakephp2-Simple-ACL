@@ -81,16 +81,21 @@ class GroupsController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
 
+                $this->ajaxVariablesInit();
                 $this->Group->id = $id;
                 $this->Group->set($this->data);
                 if($this->Group->validates())
                 {
                     if ($this->Group->save()) {
                         $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_edit'));
+                        $this->dataajax['response']['redirect']='/admin/groups/edit/';
                     }
                 }
-                $this->set(compact('id'));
+                else{
+                     $this->errorsajax['Group'] = $this->Group->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                }
+                echo json_encode($this->dataajax);
         }
         /*----------------post_edit-----------------*/
 
@@ -124,15 +129,22 @@ class GroupsController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
+
+                $this->ajaxVariablesInit();
+
                 $this->Group->create();
                 $this->Group->set($this->data);
                 if($this->Group->validates())
                 {
                     if ($this->Group->save()) {
-                        $this->_flash(__('Save-success',true),'alert alert-success');
-                        $this->redirect(array('action' => 'admin_add'));
+                        $this->dataajax['response']['message_success']=__('Save-success',true);
                     }
+                }else{
+                     $this->errorsajax['Group'] = $this->Group->validationErrors;
+                     $this->dataajax['response']["errors"]= $this->errorsajax;
                 }
+
+                echo json_encode($this->dataajax);
         }
         /*----------------post_add-----------------*/
 

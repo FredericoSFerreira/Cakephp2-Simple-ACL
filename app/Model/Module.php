@@ -24,7 +24,7 @@ class Module extends AppModel {
 		'order' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Error-notempty-list',
+				'message' => 'Error-notempty',
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),

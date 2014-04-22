@@ -28,3 +28,9 @@
 			?>
 		</div>
  </section>
+
+ <?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+	Controllers.push("Modules.add");
+</script>
+<?php } ?>

@@ -23,3 +23,9 @@
 			?>
         </div>
  </section>
+
+<?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+	Controllers.push("Groups.add");
+</script>
+<?php } ?>

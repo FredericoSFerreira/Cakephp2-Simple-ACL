@@ -3,6 +3,9 @@ var Users = {
 		consolelog("Load Users.login");
        	App.formsubmit();
 	},
+	index : function(){
+		consolelog("Load Users.index");
+	},
 	add : function(){
 		consolelog("Load Users.add");
 		App.formsubmit();

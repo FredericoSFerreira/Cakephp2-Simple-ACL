@@ -6,6 +6,11 @@
 			'jquery.form.min',
 			'Controllers/App',
 			'Controllers/Users',
+			'Controllers/Groups',
+			'Controllers/Modules',
+			'Controllers/Categories',
+			'Controllers/Actions',
+			'Controllers/Groupactions',
 			'funciones',
 			));
 ?>

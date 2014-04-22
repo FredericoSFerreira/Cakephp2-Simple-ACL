@@ -29,3 +29,8 @@ echo $this->Form->input('action_id',array("label"=>"Funciones","empty"=>"Selecci
 
 </div>
  </section>
+ <?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+        Controllers.push("Groupactions.add");
+</script>
+<?php } ?>

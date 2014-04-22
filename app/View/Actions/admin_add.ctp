@@ -38,5 +38,10 @@ echo $this->Form->input('order',array("label"=>"Orden en el menu","required"=>fa
 			?>
 </div>
 </section>
+<?php if($action == "admin_add"){ ?>
+ <script type="text/javascript">
+	Controllers.push("Actions.add");
+</script>
+<?php } ?>
 
 
