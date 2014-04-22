@@ -16,10 +16,7 @@ var Actions = {
 				removeLoadScreen();
 			});
 
-		});
-
-		
-		$(window).unbind("popstate").bind("popstate", function() {
+			$(window).unbind("popstate").bind("popstate", function() {
 			    loadingScreen(),
 				url= location.pathname,
 				$.get(url, function(data) {
@@ -27,7 +24,12 @@ var Actions = {
 					Actions.index();
 					removeLoadScreen();
 				})
+			});
+
 		});
+
+
+		
 
 	},
 	add : function(){
