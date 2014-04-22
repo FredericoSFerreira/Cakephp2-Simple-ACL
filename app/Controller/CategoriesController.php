@@ -49,8 +49,12 @@ class CategoriesController extends AppController {
                 $this->Category->set($this->data);
                 if($this->Category->validates())
                 {
-                    if ($this->Category->save()) {
-                        $this->dataajax['response']['message_success']=__('Save-success',true);
+                    try{
+                        if ($this->Category->save()) {
+                            $this->dataajax['response']['message_success']=__('Save-success',true);
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Save-success',true);
                     }
                 }else{
                      $this->errorsajax['Category'] = $this->Category->validationErrors;
@@ -126,9 +130,13 @@ class CategoriesController extends AppController {
                 $this->Category->set($this->data);
                 if($this->Category->validates())
                 {
-                    if ($this->Category->save()) {
-                        $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->dataajax['response']['redirect']='/admin/categories/edit/';
+                    try{
+                        if ($this->Category->save()) {
+                            $this->_flash(__('Update-success',true),'alert alert-success');
+                            $this->dataajax['response']['redirect']='/admin/categories/edit/';
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Update-error',true);
                     }
                 }else{
                      $this->errorsajax['Category'] = $this->Category->validationErrors;
@@ -177,9 +185,14 @@ class CategoriesController extends AppController {
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
-                if ($this->Category->delete($id,true)) {
-                    $this->_flash(__('Delete-success', true),'alert alert-success');
-                    $this->redirect(array('action' => 'admin_delete'));
+                try{
+                    if ($this->Category->delete($id,true)) {
+                        $this->_flash(__('Delete-success', true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                        $this->_flash(__('Delete-error', true),'alert alert-warning');
+                        $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

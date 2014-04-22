@@ -144,8 +144,12 @@ class UsersController extends AppController {
             $this->User->set($this->data);
             if($this->User->validates())
             {
-                if ($this->User->save()) {
-                    $this->dataajax['response']['message_success']=__('Save-success',true);
+                try{
+                    if ($this->User->save()) {
+                        $this->dataajax['response']['message_success']=__('Save-success',true);
+                    }
+                }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Save-error',true);
                 }
             }else{
                  $this->errorsajax['User'] = $this->User->validationErrors;
@@ -211,9 +215,13 @@ class UsersController extends AppController {
                 $this->User->set($this->data);
                 if($this->User->validates())
                 {
-                    if ($this->User->save()) {
-                        $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->dataajax['response']['redirect']='/admin/users/edit/';
+                    try{
+                        if ($this->User->save()) {
+                            $this->_flash(__('Update-success',true),'alert alert-success');
+                            $this->dataajax['response']['redirect']='/admin/users/edit/';
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Update-error',true);
                     }
                 }else{
                      $this->errorsajax['User'] = $this->User->validationErrors;
@@ -271,9 +279,14 @@ class UsersController extends AppController {
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
-                if ($this->User->delete($id,true)) {
-                    $this->_flash(__('Delete-success', true),'alert alert-success');
-                    $this->redirect(array('action' => 'admin_delete'));
+                try{
+                    if ($this->User->delete($id,true)) {
+                        $this->_flash(__('Delete-success', true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                        $this->_flash(__('Delete-error', true),'alert alert-warning');
+                        $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

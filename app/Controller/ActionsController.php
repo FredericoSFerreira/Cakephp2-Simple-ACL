@@ -49,8 +49,12 @@ class ActionsController extends AppController {
                 $this->Action->set($this->data);
                 if($this->Action->validates())
                 {
-                    if ($this->Action->save()) {
-                        $this->dataajax['response']['message_success']=__('Save-success',true);
+                    try{
+                        if ($this->Action->save()) {
+                            $this->dataajax['response']['message_success']=__('Save-success',true);
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
                 }else{
                      $this->errorsajax['Action'] = $this->Action->validationErrors;
@@ -125,10 +129,15 @@ class ActionsController extends AppController {
                 $this->Action->set($this->data);
                 if($this->Action->validates())
                 {
-                    if ($this->Action->save()) {
-                        $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->dataajax['response']['redirect']='/admin/actions/edit/';
+                    try{
+                        if ($this->Action->save()) {
+                            $this->_flash(__('Update-success',true),'alert alert-success');
+                            $this->dataajax['response']['redirect']='/admin/actions/edit/';
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Update-error',true);
                     }
+
                 }else{
                      $this->errorsajax['Action'] = $this->Action->validationErrors;
                      $this->dataajax['response']["errors"]= $this->errorsajax;
@@ -176,9 +185,14 @@ class ActionsController extends AppController {
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
-                if ($this->Action->delete($id,true)) {
-                    $this->_flash(__('Delete-success', true),'alert alert-success');
-                    $this->redirect(array('action' => 'admin_delete'));
+                try{
+                    if ($this->Action->delete($id,true)) {
+                        $this->_flash(__('Delete-success', true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                        $this->_flash(__('Delete-error', true),'alert alert-warning');
+                        $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
                 $this->get_index();

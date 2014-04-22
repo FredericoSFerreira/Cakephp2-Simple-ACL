@@ -47,10 +47,16 @@ class GroupsController extends AppController {
                     $this->redirect(array('action' => 'admin_delete'));
                 }   
 
-                if ($this->Group->delete($id,true)) {
-                    $this->_flash(__('Delete-success', true),'alert alert-success');
-                    $this->redirect(array('action' => 'admin_delete'));
+                try{
+                    if ($this->Group->delete($id,true)) {
+                        $this->_flash(__('Delete-success', true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                        $this->_flash(__('Delete-error', true),'alert alert-warning');
+                        $this->redirect(array('action' => 'admin_delete'));
                 }
+
             }else{
                 $this->get_index();
             }
@@ -86,9 +92,13 @@ class GroupsController extends AppController {
                 $this->Group->set($this->data);
                 if($this->Group->validates())
                 {
-                    if ($this->Group->save()) {
-                        $this->_flash(__('Update-success',true),'alert alert-success');
-                        $this->dataajax['response']['redirect']='/admin/groups/edit/';
+                    try{
+                        if ($this->Group->save()) {
+                            $this->_flash(__('Update-success',true),'alert alert-success');
+                            $this->dataajax['response']['redirect']='/admin/groups/edit/';
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Update-error',true);
                     }
                 }
                 else{
@@ -136,8 +146,12 @@ class GroupsController extends AppController {
                 $this->Group->set($this->data);
                 if($this->Group->validates())
                 {
-                    if ($this->Group->save()) {
-                        $this->dataajax['response']['message_success']=__('Save-success',true);
+                    try{
+                        if ($this->Group->save()) {
+                            $this->dataajax['response']['message_success']=__('Save-success',true);
+                        }
+                    }catch (Exception $e) {
+                        $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
                 }else{
                      $this->errorsajax['Group'] = $this->Group->validationErrors;
