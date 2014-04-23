@@ -1,0 +1,60 @@
+msgid "Login-error"
+msgstr "Usuario / Clave no son validos, verifique!"
+
+msgid "str_login_h2"
+msgstr "Inicio de Sesión"
+
+msgid "str_login_input_username"
+msgstr "Usuario"
+
+msgid "str_login_input_password"
+msgstr "Clave"
+
+msgid "str_login_button"
+msgstr "Entrar al Sistema"
+
+msgid "msg-access-noAuth"
+msgstr "Acceso no autorizado"
+
+msgid "msg-acl-syncSuccess"
+msgstr "ACL Sincronizado"
+
+msgid "User_logout"
+msgstr "Cerrar Sesión"
+
+msgid "Logout-success"
+msgstr "Sesión Cerrada Exitosamente"
+
+msgid "Error-notempty"
+msgstr "El campo no puede estar vacio, Verifique"
+
+msgid "Error-notempty-list"
+msgstr "Debe seleccionar un Item de la lista, Verifique"
+
+msgid "Error-numeric"
+msgstr "El campo debe ser numérico, Verifique"
+
+msgid "Save-success"
+msgstr "Registro guardado exitosamente"
+
+msgid "Save-error"
+msgstr "El registro no pudo ser guardado"
+
+msgid "Update-success"
+msgstr "Registro actualizado exitosamente"
+
+msgid "Update-error"
+msgstr "El registro no pudo ser actualizado"
+
+msgid "Delete-success"
+msgstr "Registro eliminado exitosamente"
+
+msgid "Delete-error"
+msgstr "El registro no pudo ser eliminado"
+
+msgid "No-exist-record"
+msgstr "No se ha encontrado un registro valido para esta acción"
+
+
+
+ 

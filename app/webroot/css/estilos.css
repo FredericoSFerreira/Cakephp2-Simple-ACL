@@ -121,3 +121,8 @@ background-color: #0619A0;
 .form-signin-heading{
   text-align: center;
 }
+
+.login .panel{
+  width: 350px;
+margin: 0 auto;
+}
