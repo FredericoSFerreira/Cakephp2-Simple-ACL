@@ -50,19 +50,6 @@ class AppController extends Controller {
     public $dataajax=array();
     public $errorsajax = array();
 
-    public function ajaxVariablesInit(){
-
-        $this->dataajax['response']['message_error']="";
-        $this->dataajax['response']['message_success']="";
-        $this->dataajax['response']['redirect']="";
-        $this->dataajax['response']['errors']=array();
-
-        $this->layout = 'ajax';
-        $this->autoRender = FALSE;
-
-
-    }
-
     public function beforeFilter() {        
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' => false,'admin' => true);
         $this->Auth->loginRedirect = '/admin/users/home/';
@@ -84,6 +71,46 @@ class AppController extends Controller {
         $this->set('action',$this->params["action"]);
         $this->is_Authorizate();
         
+    }
+
+    public function ajaxVariablesInit(){
+
+        $this->dataajax['response']['message_error']="";
+        $this->dataajax['response']['message_success']="";
+        $this->dataajax['response']['redirect']="";
+        $this->dataajax['response']['errors']=array();
+
+        $this->layout = 'ajax';
+        $this->autoRender = FALSE;
+
+
+    }
+
+    public function filterConfig($model,$fields_char){
+        $conditions = array();
+        
+        //pr($this->request->query);
+
+        if (!empty($this->request->query)) {
+            foreach($this->request->query as $key => $record) {
+                if($key!= 'page')
+                    $this->request->data['Search'][$key] = $record;
+            }
+            foreach ($this->request->data['Search'] as $name => $record) {
+                if ((isset($record) && !empty($record)) || $record === "0") {
+                    $this->request->query[$name] = $record;
+
+                    if (in_array($name,$fields_char)) {
+                        $conditions[$this->{$this->modelClass}->{$model}.$model.'.'.$name.' LIKE'] = '%' . $record . '%';
+                    } else {
+                        $conditions[$this->modelClass . '.' . $name] = $record;
+                    }
+                }
+            }
+        }
+
+        //pr($conditions);
+        return $conditions;
     }
 
     public function syncACL() {

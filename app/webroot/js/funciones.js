@@ -37,6 +37,7 @@ function invokeMethod(object, method) {
   object[method]()
 }
 
+
 $(document).ready(function(){
 
 	removeLoadScreen();

@@ -126,3 +126,20 @@ background-color: #0619A0;
   width: 350px;
 margin: 0 auto;
 }
+
+.nav>li>a:hover, .nav>li>a:focus{
+  background: none;
+}
+
+.tab-content>.active{
+  border: 1px solid #ccc;
+  border-top: none;
+padding: 10px;
+margin-bottom: 10px;
+}
+
+.nav-tabs>li{
+  color: #555;
+background-color: #f3f3f3;
+cursor: default;
+}

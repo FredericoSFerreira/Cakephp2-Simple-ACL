@@ -1,16 +1,32 @@
 var App = {
 	formsubmit: function (){
+		consolelog("Load App.formsubmit");
 		$("form").on( "submit", function( event ) {
-		  	event.preventDefault();
-		  	urlaction = $(this).attr("action");
-		  	var options = { 
-		        beforeSubmit:  App.showRequest,  // pre-submit callback 
-		        success:       App.showResponse,  // post-submit callback 
-		 		url:       urlaction,
-		    }; 
 
-		  	$(this).ajaxSubmit(options); 
+			consolelog($(this).attr("method"));
 
+			if($(this).attr("method") == 'post'){
+				event.preventDefault();
+			  	urlaction = $(this).attr("action");
+			  	var options = { 
+			        beforeSubmit:  App.showRequest,  // pre-submit callback 
+			        success:       App.showResponse,  // post-submit callback 
+			 		url:       urlaction,
+			    }; 
+
+			  	$(this).ajaxSubmit(options); 
+			}
+
+		  	
+
+		});
+	},
+	actionstabs : function(){
+		consolelog("Load App.actionTabs");
+		$('.filter-tab').unbind("click").bind( "click",function (e) {
+				  consolelog("Click filter-tab");
+				  e.preventDefault()
+				  $($(this).attr("href")).toggle();
 		});
 	},
 	showRequest : function(formData, jqForm, options){
@@ -79,9 +95,13 @@ var App = {
 		});
 	},
 	clickBlockScreen : function(){
+		consolelog("Load App.clickBlockScreen");
 		$("a").bind( "click", function(event) {
 			consolelog($(this));
-			if(($(this).hasClass('deleteitem') === false)&&($(this).hasClass('dropdown-toggle') === false)){
+			if(($(this).hasClass('deleteitem') === false)
+				&&($(this).hasClass('dropdown-toggle') === false)
+				&&($(this).hasClass('filter-tab') === false)
+			  ){
 				loadingScreen();
 			}
 		});

@@ -15,12 +15,42 @@ class ActionsController extends AppController {
     /*----------------beforeFilter-----------------*/
     
 
+        public function paramFilters($urlform){
+
+            $form_config = array();
+            $form_config["title"] = "Buscar / Filtrar";
+            $form_config["urlform"] = $urlform;
+            $form_config["labelbutton"] = "Buscar / Filtrar";
+            $this->set('form_config',$form_config);
+
+            $this->set(
+                    array(
+                        "categories" => $this->Category->find("list")
+                    )
+            );
+
+            $fields_char = array(
+                        'name','url'
+            );
+
+            $conditions = $this->filterConfig('Action',$fields_char);
+
+            return $conditions;
+
+        }
+
     /*----------------INDEX-----------------*/
 
         /*----------------get_index-----------------*/
-        public function get_index(){
+        public function get_index($urlfilter = 'admin_index'){
+
+            $conditions = $this->paramFilters($urlfilter);
+
+            //pr($conditions);
+
             $this->Paginator->settings = array(
                 'order' => 'Action.id ASC',
+                'conditions' => $conditions,
                 'limit' => 15
             );
             $lists = $this->Paginator->paginate('Action');
@@ -30,7 +60,7 @@ class ActionsController extends AppController {
 
         /*----------------index-----------------*/
         public function admin_index(){
-
+            
             if($this->request->is('ajax')){
                 $this->layout = 'ajax';
             }
@@ -157,17 +187,18 @@ class ActionsController extends AppController {
             $form_config["title"] = "Editar Función";
             $form_config["urlform"] = "admin_edit";
             $form_config["labelbutton"] = "Guardar";            
-            $this->set('form_config',$form_config);
-
+           
 
             if ($this->request->is('get')) {
                 if(empty($id)){
-                    $this->get_index();
+                    $this->get_index('admin_edit');
                 }else{
+                     $this->set('form_config',$form_config);
                     $this->get_edit($id);
                 }
             }else{
                 if ($this->request->is('post')) {
+                    $this->set('form_config',$form_config);
                     $this->post_edit($id);
                 }
             }
@@ -199,7 +230,7 @@ class ActionsController extends AppController {
                         $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }
