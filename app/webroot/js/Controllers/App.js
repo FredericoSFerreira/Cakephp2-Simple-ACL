@@ -1,4 +1,60 @@
 var App = {
+	actionslist : function (Objectlist,methodlist){
+		consolelog("Load App.actionsList");
+		App.actionstabs();
+		App.actionspaginator(Objectlist,methodlist);
+	},
+	actionspaginatorget: function(e){
+		consolelog("Load App.actionspaginatorget");
+		e.preventDefault();
+		//consolelog(e.data.object);
+		//consolelog(e.data.method);
+
+		e.preventDefault();
+			if(typeof($(this).attr('href')) != "undefined"){
+
+				window.history.pushState(null, null, $(this).attr('href'));
+				$.when(
+					loadingScreen(),
+					url= $(this).attr('href'),
+					$.get(url, function(data) {
+						$('#content .page').html(data);
+						 e.data.object[e.data.method]();
+					})
+				).then(function() {
+					removeLoadScreen()
+				});
+
+				$(window).unbind("popstate").bind("popstate", function() {
+				    loadingScreen(),
+					url= location.pathname,
+					$.get(url, function(data) {
+						$('#content .page').html(data);
+						e.data.object[e.data.method]();
+						removeLoadScreen();
+					})
+				});
+
+			}
+
+	},
+	changerowspage: function(){
+		consolelog("Load App.changerowspage");
+		loadingScreen();
+		consolelog($(this).val());
+		consolelog(window.location.href);
+
+		urlbase=window.location.href.replace(window.location.search,'');
+		window.location.href = urlbase + '?rowspage='+$(this).val();
+
+	},
+	actionspaginator: function(Objectpaginator,methodpaginator){
+		consolelog("Load App.actionspaginator");
+		Obj = window[Objectpaginator];
+
+		$('.pagination a,table th a').unbind("click").bind('click',{ object: Obj, method:methodpaginator },App.actionspaginatorget);
+		$('#recordsforpage').unbind("change").bind('change',App.changerowspage);
+	},
 	formsubmit: function (){
 		consolelog("Load App.formsubmit");
 		$("form").on( "submit", function( event ) {

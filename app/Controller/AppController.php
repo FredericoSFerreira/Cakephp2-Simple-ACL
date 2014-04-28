@@ -86,6 +86,22 @@ class AppController extends Controller {
 
     }
 
+    public function recordsforpage($cpp = 15){
+
+        $optionsrecors=array(15,30,50,100,500,1000);
+
+        $recordsforpage = $this->Session->read('Filter.recordsforpage');
+
+        if(!isset($recordsforpage)){
+            $recordsforpage = $cpp;
+            $this->Session->write('Filter.recordsforpage', $recordsforpage);
+        }
+
+         $this->set('recordsforpage',$recordsforpage);
+         $this->set('optionsrecors',$optionsrecors);
+
+    }
+
     public function filterConfig($model,$fields_char){
         $conditions = array();
         
@@ -93,20 +109,33 @@ class AppController extends Controller {
 
         if (!empty($this->request->query)) {
             foreach($this->request->query as $key => $record) {
-                if($key!= 'page')
+                if($key!= 'rowspage'){
                     $this->request->data['Search'][$key] = $record;
-            }
-            foreach ($this->request->data['Search'] as $name => $record) {
-                if ((isset($record) && !empty($record)) || $record === "0") {
-                    $this->request->query[$name] = $record;
+                }else{
+                    //pr($key);
+                    //pr($record);
+                    //pr($this->request);
 
-                    if (in_array($name,$fields_char)) {
-                        $conditions[$this->{$this->modelClass}->{$model}.$model.'.'.$name.' LIKE'] = '%' . $record . '%';
-                    } else {
-                        $conditions[$this->modelClass . '.' . $name] = $record;
+                    $this->Session->write('Filter.recordsforpage', $record);
+                    $this->redirect(array('controller'=>$this->request->params['controller'],'action' => $this->request->params['action']));
+                }
+                    
+            }
+
+            if(isset($this->request->data['Search'])){
+                foreach ($this->request->data['Search'] as $name => $record) {
+                    if ((isset($record) && !empty($record)) || $record === "0") {
+                        $this->request->query[$name] = $record;
+
+                        if (in_array($name,$fields_char)) {
+                            $conditions[$this->{$this->modelClass}->{$model}.$model.'.'.$name.' LIKE'] = '%' . $record . '%';
+                        } else {
+                            $conditions[$this->modelClass . '.' . $name] = $record;
+                        }
                     }
                 }
             }
+            
         }
 
         //pr($conditions);

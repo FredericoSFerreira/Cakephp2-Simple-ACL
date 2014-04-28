@@ -632,4 +632,6 @@ auto;margin-top:200px}.error.alert.alert-danger{width:100%;float:left;padding:5p
 a{color:#fff}.form-signin-heading{text-align:center}.login
 .panel{width:350px;margin:0
 auto}.nav>li>a:hover,.nav>li>a:focus{background:none}.tab-content>.active{border:1px
-solid #ccc;border-top:none;padding:10px;margin-bottom:10px}.nav-tabs>li{color:#555;background-color:#f3f3f3;cursor:default}
+solid #ccc;border-top:none;padding:10px;margin-bottom:10px}.nav-tabs>li{color:#555;background-color:#f3f3f3;cursor:default}.pagination>li.recordsforpage{float:left}.pagination>li.recordsforpage
+p{float:left;margin-top:5px;margin-right:10px}.pagination>li.recordsforpage
+select{float:left;margin-top:5px;margin-right:10px}

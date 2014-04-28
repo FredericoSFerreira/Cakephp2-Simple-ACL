@@ -33,7 +33,9 @@ class ActionsController extends AppController {
                         'name','url'
             );
 
+
             $conditions = $this->filterConfig('Action',$fields_char);
+            $this->recordsforpage();
 
             return $conditions;
 
@@ -47,11 +49,12 @@ class ActionsController extends AppController {
             $conditions = $this->paramFilters($urlfilter);
 
             //pr($conditions);
+            $limit = $this->Session->read('Filter.recordsforpage');
 
             $this->Paginator->settings = array(
                 'order' => 'Action.id ASC',
                 'conditions' => $conditions,
-                'limit' => 15
+                'limit' => $limit
             );
             $lists = $this->Paginator->paginate('Action');
             $this->set(compact('lists'));

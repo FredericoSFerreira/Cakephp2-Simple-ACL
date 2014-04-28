@@ -143,3 +143,19 @@ margin-bottom: 10px;
 background-color: #f3f3f3;
 cursor: default;
 }
+
+.pagination>li.recordsforpage{
+  float: left;
+}
+
+.pagination>li.recordsforpage p{
+  float: left;
+margin-top: 5px;
+margin-right: 10px;
+}
+
+.pagination>li.recordsforpage select{
+  float: left;
+margin-top: 5px;
+margin-right: 10px;
+}
