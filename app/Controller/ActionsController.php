@@ -186,6 +186,10 @@ class ActionsController extends AppController {
         /*----------------edit-----------------*/
         public function admin_edit($id=null){
 
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
+            
             $form_config = array();
             $form_config["title"] = "Editar Función";
             $form_config["urlform"] = "admin_edit";
@@ -215,6 +219,10 @@ class ActionsController extends AppController {
 
         /*----------------delete-----------------*/
         public function admin_delete($id=null){
+
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
 
             if(!empty($id)){
                 $this->Action->id = $id;

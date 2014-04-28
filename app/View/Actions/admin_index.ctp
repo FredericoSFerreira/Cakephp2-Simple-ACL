@@ -58,6 +58,12 @@
         <table class="table table-bordered">
            <thead>
             <tr> 
+                <?php
+                    $actionmultipleselect = array('admin_delete');
+                    if(in_array($action, $actionmultipleselect)){ 
+                ?>
+                <th></th>
+                <?php } ?>
                 <th><?php echo $this->Paginator->sort('Action.id','#');?></th>
                 <th><?php echo $this->Paginator->sort('Action.name','Nombre');?></th>
                 <th><?php echo $this->Paginator->sort('Action.url','Url');?></th>
@@ -74,6 +80,13 @@
             <tbody>
                 <?php foreach ($lists as $list): ?>
                 <tr>
+                    <?php
+                        if(in_array($action, $actionmultipleselect)){ 
+                    ?>
+                    <td style="width: 10px;">
+                        <input type="checkbox" name="Action.id[]"/> 
+                    </td>
+                    <?php } ?>
                     <td style="width: 10px;"><?php echo h($list['Action']['id']); ?>&nbsp;</td>
                     <td><?php echo h($list['Action']['name']); ?>&nbsp;</td>
                     <td><?php echo h($list['Action']['url']); ?>&nbsp;</td>
