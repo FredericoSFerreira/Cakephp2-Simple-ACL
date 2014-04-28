@@ -1,4 +1,4 @@
-<p>
+<p class="summarypaginator">
 	<?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Página {:page} de {:pages}, Mostrando {:current} registro(s) de {:count} en total')

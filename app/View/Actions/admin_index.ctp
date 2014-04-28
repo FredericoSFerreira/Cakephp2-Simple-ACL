@@ -62,7 +62,7 @@
                     $actionmultipleselect = array('admin_delete');
                     if(in_array($action, $actionmultipleselect)){ 
                 ?>
-                <th></th>
+                <th><input type="checkbox" class="checkallclick" title="Check All"></th>
                 <?php } ?>
                 <th><?php echo $this->Paginator->sort('Action.id','#');?></th>
                 <th><?php echo $this->Paginator->sort('Action.name','Nombre');?></th>
@@ -84,7 +84,7 @@
                         if(in_array($action, $actionmultipleselect)){ 
                     ?>
                     <td style="width: 10px;">
-                        <input type="checkbox" name="Action.id[]"/> 
+                        <input type="checkbox" class="actionsdelete-check" name="Action.id[]"/> 
                     </td>
                     <?php } ?>
                     <td style="width: 10px;"><?php echo h($list['Action']['id']); ?>&nbsp;</td>
@@ -115,6 +115,20 @@
             </tbody>
             
         </table>
+        
+        <?php
+            if(in_array($action, $actionmultipleselect)){ 
+        ?>
+        <div class="checkalldiv">
+            <img class="selectallarrow" src="/img/arrow_ltr.png" width="38" height="22" alt="With selected:">
+            <input type="checkbox" class="checkallclick" title="Check All">
+            <label for="checkall">Check All</label> 
+            <select name="submit_mult" class="autosubmit" style="margin-left:10px;"><option value="With selected:" selected="selected">With selected:</option>
+                <option value="deleteall">Delete All</option>
+            </select>
+        </div>
+        <?php } ?>
+
         <?php echo $this->element('paginado'); ?>
     </div>
 </section>

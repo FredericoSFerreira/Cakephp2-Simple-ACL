@@ -57,3 +57,36 @@ Stack Trace:
 #5 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ActionsController), Object(CakeRequest), Object(CakeResponse))
 #6 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #7 {main}
+2014-04-28 03:10:08 Error: [MissingActionException] Action ActionsController::admin_themes() could not be found.
+Exception Attributes: array (
+  'controller' => 'ActionsController',
+  'action' => 'admin_themes',
+)
+Request URL: /admin/actions/themes/pmahomme/img/arrow_ltr.png
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ActionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-28 03:11:42 Error: [MissingActionException] Action ActionsController::admin_img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ActionsController',
+  'action' => 'admin_img',
+)
+Request URL: /admin/actions/img/arrow_ltr.png
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ActionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-04-28 03:11:56 Error: [MissingActionException] Action ActionsController::admin_img() could not be found.
+Exception Attributes: array (
+  'controller' => 'ActionsController',
+  'action' => 'admin_img',
+)
+Request URL: /admin/actions/img/arrow_ltr.png
+Stack Trace:
+#0 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ActionsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

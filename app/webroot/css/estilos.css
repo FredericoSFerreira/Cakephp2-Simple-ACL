@@ -144,6 +144,11 @@ background-color: #f3f3f3;
 cursor: default;
 }
 
+.pagination{
+  float: left;
+width: 100%;
+}
+
 .pagination>li.recordsforpage{
   float: left;
 }
@@ -158,4 +163,24 @@ margin-right: 10px;
   float: left;
 margin-top: 5px;
 margin-right: 10px;
+}
+
+.checkalldiv{
+padding: 10px;
+margin-top: -5px;
+margin-left: 0px;
+padding-bottom: 20px;
+float: left;
+width: 50%;
+}
+
+p.summarypaginator{
+  float: right;
+width: 50%;
+text-align: right;
+padding-right: 15px;
+}
+
+.table{
+  margin-bottom: 10px;
 }

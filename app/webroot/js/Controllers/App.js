@@ -4,6 +4,27 @@ var App = {
 		App.actionstabs();
 		App.actionspaginator(Objectlist,methodlist);
 	},
+	clickselectall : function(e){
+		consolelog("Load App.clickselectall");
+
+		consolelog(e.data.classcheck);
+		classcheck=e.data.classcheck;
+
+		if(this.checked) { // check select status
+		    $('.'+classcheck).each(function() { //loop through each checkbox
+		            this.checked = true;  //select all checkboxes with class "checkbox1"               
+		        });
+		    }else{
+		        $('.'+classcheck).each(function() { //loop through each checkbox
+		            this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+		    });         
+		 }
+	},
+	actionselectall : function(classchecks){
+		consolelog("Load App.actionselectall");
+		$('.checkallclick').unbind("click").bind('click',{ classcheck: classchecks },App.clickselectall);
+
+	},
 	actionspaginatorget: function(e){
 		consolelog("Load App.actionspaginatorget");
 		e.preventDefault();

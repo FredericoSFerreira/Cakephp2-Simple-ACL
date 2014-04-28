@@ -14,7 +14,8 @@ var Actions = {
 	},
 	delete : function(){
 		consolelog("Load Actions.delete");
-		App.actionslist('Actions','edit');
+		App.actionslist('Actions','delete');
+		App.actionselectall('actionsdelete-check');
 		App.deleteItems();
 	}
 }
