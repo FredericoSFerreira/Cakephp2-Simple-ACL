@@ -1,5 +1,6 @@
 <?php
 /**
+*
  * This is core configuration file.
  *
  * Use it to configure core behaviour of Cake.
