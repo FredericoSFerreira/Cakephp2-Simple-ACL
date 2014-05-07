@@ -32,7 +32,7 @@ echo $this->Form->create('User', array('action' => $form_config["urlform"]));
 
 	
 </div>
-<?
+<?php
 echo $this->Form->end(array('label'=>$form_config["labelbutton"],'class'=>'btn btn-primary','type'=>'submit'));
 
 ?>

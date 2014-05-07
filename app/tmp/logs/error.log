@@ -90,3 +90,217 @@ Stack Trace:
 #1 /home/www/Cakephp2-Simple-ACL/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ActionsController), Object(CakeRequest), Object(CakeResponse))
 #2 /home/www/Cakephp2-Simple-ACL/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-05-06 21:50:53 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No such file or directory',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /var/www/cakebase/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /var/www/cakebase/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /var/www/cakebase/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /var/www/cakebase/lib/Cake/Model/Model.php(3243): Model->setSource('cake_sessions')
+#5 /var/www/cakebase/lib/Cake/Model/Model.php(2696): Model->getDataSource()
+#6 /var/www/cakebase/lib/Cake/Model/Datasource/Session/DatabaseSession.php(96): Model->find('first', Array)
+#7 [internal function]: DatabaseSession->read('msv0m7r4aujbud2...')
+#8 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(612): session_start()
+#9 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(190): CakeSession::_startSession()
+#10 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(216): CakeSession::start()
+#11 /var/www/cakebase/lib/Cake/Controller/Component/AuthComponent.php(596): CakeSession::check('Auth.User')
+#12 /var/www/cakebase/app/Controller/AppController.php(576): AuthComponent::user('id')
+#13 /var/www/cakebase/app/Controller/AppController.php(72): AppController->is_Authorizate()
+#14 /var/www/cakebase/app/Controller/PagesController.php(38): AppController->beforeFilter()
+#15 [internal function]: PagesController->beforeFilter(Object(CakeEvent))
+#16 /var/www/cakebase/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#17 /var/www/cakebase/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#18 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#19 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#20 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#21 {main}
+2014-05-06 21:52:51 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No such file or directory',
+  'enabled' => true,
+)
+Request URL: /
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /var/www/cakebase/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /var/www/cakebase/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /var/www/cakebase/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /var/www/cakebase/lib/Cake/Model/Model.php(3243): Model->setSource('cake_sessions')
+#5 /var/www/cakebase/lib/Cake/Model/Model.php(2696): Model->getDataSource()
+#6 /var/www/cakebase/lib/Cake/Model/Datasource/Session/DatabaseSession.php(96): Model->find('first', Array)
+#7 [internal function]: DatabaseSession->read('msv0m7r4aujbud2...')
+#8 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(612): session_start()
+#9 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(190): CakeSession::_startSession()
+#10 /var/www/cakebase/lib/Cake/Model/Datasource/CakeSession.php(216): CakeSession::start()
+#11 /var/www/cakebase/lib/Cake/Controller/Component/AuthComponent.php(596): CakeSession::check('Auth.User')
+#12 /var/www/cakebase/app/Controller/AppController.php(576): AuthComponent::user('id')
+#13 /var/www/cakebase/app/Controller/AppController.php(72): AppController->is_Authorizate()
+#14 /var/www/cakebase/app/Controller/PagesController.php(38): AppController->beforeFilter()
+#15 [internal function]: PagesController->beforeFilter(Object(CakeEvent))
+#16 /var/www/cakebase/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#17 /var/www/cakebase/lib/Cake/Controller/Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#18 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#19 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#20 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#21 {main}
+2014-05-06 21:55:25 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:55:34 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:00 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:02 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:02 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:02 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:04 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:04 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:05 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 21:57:06 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 22:02:27 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 22:02:57 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 22:03:04 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-06 22:08:35 Error: [PrivateActionException] Private Action GroupsController::admin_add() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'GroupsController',
+  'action' => 'admin_add',
+)
+Request URL: /groups/admin_add
+Stack Trace:
+#0 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/cakebase/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(GroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/cakebase/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

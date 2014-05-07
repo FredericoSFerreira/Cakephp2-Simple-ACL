@@ -368,7 +368,7 @@ array(
             }
 
             if($redirect){
-                $this->redirect(array('controller' => 'groups','action' => 'admin_add'));
+                $this->redirect('/admin/groups/add');
             }
             
         }else{
@@ -382,12 +382,12 @@ array(
                     }
                     
                     if($redirect){
-                        $this->redirect(array('controller' => 'users','action' => 'admin_add'));
+                        $this->redirect('/admin/users/add');
                     }
 
                 }else{
                     if($this->params["controller"] == "groups"){
-                        $this->redirect(array('controller' => 'users','action' => 'admin_add'));
+                        $this->redirect('/admin/users/add');
                     }
                 }
                 
@@ -405,7 +405,7 @@ array(
                         if(($this->params["action"] != "admin_login")||($this->params["action"] != "admin_logout")){
                           $redirect =0;
                           if($redirect){
-                            $this->redirect(array('controller' => 'users','action' => 'admin_logout'));
+                            $this->redirect('/admin/users/logout');
                           }
 
                         }
