@@ -1,0 +1,10 @@
+#carpetas
+app/tmp/cache/*
+app/tmp/logs/*
+app/tmp/sessions/*
+app/tmp/tests/*
+
+# Hidden system files
+*.DS_Store
+*[Tt]humbs.db
+*.Trashes
