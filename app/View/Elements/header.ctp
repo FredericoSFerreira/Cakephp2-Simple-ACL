@@ -10,5 +10,6 @@
 	?>
 	<script type="text/javascript">
 		var Controllers = new Array;
+		var checkalltext ={};
 	</script>
 </head>

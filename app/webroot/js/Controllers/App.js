@@ -10,15 +10,15 @@ var App = {
 		consolelog(e.data.classcheck);
 		classcheck=e.data.classcheck;
 
-		if(this.checked) { // check select status
-		    $('.'+classcheck).each(function() { //loop through each checkbox
+			if(this.checked) { // check select status
+		    	$('.'+classcheck).each(function() { //loop through each checkbox
 		            this.checked = true;  //select all checkboxes with class "checkbox1"               
 		        });
 		    }else{
 		        $('.'+classcheck).each(function() { //loop through each checkbox
 		            this.checked = false; //deselect all checkboxes with class "checkbox1"                       
-		    });         
-		 }
+		    	});         
+		 	}
 	},
 	actionselectall : function(classchecks){
 		consolelog("Load App.actionselectall");

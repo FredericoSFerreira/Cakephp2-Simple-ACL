@@ -84,7 +84,7 @@
                         if(in_array($action, $actionmultipleselect)){ 
                     ?>
                     <td style="width: 10px;">
-                        <input type="checkbox" class="actionsdelete-check" name="Action.id[]"/> 
+                        <input type="checkbox" class="actionsdelete-check" multitext="#<?php echo h($list['Action']['id']); ?> - <?php echo h($list['Action']['name']); ?>" name="Action.id[]"/> 
                     </td>
                     <?php } ?>
                     <td style="width: 10px;"><?php echo h($list['Action']['id']); ?>&nbsp;</td>
@@ -120,10 +120,23 @@
             if(in_array($action, $actionmultipleselect)){ 
         ?>
         <div class="checkalldiv">
+            <script>
+                checkalltext = {
+                    'empty' : {
+                        'title' : 'Advertencia',
+                        'text' : 'Debe seleccionar al menos una función para utilizar la opción sobre multiples registros'
+                    },
+                    'deleteall' :{
+                        'title' : 'Confirmación para eliminar multiples registros',
+                        'url' : '/admin/actions/deletemulti/',
+                        'pretext' : 'Estas seguro que deseas eliminar los siguientes registros?'
+                    } 
+                };
+            </script>
             <img class="selectallarrow" src="/img/arrow_ltr.png" width="38" height="22" alt="With selected:">
             <input type="checkbox" class="checkallclick" title="Check All">
             <label for="checkall">Check All</label> 
-            <select name="submit_mult" class="autosubmit" style="margin-left:10px;"><option value="With selected:" selected="selected">With selected:</option>
+            <select id="selectmulti" name="submit_mult" class="autosubmit" style="margin-left:10px;"><option value="0" selected="selected">With selected:</option>
                 <option value="deleteall">Delete All</option>
             </select>
         </div>
