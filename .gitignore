@@ -9,3 +9,15 @@ app/tmp/tests/*
 *[Tt]humbs.db
 *.Trashes
 *.bak
+
+
+!app/tmp/empty
+!app/tmp/cache/empty
+!app/tmp/cache/minify/empty
+!app/tmp/cache/models/empty
+!app/tmp/cache/persistent/empty
+!app/tmp/cache/querys/empty
+!app/tmp/cache/views/empty
+!app/tmp/logs/empty
+!app/tmp/sessions/empty
+!app/tmp/tests/empty
