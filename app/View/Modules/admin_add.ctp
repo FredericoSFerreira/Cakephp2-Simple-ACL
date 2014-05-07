@@ -22,7 +22,7 @@
 				?>
 				</div>
 			</div>
-			<?
+			<?php
 			echo $this->Form->end(array('label'=>$form_config["labelbutton"],'class'=>'btn btn-primary','type'=>'submit'));
 
 			?>

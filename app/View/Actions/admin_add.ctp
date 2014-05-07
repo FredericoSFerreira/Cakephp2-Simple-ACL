@@ -32,7 +32,7 @@ echo $this->Form->input('order',array("label"=>"Orden en el menu","required"=>fa
 ?>
 	</div>
 </div>
-<?
+<?php
 			echo $this->Form->end(array('label'=>$form_config["labelbutton"],'class'=>'btn btn-primary','type'=>'submit'));
 
 			?>
