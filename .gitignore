@@ -16,7 +16,6 @@ app/tmp/tests/*
 *.Trashes
 *.bak
 
-
 !app/tmp/empty
 !app/tmp/cache/empty
 !app/tmp/cache/minify/empty
