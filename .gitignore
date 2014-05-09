@@ -1,5 +1,11 @@
 #carpetas
-app/tmp/cache/*
+app/tmp/cache/minify/*
+app/tmp/cache/models/*
+app/tmp/cache/persistent/*
+app/tmp/cache/querys/*
+app/tmp/cache/views/*
+
+
 app/tmp/logs/*
 app/tmp/sessions/*
 app/tmp/tests/*
