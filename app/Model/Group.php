@@ -34,7 +34,12 @@ App::uses('AppModel', 'Model');
 class Group extends AppModel {
 
     
-    public $actsAs = array('Acl' => array('type' => 'requester'));
+    public $actsAs = array(
+         'Acl' => array('type' => 'requester'),
+         'Translate' => array(
+            'name' => 'nameTranslation'
+        )
+    );
 
 
     public $validate = array(

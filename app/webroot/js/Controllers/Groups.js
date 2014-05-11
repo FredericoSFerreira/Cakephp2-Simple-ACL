@@ -1,6 +1,7 @@
 var Groups = {
 	index :  function (){
 		consolelog("Load Groups.index");
+		App.actionslist('Groups','index');
 	},
 	add : function(){
 		consolelog("Load Groups.add");

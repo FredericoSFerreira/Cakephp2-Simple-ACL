@@ -13,7 +13,10 @@
 				<div class="form-group">
 				<?php
 					if($action == "admin-edit"){echo $this->Form->input('id');}
-					echo $this->Form->input('name',array("label"=>"Nombre del Grupo","required"=>false,'class'=>'form-control'));
+					echo $this->Form->input('Group.name.esp',array("label"=>"Nombre del Grupo (ESP)","required"=>false,'class'=>'form-control'));
+					echo $this->Form->input('Group.name.eng',array("label"=>"Nombre del Grupo (ENG)","required"=>false,'class'=>'form-control'));
+					echo $this->Form->input('Group.name.fra',array("label"=>"Nombre del Grupo (FRA)","required"=>false,'class'=>'form-control'));
+					echo $this->Form->input('Group.name.por',array("label"=>"Nombre del Grupo (POR)","required"=>false,'class'=>'form-control'));
 				?>
 				</div>
 			</div>

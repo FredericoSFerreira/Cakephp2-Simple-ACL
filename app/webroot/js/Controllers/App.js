@@ -154,14 +154,28 @@ var App = {
 					$.each(modelerrors, function(idname, objerror) {
 
 							consolelog(idname);
-							consolelog(objerror[0]);
+							//consolelog(objerror[0]);
 
-							inputfield= capitalize(idname);
-							errorinput = objerror[0];
+							if (objerror instanceof Object == false) {
+							  consolelog("no es objeto");
+							  errorinput = objerror[0];
+							  $("input[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
+							  $("select[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
+							}else{
+								consolelog("es array");
+								$.each(objerror, function(locale, errormsg) {
+
+									$("input[name*='data\["+model+"\]\["+idname+"\]\["+locale+"\]']").after('<div class="error alert alert-danger">' + errormsg + "</div>");
+							  		$("select[name*='data\["+model+"\]\["+idname+"\]\["+locale+"\]']").after('<div class="error alert alert-danger">' + errormsg + "</div>");
+
+								})
+
+							}
+
+							
 
 							//$('#'+model+inputfield).after('<div class="error alert alert-danger">' + errorinput + "</div>");
-							$("input[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
-							$("select[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
+							
 
 					});
 

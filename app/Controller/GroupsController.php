@@ -10,13 +10,40 @@ class GroupsController extends AppController {
     /*----------------beforeFilter-----------------*/
     
 
+    public function paramFilters($urlform){
+
+            $form_config = array();
+            $form_config["title"] = "Buscar / Filtrar";
+            $form_config["urlform"] = $urlform;
+            $form_config["labelbutton"] = "Buscar / Filtrar";
+            $this->set('form_config',$form_config);
+
+            $fields_char = array(
+                        'name'
+            );
+
+
+            $conditions = $this->filterConfig('Group',$fields_char);
+            $this->recordsforpage();
+
+            return $conditions;
+
+        }
+
+
     /*----------------INDEX-----------------*/
 
         /*----------------get_index-----------------*/
-        public function get_index(){
+        public function get_index($urlfilter = 'admin_index'){
+            $conditions = $this->paramFilters($urlfilter);
+
+            //pr($conditions);
+            $limit = $this->Session->read('Filter.recordsforpage');
+            
+            $this->Group->locale = Configure::read('Config.language');
             $this->Paginator->settings = array(
                 'order' => 'Group.id ASC',
-                'limit' => 10
+                'limit' => $limit
             );
             $lists = $this->Paginator->paginate('Group');
             $this->set(compact('lists'));
@@ -142,21 +169,56 @@ class GroupsController extends AppController {
 
                 $this->ajaxVariablesInit();
 
-                $this->Group->create();
-                $this->Group->set($this->data);
-                if($this->Group->validates())
-                {
+                $locales = $this->getlocales();
+                $fieldslocales = array('Group'=>array('name'));
+                $validations_errors_locales = array();
+                foreach ($fieldslocales as $modelfields => $fields) {
+
+                    foreach ($this->data[$modelfields] as $keydata => $valuedata) {
+                        
+                        if(in_array($keydata, $fields)){
+                            foreach ($valuedata as $locale => $valuelocale) {
+                                
+                                $this->{$modelfields}->set(array($modelfields=>array($keydata => $valuelocale)));
+                                $valid = $this->{$modelfields}->validates(
+                                            array(
+                                                'fieldList' => array($keydata)
+                                            )
+                                );
+
+                                if(!$valid){
+                                    $validations_errors_locales[$modelfields] = array();
+                                    $temp[$keydata][$locale] = $this->{$modelfields}->validationErrors[$keydata][0];
+                                    $validations_errors_locales[$modelfields] = $temp;
+                                }
+
+                            }
+                            
+
+                        }
+                    }
+                }
+
+
+                //pr($validations_errors_locales);
+
+                //die();
+
+                if(empty($validations_errors_locales)){
+                    $this->Group->create();
+                    $this->Group->set($this->data);
                     try{
-                        if ($this->Group->save()) {
+                        if ($this->Group->saveMany()) {
                             $this->dataajax['response']['message_success']=__('Save-success',true);
                         }
                     }catch (Exception $e) {
                         $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
+
                 }else{
-                     $this->errorsajax['Group'] = $this->Group->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                    $this->dataajax['response']["errors"]=$validations_errors_locales;
                 }
+                
 
                 echo json_encode($this->dataajax);
         }

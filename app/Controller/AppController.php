@@ -73,6 +73,11 @@ class AppController extends Controller {
         
     }
 
+    public function getlocales(){
+        $locales = array('esp','eng','fra','por');
+        return $locales;
+    }
+
     public function ajaxVariablesInit(){
 
         $this->dataajax['response']['message_error']="";
