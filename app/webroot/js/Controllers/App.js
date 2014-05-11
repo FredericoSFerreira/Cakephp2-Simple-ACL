@@ -156,7 +156,9 @@ var App = {
 							consolelog(idname);
 							//consolelog(objerror[0]);
 
-							if (objerror instanceof Object == false) {
+							cantobj = Object.keys(objerror).length;
+
+							if (cantobj == 1) {
 							  consolelog("no es objeto");
 							  errorinput = objerror[0];
 							  $("input[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");

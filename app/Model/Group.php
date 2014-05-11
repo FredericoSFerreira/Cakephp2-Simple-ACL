@@ -41,6 +41,8 @@ class Group extends AppModel {
         )
     );
 
+    public $locale = 'esp';
+
 
     public $validate = array(
         'name' => array(

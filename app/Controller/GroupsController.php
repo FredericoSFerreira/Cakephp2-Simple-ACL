@@ -39,7 +39,7 @@ class GroupsController extends AppController {
 
             //pr($conditions);
             $limit = $this->Session->read('Filter.recordsforpage');
-            
+
             $this->Group->locale = Configure::read('Config.language');
             $this->Paginator->settings = array(
                 'order' => 'Group.id ASC',
