@@ -14,6 +14,13 @@ class Action extends AppModel {
  */
 	public $displayField = 'name';
 
+	public $actsAs = array(
+         'Translate' => array(
+            'name' => 'ActionnameTranslation'
+        )
+    );
+
+	    public $locale = 'esp';
 /**
  * Validation rules
  *

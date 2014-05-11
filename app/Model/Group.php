@@ -37,7 +37,7 @@ class Group extends AppModel {
     public $actsAs = array(
          'Acl' => array('type' => 'requester'),
          'Translate' => array(
-            'name' => 'nameTranslation'
+            'name' => 'GroupnameTranslation'
         )
     );
 

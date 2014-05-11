@@ -48,6 +48,7 @@ class ActionsController extends AppController {
 
             $conditions = $this->paramFilters($urlfilter);
 
+            $this->Action->setLanguage();
             //pr($conditions);
             $limit = $this->Session->read('Filter.recordsforpage');
 
@@ -82,20 +83,25 @@ class ActionsController extends AppController {
         /*----------------post_add-----------------*/
         public function post_add(){
                 $this->ajaxVariablesInit();
-                $this->Action->create();
-                $this->Action->set($this->data);
-                if($this->Action->validates())
-                {
+
+
+                $fieldslocales = array('Action'=>array('name'));
+                $validations= $this->validationLocale($fieldslocales);
+
+                if(empty($validations)){
+
+                    $this->Group->create();
+                    $this->Group->set($this->data);
                     try{
-                        if ($this->Action->save()) {
+                        if ($this->Action->saveMany()) {
                             $this->dataajax['response']['message_success']=__('Save-success',true);
                         }
                     }catch (Exception $e) {
                         $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
+                    
                 }else{
-                     $this->errorsajax['Action'] = $this->Action->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                    $this->dataajax['response']["errors"]=$validations;
                 }
 
                 echo json_encode($this->dataajax);
@@ -151,7 +157,9 @@ class ActionsController extends AppController {
                 	)
                 );
 
-                $this->request->data = $this->Action->read(null, $id);
+                $datamodel = $this->Action->read(null, $id);
+                $this->request->data = $this->readWithLocale($datamodel);
+
                 $this->set(compact('id'));
             }
 
@@ -162,12 +170,15 @@ class ActionsController extends AppController {
         public function post_edit($id){
 
                 $this->ajaxVariablesInit();
-                $this->Action->id = $id;
-                $this->Action->set($this->data);
-                if($this->Action->validates())
-                {
+
+                $fieldslocales = array('Action'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
+
+                if(empty($validations)){
+                    $this->Action->id = $id;
+                    $this->Action->set($this->data);
                     try{
-                        if ($this->Action->save()) {
+                        if ($this->Action->saveMany()) {
                             $this->_flash(__('Update-success',true),'alert alert-success');
                             $this->dataajax['response']['redirect']='/admin/actions/edit/';
                         }
@@ -176,8 +187,7 @@ class ActionsController extends AppController {
                     }
 
                 }else{
-                     $this->errorsajax['Action'] = $this->Action->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                     $this->dataajax['response']["errors"]=$validations;
                 }
                 echo json_encode($this->dataajax);;
         }

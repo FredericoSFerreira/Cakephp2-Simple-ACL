@@ -171,6 +171,9 @@ class AppController extends Controller {
 // TRUNCATE modules;
 // SET FOREIGN_KEY_CHECKS = 1;
 
+        $this->Module->setLanguage();
+        $this->Category->setLanguage();
+        $this->Action->setLanguage();
 
         $data_modules = array(
             array(
@@ -575,6 +578,135 @@ array(
 
     }
 
+    public function readWithLocale($requestdata){
+                 //pr($requestdata);
+
+                $datamodel = $requestdata;
+                $pos=1;
+                foreach ($requestdata as $keydata => $valuedata) {
+
+                    if($pos == 1){
+
+                        //pr($valuedata);
+                        foreach ($valuedata as $keyfield => $valuefield) { 
+                            $withTranslation =  $keydata.$keyfield."Translation";
+                            if(isset($datamodel[$withTranslation])){
+                                //pr($datamodel[$withTranslation]);
+
+                                $temp_array= array();
+                                foreach ($datamodel[$withTranslation] as $keytranslation => $valuetranslation) {
+                                    $temp_array[$valuetranslation['locale']]= $valuetranslation['content'];
+                                }
+                                //pr($temp_array);
+                                $datamodel[$keydata][$keyfield]= $temp_array;
+                            }
+                        }
+                        break;
+                    }
+
+                }
+
+                //pr($datamodel);
+                return $datamodel;
+    }
+
+    public function validationLocale($fieldslocales){
+        $locales = $this->getlocales();
+        $validations_errors_locales = array();
+        $validations_errors = array();
+
+
+        
+
+        foreach ($fieldslocales as $modelfields => $fields) {
+
+           $rulesvalidationsindexs = array();
+           $rulesvalidations =  $this->{$modelfields}->validate;
+           foreach ($rulesvalidations as $keyrules => $valuerules) {
+               $rulesvalidationsindexs[$keyrules] = $keyrules; 
+           }
+
+           //pr($rulesvalidationsindexs);
+           //pr($this->data);
+
+           $validations_errors_locales[$modelfields] = array();
+            foreach ($this->data[$modelfields] as $keydata => $valuedata) {
+                
+               // pr($keydata);
+                //pr($fields);
+                if(in_array($keydata, $fields)){
+
+                    unset($rulesvalidationsindexs[$keydata]);
+
+                    foreach ($valuedata as $locale => $valuelocale) {
+                        
+                        $this->{$modelfields}->set(array($modelfields=>array($keydata => $valuelocale)));
+                        $valid = $this->{$modelfields}->validates(
+                                    array(
+                                        'fieldList' => array($keydata)
+                                    )
+                        );
+                        
+                        if(!$valid){
+                            $temp[$keydata][$locale] = $this->{$modelfields}->validationErrors[$keydata][0];
+                            $validations_errors_locales[$modelfields] = $temp;
+                        }
+
+                    }
+                    
+                }
+            }
+
+            
+            if(!isset($validations_errors_locales[$modelfields])){
+                $validations_errors_locales[$modelfields] = array();
+            }
+
+            //pr($validations_errors_locales);
+            $validations_errors_nolocales = array();
+
+            if(!empty($rulesvalidationsindexs)){
+                $this->{$modelfields}->set($this->data);
+                $valid = $this->{$modelfields}->validates(
+                        array(
+                            'fieldList' => $rulesvalidationsindexs
+                        )
+                );
+
+                if(!$valid){
+                    
+                    foreach ($this->{$modelfields}->validationErrors as $keyvalidation => $valuevalidation) {
+                        $temparray[$keyvalidation] = $valuevalidation;
+                        $validations_errors_nolocales[$modelfields]= $temparray;
+                    }
+                    
+                }else{
+                    $validations_errors_nolocales[$modelfields] = array();
+                }
+            }else{
+                 $validations_errors_nolocales[$modelfields] = array();
+            }
+            
+
+            //pr($validations_errors_locales);
+            //pr($validations_errors_nolocales);
+
+            if((!empty($validations_errors_locales[$modelfields]))||(!empty($validations_errors_nolocales[$modelfields]))){
+                $validations_errors[$modelfields] = array_merge($validations_errors_locales[$modelfields],$validations_errors_nolocales[$modelfields]);
+            }
+
+            if(empty($validations_errors[$modelfields])){
+                $validations_errors= array();
+            }
+            
+        }
+
+        //pr($validations_errors);
+
+        return $validations_errors;
+    }
+
+
     public function is_Authorizate(){
 
         
@@ -593,6 +725,10 @@ array(
 
             if($cantidad_aros_acos["contador"] == 0){
 
+                $this->Module->setLanguage();
+                $this->Group->setLanguage();
+                $this->User->setLanguage();
+                
                 $cont_modules = $this->Module->find("count",array("recursive"=>-1));
                 
                 $cont_group = $this->Group->find("count",array(

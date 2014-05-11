@@ -153,13 +153,18 @@ var App = {
 
 					$.each(modelerrors, function(idname, objerror) {
 
-							consolelog(idname);
+
 							//consolelog(objerror[0]);
 
-							cantobj = Object.keys(objerror).length;
+							//cantobj = Object.keys(objerror).length;
+							//consolelog(cantobj);
+							//consolelog(objerror[0]);
 
-							if (cantobj == 1) {
+							if (objerror[0]) {
+						      consolelog(model);
+							  consolelog(idname);
 							  consolelog("no es objeto");
+
 							  errorinput = objerror[0];
 							  $("input[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");
 							  $("select[name*='data\["+model+"\]\["+idname+"\]']").after('<div class="error alert alert-danger">' + errorinput + "</div>");

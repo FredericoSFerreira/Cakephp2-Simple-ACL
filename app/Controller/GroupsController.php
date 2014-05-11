@@ -40,7 +40,7 @@ class GroupsController extends AppController {
             //pr($conditions);
             $limit = $this->Session->read('Filter.recordsforpage');
 
-            $this->Group->locale = Configure::read('Config.language');
+            $this->Group->setLanguage();
             $this->Paginator->settings = array(
                 'order' => 'Group.id ASC',
                 'limit' => $limit
@@ -104,7 +104,9 @@ class GroupsController extends AppController {
                 $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
-                $this->request->data = $this->Group->read(null, $id);
+                $datamodel = $this->Group->read(null, $id);
+                $this->request->data = $this->readWithLocale($datamodel);
+
                 $this->set(compact('id'));
             }
 
@@ -115,12 +117,18 @@ class GroupsController extends AppController {
         public function post_edit($id){
 
                 $this->ajaxVariablesInit();
-                $this->Group->id = $id;
-                $this->Group->set($this->data);
-                if($this->Group->validates())
-                {
+
+                $fieldslocales = array('Group'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
+
+                //pr($validations);
+
+                if(empty($validations)){
+                    $this->Group->id = $id;
+                    $this->Group->set($this->data);
+
                     try{
-                        if ($this->Group->save()) {
+                        if ($this->Group->saveMany()) {
                             $this->_flash(__('Update-success',true),'alert alert-success');
                             $this->dataajax['response']['redirect']='/admin/groups/edit/';
                         }
@@ -129,8 +137,7 @@ class GroupsController extends AppController {
                     }
                 }
                 else{
-                     $this->errorsajax['Group'] = $this->Group->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                     $this->dataajax['response']["errors"]=$validations;
                 }
                 echo json_encode($this->dataajax);
         }
@@ -169,42 +176,11 @@ class GroupsController extends AppController {
 
                 $this->ajaxVariablesInit();
 
-                $locales = $this->getlocales();
+                
                 $fieldslocales = array('Group'=>array('name'));
-                $validations_errors_locales = array();
-                foreach ($fieldslocales as $modelfields => $fields) {
+                $validations = $this->validationLocale($fieldslocales);
 
-                    foreach ($this->data[$modelfields] as $keydata => $valuedata) {
-                        
-                        if(in_array($keydata, $fields)){
-                            foreach ($valuedata as $locale => $valuelocale) {
-                                
-                                $this->{$modelfields}->set(array($modelfields=>array($keydata => $valuelocale)));
-                                $valid = $this->{$modelfields}->validates(
-                                            array(
-                                                'fieldList' => array($keydata)
-                                            )
-                                );
-
-                                if(!$valid){
-                                    $validations_errors_locales[$modelfields] = array();
-                                    $temp[$keydata][$locale] = $this->{$modelfields}->validationErrors[$keydata][0];
-                                    $validations_errors_locales[$modelfields] = $temp;
-                                }
-
-                            }
-                            
-
-                        }
-                    }
-                }
-
-
-                //pr($validations_errors_locales);
-
-                //die();
-
-                if(empty($validations_errors_locales)){
+                if(empty($validations)){
                     $this->Group->create();
                     $this->Group->set($this->data);
                     try{
@@ -214,9 +190,10 @@ class GroupsController extends AppController {
                     }catch (Exception $e) {
                         $this->dataajax['response']['message_error']=__('Save-error',true);
                     }
+                    
 
                 }else{
-                    $this->dataajax['response']["errors"]=$validations_errors_locales;
+                    $this->dataajax['response']["errors"]=$validations;
                 }
                 
 
@@ -229,7 +206,7 @@ class GroupsController extends AppController {
             $form_config = array();
             $form_config["title"] = "Agregar Grupo";
             $form_config["urlform"] = "admin_add";
-            $form_config["labelbutton"] = "Agregar";
+            $form_config["labelbutton"] = "Guardar";
             $this->set('form_config',$form_config);
 
             if ($this->request->is('post')) {

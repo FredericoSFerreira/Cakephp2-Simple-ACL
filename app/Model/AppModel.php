@@ -33,4 +33,7 @@ App::uses('Model', 'Model');
  */
 class AppModel extends Model {
 
+	public function setLanguage() {
+        $this->locale = Configure::read('Config.language');
+    }
 }
