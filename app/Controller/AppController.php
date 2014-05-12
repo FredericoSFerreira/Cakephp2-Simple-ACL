@@ -44,7 +44,7 @@ class AppController extends Controller {
             )
         ),
         'Session',
-        'Paginator'
+        'Paginator',
     );
 
     public $dataajax=array();

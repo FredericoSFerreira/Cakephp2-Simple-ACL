@@ -57,6 +57,7 @@ var Actions = {
 					      callback: function() {
 					      	loadingScreen();
 					        //window.location = hreflink;
+					         $(obj).closest('form').trigger('submit')
 					      }
 					    },
 					    

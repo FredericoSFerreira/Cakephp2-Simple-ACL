@@ -7,10 +7,15 @@ App::uses('AppController', 'Controller');
  */
 class ActionsController extends AppController {
 
+    public $components = array('Security');
 
 	/*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Security->csrfExpires = '+1 hour';
+        $this->Security->csrfUseOnce = false;
+        $this->Security->unlockedActions = array('admin_deletemulti');
+
     }
     /*----------------beforeFilter-----------------*/
     
@@ -226,6 +231,35 @@ class ActionsController extends AppController {
     /*----------------EDIT-----------------*/
 
     /*----------------DELETE-----------------*/
+
+
+        /*----------------delete-----------------*/
+        public function admin_deletemulti(){
+
+            if($this->request->is('post')){
+                //pr($this->data);
+                $dataids =  $this->data['Action']['id'];
+
+                try{
+                    if ($this->Action->deleteAll(array('Action.id' => $dataids))) {
+                        $this->_flash(__('Delete-success-multi',true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                    $this->_flash(__('Delete-error-multi', true),'alert alert-warning');
+                    $this->redirect(array('action' => 'admin_delete'));
+                }
+
+                die();
+            }else{
+                $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
+                $this->redirect(array('action' => 'admin_delete'));
+            }
+
+        }
+        /*----------------delete-----------------*/
+
+
 
         /*----------------delete-----------------*/
         public function admin_delete($id=null){
