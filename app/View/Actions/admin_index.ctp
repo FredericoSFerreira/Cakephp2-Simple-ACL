@@ -15,7 +15,7 @@
         
             if(in_array($action, $actionmultipleselect)){ 
       
-            echo $this->Form->create('Action', array('action' => 'admin_deletemulti','type' => 'post'));
+                echo $this->Form->create('Action', array('action' => 'admin_deletemulti','type' => 'post'));
              } 
         ?>
         <table class="table table-bordered">
