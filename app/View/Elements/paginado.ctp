@@ -10,7 +10,7 @@
             <p><?php echo __('Registros por página'); ?></p>
             <select name="recordsforpage" id="recordsforpage">
                  <?php foreach ($optionsrecors as $key => $value) { ?>
-                 <option value="<?php echo $value;?>" <?php if($value == $recordsforpage){?>selected<?}?>>
+                 <option value="<?php echo $value;?>" <?php if($value == $recordsforpage){?>selected<?php }?>>
                     <?php echo $value;?>
                 </option>
                  <?php } ?>

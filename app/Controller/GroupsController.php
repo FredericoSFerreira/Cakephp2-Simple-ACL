@@ -43,6 +43,7 @@ class GroupsController extends AppController {
             $this->Group->setLanguage();
             $this->Paginator->settings = array(
                 'order' => 'Group.id ASC',
+                'conditions' => $conditions,
                 'limit' => $limit
             );
             $lists = $this->Paginator->paginate('Group');

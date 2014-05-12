@@ -221,7 +221,7 @@ var App = {
 			      label: "Cancelar",
 			      className: "btn-danger",
 			      callback: function() {
-			        
+			        consolelog('boton cancelar');
 			      }
 			    },
 			    success: {
