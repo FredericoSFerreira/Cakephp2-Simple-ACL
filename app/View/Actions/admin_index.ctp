@@ -12,15 +12,12 @@
         
         <?php
             $actionmultipleselect = array('admin_delete');
-        ?>
-
-        <?php
+        
             if(in_array($action, $actionmultipleselect)){ 
-        ?>
-        <?php 
+      
             echo $this->Form->create('Action', array('action' => 'admin_deletemulti','type' => 'post'));
+             } 
         ?>
-        <?php } ?>
         <table class="table table-bordered">
            <thead>
             <tr> 
