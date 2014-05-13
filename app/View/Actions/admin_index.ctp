@@ -1,59 +1,58 @@
+<?php
+    
+    $actionmultipleselect =array('admin_delete');
+    $actionlocate = array('admin_edit','admin_delete');
+    $headerstitles =  array(
+                        'Action.id' => '#',
+                        'Action.name' => 'Nombre',
+                        'Action.url' => 'Url',
+                        'Action.order' => 'Order',
+                        'Category.name' => 'Categoria'
+                    );
+    $this->Viewbase->set('action',$action);
+    $this->Viewbase->set('actionmultipleselect',$actionmultipleselect);
+    $this->Viewbase->set('actionlocate',$actionlocate);
+
+?>
 <section class="panel panel-default">
-    <div class="panel-heading">
-        <strong>
-            <span class="glyphicon glyphicon-th"></span>
-            <?php echo __("Listado de Funciones"); ?>
-        </strong>
-    </div>
+    
+    <?php $this->Viewbase->panel_title('Listado de Funciones');?>
 
     <div class="panel-body">
         
-        <?php include_once('filters.ctp'); ?>
-        
-        <?php
-            $actionmultipleselect = array('admin_delete');
-        
-            if(in_array($action, $actionmultipleselect)){ 
-      
-                echo $this->Form->create('Action', array('action' => 'admin_deletemulti','type' => 'post'));
-             } 
+        <?php 
+        include_once('filters.ctp');
+        $this->Viewbase->Multi_form_create($this->form,'admin_deletemulti');
         ?>
         <table class="table table-bordered">
-           <thead>
-            <tr> 
-                <?php
-                    if(in_array($action, $actionmultipleselect)){ 
-                ?>
-                <th><input type="checkbox" class="checkallclick" title="Check All"></th>
-                <?php } ?>
-                <th><?php echo $this->Paginator->sort('Action.id','#');?></th>
-                <th><?php echo $this->Paginator->sort('Action.name','Nombre');?></th>
-                <th><?php echo $this->Paginator->sort('Action.url','Url');?></th>
-                <th><?php echo $this->Paginator->sort('Action.order','Orden');?></th>
-                <th><?php echo $this->Paginator->sort('Category.name','Categoria');?></th>
-                <?php 
-                $actionlocate = array('admin_edit','admin_delete');
-                if(in_array($action, $actionlocate)){ 
-                ?>
-                <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
-                <?php } ?>
-            </tr>
-            </thead>
+           
+            <?php
+                // Encabezado de la tabla
+                $this->Viewbase->table_Header($this->Paginator,$headerstitles);
+            ?>
+            
             <tbody>
                 <?php foreach ($lists as $list): ?>
                 <tr>
                     <?php
-                        if(in_array($action, $actionmultipleselect)){ 
+                        // Campo check de cada linea
+                        $datarow=array(
+                            'idModel' => $list['Action']['id'],
+                            'textname' => $list['Action']['name'],
+                            'inputname'=> 'data[Action][id][]',
+                            'value' => $list['Action']['id']
+                        );
+                        $this->Viewbase->Multi_check_row($datarow);
+                        // Campo check de cada linea
                     ?>
-                    <td style="width: 10px;">
-                        <input type="checkbox" class="actionsdelete-check" multitext="#<?php echo h($list['Action']['id']); ?> - <?php echo h($list['Action']['name']); ?>" name="data[Action][id][]" value="<?php echo $list['Action']['id'];?>"/> 
-                    </td>
-                    <?php } ?>
+
                     <td style="width: 10px;"><?php echo h($list['Action']['id']); ?>&nbsp;</td>
                     <td><?php echo h($list['Action']['name']); ?>&nbsp;</td>
                     <td><?php echo h($list['Action']['url']); ?>&nbsp;</td>
                     <td><?php echo h($list['Action']['order']); ?>&nbsp;</td>
                     <td><?php echo h($list['Categories']['name']); ?>&nbsp;</td>
+
+
                     <?php 
                     if(in_array($action, $actionlocate)){  
                     ?>  
@@ -62,11 +61,18 @@
                         <?php 
 
                         if($action == "admin_edit"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/admin/actions/edit/'.$list['Action']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
+                            $databutton_edit = array(
+                                'url'=> '/admin/actions/edit/'.$list['Action']['id']
+                            );
+                            $this->Viewbase->button_edit($this->Html,$databutton_edit);
                         }
 
                          if($action == "admin_delete"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/admin/actions/delete/'.$list['Action']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['Action']['id']." ?", 'escape' => false));
+                            $databutton_delete = array(
+                                'url'=> '/admin/actions/delete/'.$list['Action']['id'],
+                                'idModel' =>$list['Action']['id']
+                            );
+                            $this->Viewbase->button_delete($this->Html,$databutton_delete);
                         }
 
                         ?>
@@ -98,7 +104,8 @@
             <img class="selectallarrow" src="/img/arrow_ltr.png" width="38" height="22" alt="With selected:">
             <input type="checkbox" class="checkallclick" title="Check All">
             <label for="checkall">Check All</label> 
-            <select id="selectmulti" name="submit_mult" class="autosubmit" style="margin-left:10px;"><option value="0" selected="selected">With selected:</option>
+            <select id="selectmulti" name="submit_mult" class="autosubmit" style="margin-left:10px;">
+                <option value="0" selected="selected">With selected:</option>
                 <option value="deleteall">Delete All</option>
             </select>
         </div>
