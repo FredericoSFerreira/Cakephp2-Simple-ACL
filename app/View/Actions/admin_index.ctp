@@ -22,7 +22,7 @@
         
         <?php 
         include_once('filters.ctp');
-        $this->Viewbase->Multi_form_create($this->form,'admin_deletemulti');
+        $this->Viewbase->Multi_form_create($this->form,'#');
         ?>
         <table class="table table-bordered">
            
