@@ -249,8 +249,6 @@ class ActionsController extends AppController {
                     $this->_flash(__('Delete-error-multi', true),'alert alert-warning');
                     $this->redirect(array('action' => 'admin_delete'));
                 }
-
-                die();
             }else{
                 $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
                 $this->redirect(array('action' => 'admin_delete'));

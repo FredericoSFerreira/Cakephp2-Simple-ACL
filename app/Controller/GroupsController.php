@@ -232,7 +232,7 @@ class GroupsController extends AppController {
                 $dataids =  $this->data['Group']['id'];
 
                 try{
-                    if ($this->Action->deleteAll(array('Group.id' => $dataids))) {
+                    if ($this->Group->deleteAll(array('Group.id' => $dataids))) {
                         $this->_flash(__('Delete-success-multi',true),'alert alert-success');
                         $this->redirect(array('action' => 'admin_delete'));
                     }
@@ -241,7 +241,6 @@ class GroupsController extends AppController {
                     $this->redirect(array('action' => 'admin_delete'));
                 }
 
-                die();
             }else{
                 $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
                 $this->redirect(array('action' => 'admin_delete'));
