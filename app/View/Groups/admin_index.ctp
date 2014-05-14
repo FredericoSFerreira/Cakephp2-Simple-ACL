@@ -1,67 +1,49 @@
+<?php
+    $actionmultipleselect=array('admin_delete');
+    $actionlocate = array('admin_delete','admin_edit');
+    $headerstitles = array(
+                            'Group.id' => '#',
+                            'Group.name' => 'Nombre');
+
+    $this->Viewbase->set('action', $action);
+    $this->Viewbase->set('actionmultipleselect', $actionmultipleselect);
+    $this->Viewbase->set('actionlocate', $actionlocate);
+?>
+
 <section class="panel panel-default">
-    <div class="panel-heading">
-        <strong>
-            <span class="glyphicon glyphicon-th"></span>
-            <?php echo __("Listado de grupos"); ?>
-        </strong>
-    </div>
+    <?php  $this->Viewbase->panel_title('Listado de Grupos');   ?>
 
     <div class="panel-body">
 
-            <ul class="nav nav-tabs">
-              <li><a href="#home" class="filter-tab" data-toggle="tab"><?php echo $form_config["title"]; ?></a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div class="tab-pane" id="home">
-                
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <?php 
-                    echo $this->Form->create('Group', array('action' => $form_config["urlform"],'class'=>'form-horizontal','type' => 'get'));
-                    ?>
-                    <div class="row">
-                        <div class="form-group">
-                    <?php echo $this->Form->input('Search.name',array("label"=>"Nombre de Grupo","required"=>false));?>
-                        </div>
-
-                    </div>
-                 
-                  <?php
-            echo $this->Form->end(array('label'=>$form_config["labelbutton"],'class'=>'btn btn-primary','type'=>'submit'));
-
-            ?>
-                </div>
-
-                </div>
-            </div>
-        </div>
-
-
+           <?php include_once('filter.ctp'); 
+            $this->Viewbase->Multi_form_create($this->form,'#');
+           ?>
 
         <table class="table table-bordered">
-           <thead>
-            <tr> 
-                <th><?php echo $this->Paginator->sort('Group.id','#');?></th>
-                <th><?php echo $this->Paginator->sort('Group.name','Nombre');?></th>
-                
-                <?php 
-                $actionlocate = array('admin_edit','admin_delete');
-                if(in_array($action, $actionlocate)){ 
-                ?>
-                <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
-                <?php } ?>
-            </tr>
-            </thead>
+           <?php
+                // Encabezado de la tabla
+                $this->Viewbase->table_Header($this->Paginator,$headerstitles);
+            ?>
             <tbody>
 
                 <?php foreach ($lists as $list): ?>
 
                 <tr>
+                        <?php
+                        // Campo check de cada linea
+                        $datarow=array(
+                            'idModel' => $list['Group']['id'],
+                            'textname' => $list['Group']['name'],
+                            'inputname'=> 'data[Group][id][]',
+                            'value' => $list['Group']['id']
+                        );
+                        $this->Viewbase->Multi_check_row($datarow);
+                        // Campo check de cada linea
+                    ?>
+
                     <td style="width: 10px;"><?php echo h($list['Group']['id']); ?>&nbsp;</td>
                     <td><?php echo h($list['Group']['name']); ?>&nbsp;</td>
-                    
+                   
                     <?php 
                     if(in_array($action, $actionlocate)){  
                     ?>  
@@ -70,11 +52,18 @@
                         <?php 
 
                         if($action == "admin_edit"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span> Editar', '/admin/groups/edit/'.$list['Group']['id'], array('class' => 'btn btn-warning', 'escape' => false)); 
+                         $databutton_edit = array(
+                                'url'=> '/admin/groups/edit/'.$list['Group']['id']
+                            );
+                            $this->Viewbase->button_edit($this->Html,$databutton_edit);
                         }
 
                          if($action == "admin_delete"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/admin/groups/delete/'.$list['Group']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['Group']['id']." ?", 'escape' => false));
+                         $databutton_delete = array(
+                                'url'=> '/admin/groups/delete/'.$list['Group']['id'],
+                                'idModel' =>$list['Group']['id']
+                            );
+                            $this->Viewbase->button_delete($this->Html,$databutton_delete);
                         }
 
                         ?>
@@ -86,6 +75,34 @@
             </tbody>
             
         </table>
+        <?php
+            if(in_array($action, $actionmultipleselect)){ 
+        ?>
+        <div class="checkalldiv">
+            <script>
+                checkalltext = {
+                    'empty' : {
+                        'title' : 'Advertencia',
+                        'text' : 'Debe seleccionar al menos un grupo para utilizar la opción sobre multiples registros'
+                    },
+                    'deleteall' :{
+                        'title' : 'Confirmación para eliminar multiples registros',
+                        'url' : '/admin/groups/deletemulti/',
+                        'pretext' : 'Estas seguro que deseas eliminar los siguientes registros?'
+                    } 
+                };
+            </script>
+            <img class="selectallarrow" src="/img/arrow_ltr.png" width="38" height="22" alt="With selected:">
+            <input type="checkbox" class="checkallclick" title="Check All">
+            <label for="checkall">Check All</label> 
+            <select id="selectmulti" name="submit_mult" class="autosubmit" style="margin-left:10px;">
+                <option value="0" selected="selected">With selected:</option>
+                <option value="deleteall">Delete All</option>
+            </select>
+        </div>
+        <?php echo $this->Form->end(); ?>
+        <?php } ?>
+
         <?php echo $this->element('paginado'); ?>
     </div>
 </section>

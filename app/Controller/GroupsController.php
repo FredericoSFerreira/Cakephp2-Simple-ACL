@@ -2,10 +2,15 @@
 App::uses('AppController', 'Controller');
 
 class GroupsController extends AppController {
+
+    public $components = array('Security');
     
     /*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Security->csrfExpires = '+1 hour';
+        $this->Security->csrfUseOnce = false;
+        $this->Security->unlockedActions = array('admin_deletemulti');
     }
     /*----------------beforeFilter-----------------*/
     
@@ -217,5 +222,32 @@ class GroupsController extends AppController {
         /*----------------add-----------------*/
 
     /*----------------ADD-----------------*/
+
+
+ /*----------------delete-----------------*/
+        public function admin_deletemulti(){
+
+            if($this->request->is('post')){
+                //pr($this->data);
+                $dataids =  $this->data['Group']['id'];
+
+                try{
+                    if ($this->Action->deleteAll(array('Group.id' => $dataids))) {
+                        $this->_flash(__('Delete-success-multi',true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                    $this->_flash(__('Delete-error-multi', true),'alert alert-warning');
+                    $this->redirect(array('action' => 'admin_delete'));
+                }
+
+                die();
+            }else{
+                $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
+                $this->redirect(array('action' => 'admin_delete'));
+            }
+
+        }
+        /*----------------delete-----------------*/
 
 }
