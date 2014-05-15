@@ -7,7 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class ModulesController extends AppController {
 
-public $components = array('Security');
+    public $components = array('Security');
+    
 	/*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();
@@ -83,7 +84,7 @@ public $components = array('Security');
                     $this->Module->create();
                     $this->Module->set($this->data);
                         try{
-                            if ($this->Module->save()) {
+                            if ($this->Module->saveMany()) {
                                 $this->dataajax['response']['message_success']=__('Save-success',true);
                             }
                         }catch (Exception $e) {
