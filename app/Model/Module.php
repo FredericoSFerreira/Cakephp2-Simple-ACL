@@ -13,8 +13,17 @@ class Module extends AppModel {
  *
  * @var array
  */
+	public $actsAs = array(
+         'Acl' => array('type' => 'requester'),
+         'Translate' => array(
+            'name' => 'GroupnameTranslation'
+        )
+    );
 
-	public $validate = array(
+    public $locale = 'esp';
+
+
+    public $validate = array(
         'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -32,5 +41,9 @@ class Module extends AppModel {
 			),
 		),
     );
+
+    public function parentNode() {
+        return null;
+    }
 
 }

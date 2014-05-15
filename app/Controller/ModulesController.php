@@ -7,21 +7,52 @@ App::uses('AppController', 'Controller');
  */
 class ModulesController extends AppController {
 
-
+public $components = array('Security');
 	/*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Security->csrfExpires = '+1 hour';
+        $this->Security->csrfUseOnce = false;
+        $this->Security->unlockedActions = array('admin_deletemulti');
     }
     /*----------------beforeFilter-----------------*/
+
+    public function paramFilters($urlform){
+
+            $form_config = array();
+            $form_config["title"] = "Buscar / Filtrar";
+            $form_config["urlform"] = $urlform;
+            $form_config["labelbutton"] = "Buscar / Filtrar";
+            $this->set('form_config',$form_config);
+
+            $fields_char = array(
+                        'name'
+            );
+
+
+            $conditions = $this->filterConfig('Module',$fields_char);
+            $this->recordsforpage();
+
+            return $conditions;
+
+        }
 
     /*----------------INDEX-----------------*/
 
         /*----------------get_index-----------------*/
-        public function get_index(){
+        public function get_index($urlfilter = 'admin_index'){
+            $conditions = $this->paramFilters($urlfilter);
+
+            //pr($conditions);
+            $limit = $this->Session->read('Filter.recordsforpage');
+
+            $this->Module->setLanguage();
             $this->Paginator->settings = array(
                 'order' => 'Module.id ASC',
-                'limit' => 10
+                'conditions' => $conditions,
+                'limit' => $limit
             );
+            
             $lists = $this->Paginator->paginate('Module');
             $this->set(compact('lists'));
         }
@@ -42,23 +73,26 @@ class ModulesController extends AppController {
 
         /*----------------post_add-----------------*/
         public function post_add(){
+                
                 $this->ajaxVariablesInit();
-                $this->Module->create();
-                $this->Module->set($this->data);
-                if($this->Module->validates())
-                {
-                    try{
-                        if ($this->Module->save()) {
-                            $this->dataajax['response']['message_success']=__('Save-success',true);
-                        }
-                    }catch (Exception $e) {
-                        $this->dataajax['response']['message_error']=__('Save-error',true);
-                    }
+                
+                $fieldslocales = array('Module'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
 
+                if(empty($validations)){
+                    $this->Module->create();
+                    $this->Module->set($this->data);
+                        try{
+                            if ($this->Module->save()) {
+                                $this->dataajax['response']['message_success']=__('Save-success',true);
+                            }
+                        }catch (Exception $e) {
+                            $this->dataajax['response']['message_error']=__('Save-error',true);
+                        }
                 }else{
-                     $this->errorsajax['Module'] = $this->Module->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                    $this->dataajax['response']["errors"]=$validations;
                 }
+
 
                 echo json_encode($this->dataajax);
         }

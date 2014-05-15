@@ -14,7 +14,19 @@
 				<?php
 
 					if($action == "admin_edit"){echo $this->Form->input('id');}
-				  	echo $this->Form->input('name',array("label"=>"Nombre del modulo","required"=>false)); ?>
+				  	echo $this->Form->input('Module.name.esp',array("label"=>"Nombre del modulo (ESP)","required"=>false)); ?>
+				</div>
+				<div class="form-group">
+				<?php
+					echo $this->Form->input('Module.name.eng',array("label"=>"Nombre del modulo (ENG)","required"=>false)); ?>
+				</div>
+				<div class="form-group">
+				<?php
+					echo $this->Form->input('Module.name.fra',array("label"=>"Nombre del modulo (FRA)","required"=>false)); ?>
+				</div>
+				<div class="form-group">
+				<?php
+					echo $this->Form->input('Module.name.por',array("label"=>"Nombre del modulo (POR)","required"=>false)); ?>
 				</div>
 
 				<div class="form-group">
