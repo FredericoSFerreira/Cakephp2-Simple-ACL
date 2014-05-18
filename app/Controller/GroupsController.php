@@ -91,7 +91,7 @@ class GroupsController extends AppController {
                 }
 
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }
@@ -160,7 +160,7 @@ class GroupsController extends AppController {
 
             if ($this->request->is('get')) {
                 if(empty($id)){
-                    $this->get_index();
+                    $this->get_index('admin_edit');
                 }else{
                     $this->get_edit($id);
                 }
