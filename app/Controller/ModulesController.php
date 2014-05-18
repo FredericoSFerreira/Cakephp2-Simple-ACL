@@ -83,7 +83,7 @@ public $components = array('Security');
                     $this->Module->create();
                     $this->Module->set($this->data);
                         try{
-                            if ($this->Module->save()) {
+                            if ($this->Module->saveMany()) {
                                 $this->dataajax['response']['message_success']=__('Save-success',true);
                             }
                         }catch (Exception $e) {
