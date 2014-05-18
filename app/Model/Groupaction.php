@@ -15,6 +15,8 @@ class Groupaction extends AppModel {
  */
 	public $displayField = 'groups_id';
 
+	public $locale = 'esp';
+
 /**
  * Validation rules
  *

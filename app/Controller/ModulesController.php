@@ -7,7 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class ModulesController extends AppController {
 
-public $components = array('Security');
+    public $components = array('Security');
+    
 	/*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();

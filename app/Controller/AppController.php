@@ -488,6 +488,7 @@ array(
             ));
 
             //pr($groupactions);
+            //die();
 
             if(!empty($groupactions)){
 
@@ -501,6 +502,7 @@ array(
                 ));
 
                 //pr($actions);
+                //die();
 
                 $categories_actions = $this->Action->find("list",array(
                     'fields' => array('Action.category_id'),
@@ -513,6 +515,7 @@ array(
                 ));
 
                 //pr($categories_actions);
+                //die();
 
                 $categories = $this->Category->find("all",array(
                     'fields' => array('Category.id',"Category.name",'Category.module_id'),
@@ -524,7 +527,7 @@ array(
                 ));
 
                 //pr($categories);
-
+                //die();
 
                 $modules_categories = $this->Category->find("list",array(
                     'fields' => array('Category.module_id'),
@@ -537,8 +540,9 @@ array(
                 ));
 
                 //pr($modules_categories);
+                //die();
 
-
+                $this->Module->setLanguage();
                 $modules = $this->Module->find("list",array(
                     'fields' => array('Module.id',"Module.name"),
                     'conditions'=>array(
@@ -549,7 +553,7 @@ array(
                 ));
 
                 //pr($modules);
-
+                //die();
 
                 $header_menu = array();
                 
@@ -568,7 +572,8 @@ array(
 
                 }
                 //pr($header_menu);
-
+                //pr($actions);
+                //die();
                 $this->Session->write('User.actions', $actions);
                 $this->Session->write('User.header_menu', $header_menu);
             }
