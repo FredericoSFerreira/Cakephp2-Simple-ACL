@@ -7,18 +7,16 @@
         </div>
         <div class="panel-body">
 			<?php 
-			echo $this->Form->create('Module', array('action' => $form_config["urlform"],'class'=>'form-horizontal'));
+				echo $this->Form->create('Module', array('action' => $form_config["urlform"],'class'=>'form-horizontal'));
 			?>
 			<div class="row">
 				<div class="form-group">
 				<?php
-
-					if($action == "admin_edit"){echo $this->Form->input('id');}
+					if($action == "admin_edit"){echo $this->Form->input('Module.id');}
 				  	echo $this->Form->input('Module.name.esp',array("label"=>"Nombre del modulo (ESP)","required"=>false)); ?>
 				</div>
 				<div class="form-group">
-				<?php
-					echo $this->Form->input('Module.name.eng',array("label"=>"Nombre del modulo (ENG)","required"=>false)); ?>
+					<?php echo $this->Form->input('Module.name.eng',array("label"=>"Nombre del modulo (ENG)","required"=>false)); ?>
 				</div>
 				<div class="form-group">
 				<?php

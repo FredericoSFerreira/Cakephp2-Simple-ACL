@@ -127,7 +127,8 @@ class ModulesController extends AppController {
                 $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
-                $this->request->data = $this->Module->read(null, $id);
+                $datamodel = $this->Module->read(null, $id);
+                $this->request->data = $this->readWithLocale($datamodel);
                 $this->set(compact('id'));
             }
 
@@ -137,13 +138,16 @@ class ModulesController extends AppController {
         /*----------------post_edit-----------------*/
         public function post_edit($id){
                 $this->ajaxVariablesInit();
+                $fieldslocales = array('Module'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
+
+
+                if(empty($validations)){
                 $this->Module->id = $id;
                 $this->Module->set($this->data);
-                if($this->Module->validates())
-                {
                     try{
-                        if ($this->Module->save()) {
-                            $this->_flash(__('Update-success',true),'alert alert-success');
+                        if ($this->Module->saveMany()) {
+                           $this->_flash(__('Update-success',true),'alert alert-success');
                             $this->dataajax['response']['redirect']='/admin/modules/edit/';
                         }
                     }catch (Exception $e) {
@@ -151,8 +155,7 @@ class ModulesController extends AppController {
                     }
 
                 }else{
-                     $this->errorsajax['Module'] = $this->Module->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                     $this->dataajax['response']["errors"]=$validations;
                 }
                 echo json_encode($this->dataajax);
         }
@@ -207,6 +210,31 @@ class ModulesController extends AppController {
                 }
             }else{
                 $this->get_index();
+            }
+
+        }
+        /*----------------delete-----------------*/
+
+        /*----------------delete-----------------*/
+        public function admin_deletemulti(){
+
+            if($this->request->is('post')){
+                //pr($this->data);
+                $dataids =  $this->data['Module']['id'];
+
+                try{
+                    if ($this->Module->deleteAll(array('Module.id' => $dataids))) {
+                        $this->_flash(__('Delete-success-multi',true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                    $this->_flash(__('Delete-error-multi', true),'alert alert-warning');
+                    $this->redirect(array('action' => 'admin_delete'));
+                }
+
+            }else{
+                $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
+                $this->redirect(array('action' => 'admin_delete'));
             }
 
         }
