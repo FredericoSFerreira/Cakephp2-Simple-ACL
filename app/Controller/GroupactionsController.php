@@ -7,22 +7,57 @@ App::uses('AppController', 'Controller');
  */
 class GroupactionsController extends AppController {
 
+    public $components = array('Security');
 
 	/*----------------beforeFilter-----------------*/
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Security->csrfExpires = '+1 hour';
+        $this->Security->csrfUseOnce = false;
+        $this->Security->unlockedActions = array('admin_deletemulti');
     }
     /*----------------beforeFilter-----------------*/
     
+    public function paramFilters($urlform){
+
+            $form_config = array();
+            $form_config["title"] = "Buscar / Filtrar";
+            $form_config["urlform"] = $urlform;
+            $form_config["labelbutton"] = "Buscar / Filtrar";
+            $this->set('form_config',$form_config);
+
+            $fields_char = array();
+
+            $conditions = $this->filterConfig('Groupaction',$fields_char);
+            $this->recordsforpage();
+
+            return $conditions;
+
+        }
+
 
     /*----------------INDEX-----------------*/
 
         /*----------------get_index-----------------*/
-        public function get_index(){
+        public function get_index($urlfilter = 'admin_index'){
+            $conditions = $this->paramFilters($urlfilter);
+
+            //pr($conditions);
+            $limit = $this->Session->read('Filter.recordsforpage');
+
             $this->Paginator->settings = array(
+                'conditions' => $conditions,
                 'order' => 'Groupaction.id ASC',
-                'limit' => 10
+                'limit' => $limit
             );
+
+            $this->set(
+                    array(
+                        "groups" => $this->Group->find("list"),
+                        "actions" => $this->Action->find("list")
+                    )
+            );
+
             $lists = $this->Paginator->paginate('Groupaction');
             $this->set(compact('lists'));
         }
@@ -30,6 +65,10 @@ class GroupactionsController extends AppController {
 
         /*----------------index-----------------*/
         public function admin_index(){
+
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -96,6 +135,10 @@ class GroupactionsController extends AppController {
         /*----------------delete-----------------*/
         public function admin_delete($id=null){
 
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
+
             if(!empty($id)){
                 $this->Groupaction->id = $id;
                 if (!$this->Groupaction->exists()) {
@@ -114,7 +157,7 @@ class GroupactionsController extends AppController {
                 }
 
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }

@@ -67,6 +67,10 @@ class CategoriesController extends AppController {
         /*----------------index-----------------*/
         public function admin_index(){
 
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
+
             if ($this->request->is('get')) {
                 $this->get_index();
             }
@@ -220,6 +224,10 @@ class CategoriesController extends AppController {
 
         /*----------------delete-----------------*/
         public function admin_delete($id=null){
+
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
 
             if(!empty($id)){
                 $this->Category->id = $id;

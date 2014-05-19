@@ -1,29 +1,44 @@
+<?php
+    $actionmultipleselect=array('admin_delete');
+    $actionlocate = array('admin_delete','admin_edit');
+    $headerstitles = array(
+                            'Groupaction.id' => '#',
+                            'Group.name' => 'Grupos',
+                            'Action.name' => 'Funciones');
+
+    $this->Viewbase->set('action', $action);
+    $this->Viewbase->set('actionmultipleselect', $actionmultipleselect);
+    $this->Viewbase->set('actionlocate', $actionlocate);
+?>
+
 <section class="panel panel-default">
-    <div class="panel-heading">
-        <strong>
-            <span class="glyphicon glyphicon-th"></span>
-            <?php echo __("Listado de Funciones por Grupos"); ?>
-        </strong>
-    </div>
+    <?php  $this->Viewbase->panel_title('Listado de Permisos');   ?>
 
     <div class="panel-body">
+    <?php 
+            include_once('filter.ctp'); 
+            $this->Viewbase->Multi_form_create($this->form,'#');
+    ?>
 <table class="table table-bordered">
-   <thead>
-    <tr> 
-        <th><?php echo $this->Paginator->sort('Groupaction.id','#');?></th>
-        <th><?php echo $this->Paginator->sort('Group.name','Grupo');?></th>
-        <th><?php echo $this->Paginator->sort('Actions.name','Función');?></th>
-        <?php 
-                $actionlocate = array('admin_delete');
-                if(in_array($action, $actionlocate)){ 
-                ?>
-                <th class="actions" align="center"><div align="center"><?php echo 'Acciones';?></div></th>
-                <?php } ?>
-    </tr>
-    </thead>
+    <?php
+                // Encabezado de la tabla
+                $this->Viewbase->table_Header($this->Paginator,$headerstitles);
+    ?>
     <tbody>
         <?php foreach ($lists as $list): ?>
         <tr>
+            <?php
+                    // Campo check de cada linea
+                    $datarow=array(
+                        'idModel' => $list['Groupaction']['id'],
+                        'textname' => $list['Group']['name'],
+                        'inputname'=> 'data[Groupaction][id][]',
+                        'value' => $list['Groupaction']['id']
+                    );
+                    $this->Viewbase->Multi_check_row($datarow);
+                    // Campo check de cada linea
+                ?>
+
             <td style="width: 10px;"><?php echo h($list['Groupaction']['id']); ?>&nbsp;</td>
             <td><?php echo h($list['Group']['name']); ?>&nbsp;</td>
             <td><?php echo h($list['Actions']['name']); ?>&nbsp;</td>
@@ -34,9 +49,12 @@
                             
                         <?php 
                          if($action == "admin_delete"){
-                        echo $this->Html->link('<span class="glyphicon glyphicon-remove"></span> Eliminar', '/admin/groupactions/delete/'.$list['Groupaction']['id'], array('class' => 'btn btn-warning deleteitem','data-confirm-title'=>__("Confirmación para eliminar"),'data-confirm-msg'=>__("Deseas eliminar el registro #").$list['Groupaction']['id']." ?", 'escape' => false));
+                          $databutton_delete = array(
+                                'url'=> '/admin/groupactions/delete/'.$list['Groupaction']['id'],
+                                'idModel' =>$list['Groupaction']['id']
+                            );
+                            $this->Viewbase->button_delete($this->Html,$databutton_delete);
                         }
-
                         ?>
                     </td>
                     <?php } ?>
@@ -45,6 +63,33 @@
     </tbody>
     
 </table>
+<?php
+        if(in_array($action, $actionmultipleselect)){ 
+        ?>
+        <div class="checkalldiv">
+            <script>
+                checkalltext = {
+                    'empty' : {
+                        'title' : 'Advertencia',
+                        'text' : 'Debe seleccionar al menos un Permiso para utilizar la opción sobre multiples registros'
+                    },
+                    'deleteall' :{
+                        'title' : 'Confirmación para eliminar multiples registros',
+                        'url' : '/admin/groupactions/deletemulti/',
+                        'pretext' : 'Estas seguro que deseas eliminar los siguientes registros?'
+                    } 
+                };
+            </script>
+            <img class="selectallarrow" src="/img/arrow_ltr.png" width="38" height="22" alt="With selected:">
+            <input type="checkbox" class="checkallclick" title="Check All">
+            <label for="checkall">Check All</label> 
+            <select id="selectmulti" name="submit_mult" class="autosubmit" style="margin-left:10px;">
+                <option value="0" selected="selected">With selected:</option>
+                <option value="deleteall">Delete All</option>
+            </select>
+        </div>
+        <?php echo $this->Form->end(); ?>
+<?php } ?>
 <?php echo $this->element('paginado'); ?>
 </div>
 </section>
