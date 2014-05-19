@@ -91,7 +91,7 @@ class GroupsController extends AppController {
                 }
 
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }
