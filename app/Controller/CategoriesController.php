@@ -134,8 +134,6 @@ class CategoriesController extends AppController {
 
     /*----------------ADD-----------------*/
 
-
-
     /*----------------EDIT-----------------*/
 
         /*----------------get_edit-----------------*/

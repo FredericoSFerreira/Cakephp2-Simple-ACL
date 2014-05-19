@@ -79,7 +79,6 @@ class AppController extends Controller {
     }
 
     public function ajaxVariablesInit(){
-
         $this->dataajax['response']['message_error']="";
         $this->dataajax['response']['message_success']="";
         $this->dataajax['response']['redirect']="";
