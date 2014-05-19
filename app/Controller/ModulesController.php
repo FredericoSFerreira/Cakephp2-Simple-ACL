@@ -172,7 +172,7 @@ class ModulesController extends AppController {
 
             if ($this->request->is('get')) {
                 if(empty($id)){
-                    $this->get_index();
+                    $this->get_index('admin_edit');
                 }else{
                     $this->get_edit($id);
                 }
@@ -209,7 +209,7 @@ class ModulesController extends AppController {
                         $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }

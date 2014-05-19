@@ -160,7 +160,7 @@ class GroupsController extends AppController {
 
             if ($this->request->is('get')) {
                 if(empty($id)){
-                    $this->get_index();
+                    $this->get_index('admin_edit');
                 }else{
                     $this->get_edit($id);
                 }
@@ -206,6 +206,15 @@ class GroupsController extends AppController {
                 echo json_encode($this->dataajax);
         }
         /*----------------post_add-----------------*/
+        /*----------------get_add-----------------*/
+        public function get_add(){
+                $this->set(
+                    array(
+                        "modules" => $this->Group->find("list")
+                    )
+                );
+        }
+        /*----------------get_add-----------------*/
 
         /*----------------add-----------------*/
         public function admin_add() {

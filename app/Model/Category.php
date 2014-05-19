@@ -12,6 +12,14 @@ class Category extends AppModel {
  *
  * @var string
  */
+	public $actsAs = array(
+         'Acl' => array('type' => 'requester'),
+         'Translate' => array(
+            'name' => 'CategorynameTranslation'
+        )
+    );
+
+	
 	public $displayField = 'name';
 	public $locale = 'esp';
 
@@ -57,7 +65,7 @@ class Category extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Modules' => array(
+		'Module' => array(
 			'className' => 'Modules',
 			'foreignKey' => 'module_id',
 			'conditions' => '',
@@ -65,4 +73,9 @@ class Category extends AppModel {
 			'order' => ''
 		)
 	);
+
+	 public function parentNode() {
+	 	return null;
+        
+    }
 }
