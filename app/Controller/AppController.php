@@ -87,8 +87,6 @@ class AppController extends Controller {
 
         $this->layout = 'ajax';
         $this->autoRender = FALSE;
-
-
     }
 
     public function recordsforpage($cpp = 15){
