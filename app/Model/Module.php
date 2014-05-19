@@ -16,7 +16,7 @@ class Module extends AppModel {
 	public $actsAs = array(
          'Acl' => array('type' => 'requester'),
          'Translate' => array(
-            'name' => 'GroupnameTranslation'
+            'name' => 'ModulenameTranslation' /* Modelo+Campo+Translation */
         )
     );
 
