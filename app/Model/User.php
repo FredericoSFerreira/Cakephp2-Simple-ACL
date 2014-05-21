@@ -34,7 +34,14 @@ App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
     
-    public $actsAs = array('Acl' => array('type' => 'requester'));
+   public $actsAs = array(
+         'Acl' => array('type' => 'requester'),
+         'Translate' => array(
+            'name' => 'UsernameTranslation' /* Modelo+Campo+Translation */
+        )
+    );
+
+    public $locale = 'esp';
 
     public $belongsTo = array(
         'Group' => array(

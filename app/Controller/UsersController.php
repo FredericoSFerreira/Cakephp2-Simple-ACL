@@ -32,9 +32,13 @@ App::uses('AppController', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class UsersController extends AppController {
+     public $components = array('Security');
     
     public function beforeFilter() {
         $this->Auth->allow('admin_login','admin_logout');
+        $this->Security->csrfExpires = '+1 hour';
+        $this->Security->csrfUseOnce = false;
+        $this->Security->unlockedActions = array('admin_deletemulti');
         parent::beforeFilter();
     }
     
@@ -42,6 +46,28 @@ class UsersController extends AppController {
         $this->syncACL();
         $this->redirect(array('action' => 'admin_home'));
     }
+
+   
+
+    public function paramFilters($urlform){
+
+            $form_config = array();
+            $form_config["title"] = "Buscar / Filtrar";
+            $form_config["urlform"] = $urlform;
+            $form_config["labelbutton"] = "Buscar / Filtrar";
+            $this->set('form_config',$form_config);
+
+            $fields_char = array(
+                        'name'
+            );
+
+
+            $conditions = $this->filterConfig('User',$fields_char);
+            $this->recordsforpage();
+
+            return $conditions;
+
+        }
     
     
     public function post_login(){
@@ -109,10 +135,16 @@ class UsersController extends AppController {
      /*----------------INDEX-----------------*/
 
         /*----------------get_index-----------------*/
-        public function get_index(){
+        public function get_index($urlfilter = 'admin_index'){
+             $conditions = $this->paramFilters($urlfilter);
+
+            //pr($conditions);
+            $limit = $this->Session->read('Filter.recordsforpage');
+            $this->User->setLanguage();
             $this->Paginator->settings = array(
-                'limit' => 10,
+                'limit' => $limit,
                 'order' => 'User.id ASC',
+                'conditions' => $conditions,
                 'recursive'=>1,
             );
             $lists = $this->Paginator->paginate('User');
@@ -122,6 +154,10 @@ class UsersController extends AppController {
 
         /*----------------index-----------------*/
         public function admin_index(){
+
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
 
             if ($this->request->is('get')) {
                 $this->get_index();
@@ -140,10 +176,13 @@ class UsersController extends AppController {
             
             $this->ajaxVariablesInit();
 
+                $fieldslocales = array('User'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
+
+            if(empty($validations)){
             $this->User->create();
             $this->User->set($this->data);
-            if($this->User->validates())
-            {
+           
                 try{
                     if ($this->User->save()) {
                         $this->dataajax['response']['message_success']=__('Save-success',true);
@@ -152,8 +191,7 @@ class UsersController extends AppController {
                         $this->dataajax['response']['message_error']=__('Save-error',true);
                 }
             }else{
-                 $this->errorsajax['User'] = $this->User->validationErrors;
-                 $this->dataajax['response']["errors"]= $this->errorsajax;
+                 $this->dataajax['response']["errors"]=$validations;
             }
 
             echo json_encode($this->dataajax);
@@ -162,6 +200,7 @@ class UsersController extends AppController {
         }
         /*----------------post_add-----------------*/
 
+        
         /*----------------add-----------------*/
         public function admin_add() {
 
@@ -199,7 +238,9 @@ class UsersController extends AppController {
                 $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
-                $this->request->data = $this->User->read(null, $id);
+                 $datamodel = $this->User->read(null, $id);
+                $this->request->data = $this->readWithLocale($datamodel);
+
                 $this->set(compact('id'));
             }
 
@@ -211,10 +252,15 @@ class UsersController extends AppController {
 
                 $this->ajaxVariablesInit();
 
+                $fieldslocales = array('User'=>array('name'));
+                $validations = $this->validationLocale($fieldslocales);
+
+                //pr($validations);
+
+                if(empty($validations)){
                 $this->User->id = $id;
                 $this->User->set($this->data);
-                if($this->User->validates())
-                {
+                
                     try{
                         if ($this->User->save()) {
                             $this->_flash(__('Update-success',true),'alert alert-success');
@@ -224,8 +270,7 @@ class UsersController extends AppController {
                         $this->dataajax['response']['message_error']=__('Update-error',true);
                     }
                 }else{
-                     $this->errorsajax['User'] = $this->User->validationErrors;
-                     $this->dataajax['response']["errors"]= $this->errorsajax;
+                      $this->dataajax['response']["errors"]=$validations;
                 }
 
                 echo json_encode($this->dataajax);
@@ -251,7 +296,7 @@ class UsersController extends AppController {
 
             if ($this->request->is('get')) {
                 if(empty($id)){
-                    $this->get_index();
+                    $this->get_index('admin_edit');
                 }else{
                     $this->get_edit($id);
                 }
@@ -272,6 +317,10 @@ class UsersController extends AppController {
         /*----------------delete-----------------*/
         public function admin_delete($id=null){
 
+            if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
+
             if(!empty($id)){
                 $this->User->id = $id;
                 if (!$this->User->exists()) {
@@ -289,11 +338,37 @@ class UsersController extends AppController {
                         $this->redirect(array('action' => 'admin_delete'));
                 }
             }else{
-                $this->get_index();
+                $this->get_index('admin_delete');
             }
 
         }
         /*----------------delete-----------------*/
+
+        /*----------------delete-----------------*/
+        public function admin_deletemulti(){
+
+            if($this->request->is('post')){
+                //pr($this->data);
+                $dataids =  $this->data['User']['id'];
+
+                try{
+                    if ($this->User->deleteAll(array('User.id' => $dataids))) {
+                        $this->_flash(__('Delete-success-multi',true),'alert alert-success');
+                        $this->redirect(array('action' => 'admin_delete'));
+                    }
+                }catch (Exception $e) {
+                    $this->_flash(__('Delete-error-multi', true),'alert alert-warning');
+                    $this->redirect(array('action' => 'admin_delete'));
+                }
+
+            }else{
+                $this->_flash(__('Delete-error-multi-request', true),'alert alert-danger');
+                $this->redirect(array('action' => 'admin_delete'));
+            }
+
+        }
+        /*----------------delete-----------------*/
+
 
     /*----------------DELETE-----------------*/
 

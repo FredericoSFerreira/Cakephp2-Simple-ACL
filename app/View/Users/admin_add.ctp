@@ -13,16 +13,15 @@ echo $this->Form->create('User', array('action' => $form_config["urlform"]));
 	<div class="form-group">
 	<?php 
 	if($action == "admin_edit"){echo $this->Form->input('id');}
-	echo $this->Form->input('username',array("label"=>"Nombre de Usuario","required"=>false));?>
+	echo $this->Form->input('username',array("label"=>"Nombre de Usuario","required"=>false,'class'=>'form-control'));?>
 	</div>
+	
 
 	<div class="form-group">
 	<?php  echo $this->Form->input('group_id',array('label'=>'Grupos','type'=>'select','empty'=>'Seleccione'));
 	?>
 	</div>
-</div>
 
-<div class="row">
 
 	<?php if($action == "admin_add"){ ?>
 	<div class="form-group">
