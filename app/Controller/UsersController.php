@@ -238,6 +238,7 @@ class UsersController extends AppController {
                 $this->_flash(__('No-exist-record',true),'alert alert-warning');
                 $this->redirect(array('action' => 'admin_edit'));
             }else{
+
                  $datamodel = $this->User->read(null, $id);
                 $this->request->data = $this->readWithLocale($datamodel);
 
@@ -280,6 +281,10 @@ class UsersController extends AppController {
         /*----------------edit-----------------*/
         public function admin_edit($id=null){
 
+             if($this->request->is('ajax')){
+                $this->layout = 'ajax';
+            }
+
             $form_config = array();
             $form_config["title"] = "Editar Usuario";
             $form_config["urlform"] = "admin_edit";
@@ -306,6 +311,7 @@ class UsersController extends AppController {
                 }
             }
 
+
         }
         /*----------------edit-----------------*/
 
@@ -321,6 +327,14 @@ class UsersController extends AppController {
                 $this->layout = 'ajax';
             }
 
+            $groups = $this->Group->find('list',array(
+                    'fields'=>array(
+                        'id','name'
+                    )
+            ));
+                
+            $this->set(compact('groups'));
+            
             if(!empty($id)){
                 $this->User->id = $id;
                 if (!$this->User->exists()) {
@@ -340,6 +354,7 @@ class UsersController extends AppController {
             }else{
                 $this->get_index('admin_delete');
             }
+
 
         }
         /*----------------delete-----------------*/
