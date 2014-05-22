@@ -29,7 +29,7 @@
                         // Campo check de cada linea
                         $datarow=array(
                             'idModel' => $list['User']['id'],
-                            'textname' => $list['User']['name'],
+                            'textname' => $list['User']['username'],
                             'inputname'=> 'data[User][id][]',
                             'value' => $list['User']['id']
                         );
